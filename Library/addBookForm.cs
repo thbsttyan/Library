@@ -1,0 +1,226 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using MaterialSkin.Controls;
+
+namespace Library
+{
+    public partial class addBookForm : Form
+    {
+       /* public void DoSomethingElse(mainForm firstForm)
+        {
+            var data = firstForm.BooksDataGridView.DataSource;
+        }*/
+        public addBookForm()
+        {
+            InitializeComponent();
+        }
+
+        private void addBookForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+           // mainForm newForm = new mainForm();
+           // newForm.Show();
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        public static bool OnlyLetters(string s)
+        {
+            foreach (char c in s)
+            {
+                if (!Char.IsLetter(c))
+                    return false;
+            }
+            return true;
+        }
+
+        public static bool OnlyNumbers(string s)
+        {
+            foreach (char c in s)
+            {
+                if (!Char.IsNumber(c))
+                    return false;
+            }
+            return true;
+        }
+
+        public static bool priceCheck(string s)
+        {
+            bool isFloat = false;
+
+            Regex reg1 = new Regex(@"\-?\d+\.?\,?\d*");
+            if (reg1.IsMatch(s))
+            {
+                isFloat = true;
+            }
+            else
+            {
+                isFloat = false;
+            }
+
+            return isFloat;
+        }
+
+        public static bool isbnCheck(string s)
+        {
+            bool isMat = false;
+
+            Regex reg1 = new Regex(@"(\d)-(\d)-(\d)-(\d)-(\d)");
+            if (reg1.IsMatch(s))
+            {
+                isMat = true;
+            }
+            else
+            {
+                isMat = false;
+            }
+
+            return isMat;
+        }
+
+        public string type;
+        public string publisher;
+        public float price;
+        mainForm mf = new mainForm();
+        private void addBookButton_Click(object sender, EventArgs e)
+        {
+            if (isbnCheck(isbnTextField.Text))
+            {
+                MessageBox.Show("УРААААА");
+            }
+            if (nameTextField.Text!="" && authorTextField.Text != "" && OnlyLetters(authorTextField.Text) 
+                && (OnlyLetters(genreTextField.Text) || genreTextField.Text=="")
+                && (isbnCheck(isbnTextField.Text) || isbnTextField.Text=="") 
+                && (OnlyNumbers(pagesTextField.Text) || pagesTextField.Text == "")
+                && (OnlyNumbers(lockerTextField.Text) || lockerTextField.Text=="")
+                && (OnlyNumbers(shelfTextField.Text) || shelfTextField.Text=="")
+                && (priceCheck(priceTextField.Text)) || priceTextField.Text=="")
+            {
+                
+
+                if (typeComboBox.SelectedIndex == -1)
+                {
+                    type = null;
+                }
+                else
+                {
+                    type = typeComboBox.Text;
+                }
+
+                if (publisherComboBox.SelectedIndex == -1)
+                {
+                    publisher = null;
+                }
+                else
+                {
+                    publisher = publisherComboBox.Text;
+                }
+
+                string connectString = "Data Source=.\\SQLEXPRESS;Initial Catalog=Library;" +
+                    "Integrated Security=true;";
+
+                
+
+                string sqlExpr = $"INSERT INTO Books (name, author, genre, type, publisher, pages, ISBN, locker, shelf, price) VALUES" +
+                    $" ('{nameTextField.Text}','{authorTextField.Text}','{genreTextField.Text}','{type}','{publisher}'," +
+                    $"'{pagesTextField.Text}','{isbnTextField.Text}','{lockerTextField.Text}','{shelfTextField.Text}','{priceTextField.Text}')";
+
+                using (SqlConnection c = new SqlConnection(connectString))
+                {
+                    c.Open();
+                    SqlCommand com = new SqlCommand(sqlExpr, c);
+                    com.ExecuteNonQuery();
+                    c.Close();
+
+                    MessageBox.Show("Книга добавлена!");
+                }
+
+                
+            }
+            else
+            {
+                MessageBox.Show("aaaa");
+            }
+
+            Sql s = new Sql();
+            // mf.booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
+
+            mainForm main = this.Owner as mainForm;
+            if (main != null)
+            {
+                main.booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
+            }
+
+        }
+
+        private void typeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            mf.LoadData();
+        }
+
+        private void nameTextField_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void authorTextField_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        /* private Point mouseOffset;
+         private bool isMouseDown = false;*/
+        private void panel_MouseDown(object sender, MouseEventArgs e)
+        {
+            /* int xOffset;
+             int yOffset;
+
+             if (e.Button == MouseButtons.Left)
+             {
+                 xOffset = -e.X - SystemInformation.FrameBorderSize.Width;
+                 yOffset = -e.Y - SystemInformation.CaptionHeight -
+                     SystemInformation.FrameBorderSize.Height;
+                 mouseOffset = new Point(xOffset, yOffset);
+                 isMouseDown = true;
+             }*/
+
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+    }
+}
