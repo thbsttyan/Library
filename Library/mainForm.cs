@@ -23,11 +23,18 @@ namespace Library
             var anotherForm = new addBookForm();
             anotherForm.DoSomethingElse(this);
         }*/
+        bool Ready = false;
         public mainForm()
         {
             InitializeComponent();
             Sql s = new Sql();
             booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
+
+            Sql ss = new Sql();
+            publisherDataGridView.DataSource = s.Select("Select * from Publishers");
+
+            Sql sss = new Sql();
+            readerDataGridView.DataSource = s.Select("Select * from Readers");
             //LoadData();
 
             booksDataGridView.Columns[1].HeaderText = "Название";
@@ -39,6 +46,7 @@ namespace Library
             booksDataGridView.Columns[8].HeaderText = "Номер шкафа";
             booksDataGridView.Columns[9].HeaderText = "Номер полки";
             booksDataGridView.Columns[10].HeaderText = "Ценаx";
+            Ready = true;
         }
 
         private void mainForm_Load(object sender, EventArgs e)
@@ -107,6 +115,8 @@ namespace Library
             addBookForm f = new addBookForm();
             f.Owner = this;
             f.ShowDialog();
+
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -156,11 +166,7 @@ namespace Library
             LoadData();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            Application.Exit();
-
-        }
+        
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -193,9 +199,230 @@ namespace Library
             }
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
+        
+        private void exitButton_Click(object sender, EventArgs e)
         {
+            Application.Exit();
+        }
 
+        private void newRegistrationButton_Click(object sender, EventArgs e)
+        {
+            registrationForm f = new registrationForm();
+            f.Owner = this;
+            f.ShowDialog();
+        }
+
+        private void bookButton_Click(object sender, EventArgs e)
+        {
+            readersPanel.Visible = false;
+            readersPanel.Enabled = false;
+
+            publishersPanel.Visible = false;
+            publishersPanel.Enabled = false;
+
+            booksPanel.Visible = true;
+            booksPanel.Enabled = true;
+        }
+
+        private void publisherButton_Click(object sender, EventArgs e)
+        {
+            booksPanel.Visible = false;
+            booksPanel.Enabled = false;
+
+            readersPanel.Visible = false;
+            readersPanel.Enabled = false;
+
+            publishersPanel.Visible = true;
+            publishersPanel.Enabled = true;
+            
+        }
+
+        private void readersButton_Click(object sender, EventArgs e)
+        {
+            booksPanel.Visible = false;
+            booksPanel.Enabled = false;
+
+            publishersPanel.Visible = false;
+            publishersPanel.Enabled = false;
+
+            readersPanel.Visible = true;
+            readersPanel.Enabled = true;
+        }
+
+        
+        
+        private void booksDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            if (Ready)
+            {
+                try
+                {
+                    string connectionStr = "Data Source=.\\SQLEXPRESS;Initial Catalog=Library; Integrated Security=true;";
+                    SqlConnection connection = new SqlConnection(connectionStr);
+                    connection.Open();
+
+                    string column = booksDataGridView.Columns[e.ColumnIndex].Name;
+
+                    var value = booksDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                    var id = booksDataGridView.Rows[e.RowIndex].Cells[0].Value;
+
+                    SqlCommand com = new SqlCommand($"UPDATE Books set {column} = @value where id = {id}", connection);
+
+                    com.Parameters.AddWithValue("@value", value);
+                    com.ExecuteNonQuery();
+                }
+                catch(Exception)
+                {
+                    MessageBox.Show("Произошла ошибка");
+                }
+            }
+            
+        }
+
+        private void booksDataGridView_DataError(object sender,
+    DataGridViewDataErrorEventArgs e)
+        {
+            // Не делайте исключения, когда мы закончим.
+            e.ThrowException = false;
+
+            // Отображение сообщения об ошибке.
+            string txt = "Ошибка в столбце " +
+                booksDataGridView.Columns[e.ColumnIndex].HeaderText +
+                "\n\n" + e.Exception.Message;
+            MessageBox.Show(txt, "Ошибка",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            // Если это так, то пользователь попадает в эту ячейку.
+            e.Cancel = false;
+        }
+
+        private void redactBooksCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (redactBooksCheckBox.Checked)
+            {
+                booksDataGridView.ReadOnly = false;
+
+            }
+            if (!redactBooksCheckBox.Checked)
+            {
+                booksDataGridView.ReadOnly = true;
+
+            }
+        }
+
+        private void redactReadersCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (redactReadersCheckBox.Checked)
+            {
+                readerDataGridView.ReadOnly = false;
+
+            }
+            if (!redactReadersCheckBox.Checked)
+            {
+                readerDataGridView.ReadOnly = true;
+
+            }
+        }
+
+        private void redactPublishersCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (redactPublishersCheckBox.Checked)
+            {
+                publisherDataGridView.ReadOnly = false;
+
+            }
+            if (!redactPublishersCheckBox.Checked)
+            {
+                publisherDataGridView.ReadOnly = true;
+
+            }
+        }
+
+        private void readerDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Ready)
+            {
+                try
+                {
+                    string connectionStr = "Data Source=.\\SQLEXPRESS;Initial Catalog=Library; Integrated Security=true;";
+                    SqlConnection connection = new SqlConnection(connectionStr);
+                    connection.Open();
+
+                    string column = readerDataGridView.Columns[e.ColumnIndex].Name;
+
+                    var value = readerDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                    var id = readerDataGridView.Rows[e.RowIndex].Cells[0].Value;
+
+                    SqlCommand com = new SqlCommand($"UPDATE Readers set {column} = @value where id_reader = {id}", connection);
+
+                    com.Parameters.AddWithValue("@value", value);
+                    com.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                MessageBox.Show("Произошла ошибка");
+                }
+        }
+        }
+
+        private void publisherDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Ready)
+            {
+                try
+                {
+                    string connectionStr = "Data Source=.\\SQLEXPRESS;Initial Catalog=Library; Integrated Security=true;";
+                    SqlConnection connection = new SqlConnection(connectionStr);
+                    connection.Open();
+
+                    string column = publisherDataGridView.Columns[e.ColumnIndex].Name;
+
+                    var value = publisherDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                    var id = publisherDataGridView.Rows[e.RowIndex].Cells[0].Value;
+
+                    SqlCommand com = new SqlCommand($"UPDATE Publishers set {column} = @value where id_pub = {id}", connection);
+
+                    com.Parameters.AddWithValue("@value", value);
+                    com.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Произошла ошибка");
+                }
+            }
+        }
+
+        private void readerDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            // Не делайте исключения, когда мы закончим.
+            e.ThrowException = false;
+
+            // Отображение сообщения об ошибке.
+            string txt = "Ошибка в столбце " +
+                readerDataGridView.Columns[e.ColumnIndex].HeaderText +
+                "\n\n" + e.Exception.Message;
+            MessageBox.Show(txt, "Ошибка",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            // Если это так, то пользователь попадает в эту ячейку.
+            e.Cancel = false;
+        }
+
+        private void publisherDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            // Не делайте исключения, когда мы закончим.
+            e.ThrowException = false;
+
+            // Отображение сообщения об ошибке.
+            string txt = "Ошибка в столбце " +
+                publisherDataGridView.Columns[e.ColumnIndex].HeaderText +
+                "\n\n" + e.Exception.Message;
+            MessageBox.Show(txt, "Ошибка",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            // Если это так, то пользователь попадает в эту ячейку.
+            e.Cancel = false;
         }
     }
 }

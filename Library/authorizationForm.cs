@@ -30,7 +30,7 @@ namespace Library
         
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void exitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
 
@@ -164,6 +164,6 @@ namespace Library
             }*/
         }
 
-       
+        
     }
 }

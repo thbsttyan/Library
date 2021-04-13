@@ -35,7 +35,7 @@
             this.registrationButton = new System.Windows.Forms.Button();
             this.passwordTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.loginTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.button2 = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
             this.panel = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -145,21 +145,22 @@
             this.loginTextField.TabStop = false;
             this.loginTextField.UseSystemPasswordChar = false;
             // 
-            // button2
+            // exitButton
             // 
-            this.button2.BackColor = System.Drawing.Color.PowderBlue;
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.ForeColor = System.Drawing.Color.PowderBlue;
-            this.button2.ImageKey = "(отсутствует)";
-            this.button2.Location = new System.Drawing.Point(474, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(19, 20);
-            this.button2.TabIndex = 17;
-            this.button2.UseVisualStyleBackColor = false;
+            this.exitButton.BackColor = System.Drawing.Color.PowderBlue;
+            this.exitButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("exitButton.BackgroundImage")));
+            this.exitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.exitButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.exitButton.ForeColor = System.Drawing.Color.PowderBlue;
+            this.exitButton.ImageKey = "(отсутствует)";
+            this.exitButton.Location = new System.Drawing.Point(474, 3);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(19, 20);
+            this.exitButton.TabIndex = 17;
+            this.exitButton.UseVisualStyleBackColor = false;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // panel
             // 
@@ -168,11 +169,12 @@
             this.panel.Controls.Add(this.panel7);
             this.panel.Controls.Add(this.panel4);
             this.panel.Controls.Add(this.panel1);
-            this.panel.Controls.Add(this.button2);
+            this.panel.Controls.Add(this.exitButton);
             this.panel.Location = new System.Drawing.Point(-49, -1);
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(497, 23);
             this.panel.TabIndex = 35;
+            this.panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             // 
             // panel7
             // 
@@ -254,7 +256,7 @@
         private System.Windows.Forms.Button registrationButton;
         private MaterialSkin.Controls.MaterialSingleLineTextField passwordTextField;
         private MaterialSkin.Controls.MaterialSingleLineTextField loginTextField;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel4;

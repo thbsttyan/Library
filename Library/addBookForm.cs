@@ -23,6 +23,22 @@ namespace Library
         public addBookForm()
         {
             InitializeComponent();
+
+            Sql s = new Sql();
+            pubDataGridView.DataSource = s.Select("Select * from Publishers"); 
+
+            string[] combo = new string[pubDataGridView.Rows.Count-1];
+            
+            for (int i = 0; i < pubDataGridView.Rows.Count-1; i++)
+            {
+                    combo[i] += pubDataGridView[1, i].Value.ToString();
+
+                
+            }
+            //MessageBox.Show(combo[4]);
+
+           publisherComboBox.Items.AddRange(combo);
+            
         }
 
         private void addBookForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -167,27 +183,15 @@ namespace Library
 
         }
 
-        private void typeComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
             mf.LoadData();
         }
 
-        private void nameTextField_TextChanged(object sender, EventArgs e)
-        {
+     
 
-        }
-
-        private void authorTextField_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
+        private void exitButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -222,5 +226,9 @@ namespace Library
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
+
+       
+
+        
     }
 }

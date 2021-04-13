@@ -33,13 +33,13 @@
             this.passwordTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.authorizationButton = new System.Windows.Forms.Button();
             this.panel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.exitButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.authDataGridView = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.authDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -99,7 +99,7 @@
             this.panel.BackColor = System.Drawing.Color.PowderBlue;
             this.panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel.Controls.Add(this.panel4);
-            this.panel.Controls.Add(this.button1);
+            this.panel.Controls.Add(this.exitButton);
             this.panel.Location = new System.Drawing.Point(-6, 0);
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(408, 22);
@@ -108,22 +108,30 @@
             this.panel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_MouseMove);
             this.panel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel_MouseUp);
             // 
-            // button1
+            // panel4
             // 
-            this.button1.BackColor = System.Drawing.Color.PowderBlue;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.Color.PowderBlue;
-            this.button1.ImageKey = "(отсутствует)";
-            this.button1.Location = new System.Drawing.Point(305, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(19, 20);
-            this.button1.TabIndex = 12;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.panel4.BackColor = System.Drawing.Color.Black;
+            this.panel4.Location = new System.Drawing.Point(9, -10);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(427, 14);
+            this.panel4.TabIndex = 14;
+            // 
+            // exitButton
+            // 
+            this.exitButton.BackColor = System.Drawing.Color.PowderBlue;
+            this.exitButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("exitButton.BackgroundImage")));
+            this.exitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.exitButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.exitButton.ForeColor = System.Drawing.Color.PowderBlue;
+            this.exitButton.ImageKey = "(отсутствует)";
+            this.exitButton.Location = new System.Drawing.Point(305, 3);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(19, 20);
+            this.exitButton.TabIndex = 12;
+            this.exitButton.UseVisualStyleBackColor = false;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // textBox1
             // 
@@ -165,14 +173,6 @@
             this.panel3.Size = new System.Drawing.Size(24, 209);
             this.panel3.TabIndex = 15;
             // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.Black;
-            this.panel4.Location = new System.Drawing.Point(9, -10);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(427, 14);
-            this.panel4.TabIndex = 14;
-            // 
             // authorizationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -204,7 +204,7 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField passwordTextField;
         private System.Windows.Forms.Button authorizationButton;
         private System.Windows.Forms.Panel panel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridView authDataGridView;
         private System.Windows.Forms.Panel panel1;
