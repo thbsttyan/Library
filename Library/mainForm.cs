@@ -424,5 +424,12 @@ namespace Library
             // Если это так, то пользователь попадает в эту ячейку.
             e.Cancel = false;
         }
+
+        private void addReaderButton_Click(object sender, EventArgs e)
+        {
+            addReaderForm f = new addReaderForm();
+            f.Owner = this;
+            f.ShowDialog();
+        }
     }
 }

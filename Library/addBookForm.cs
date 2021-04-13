@@ -114,11 +114,8 @@ namespace Library
         mainForm mf = new mainForm();
         private void addBookButton_Click(object sender, EventArgs e)
         {
-            if (isbnCheck(isbnTextField.Text))
-            {
-                MessageBox.Show("УРААААА");
-            }
-            if (nameTextField.Text!="" && authorTextField.Text != "" && OnlyLetters(authorTextField.Text) 
+            
+            if (nameTextField.Text!="" && authorTextField.Text != "" && OnlyLetters(authorTextField.Text) && isbnCheck(isbnTextField.Text)
                 && (OnlyLetters(genreTextField.Text) || genreTextField.Text=="")
                 && (isbnCheck(isbnTextField.Text) || isbnTextField.Text=="") 
                 && (OnlyNumbers(pagesTextField.Text) || pagesTextField.Text == "")
