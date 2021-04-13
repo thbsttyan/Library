@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,43 +18,94 @@ namespace Library
             InitializeComponent();
         }
 
+        public static bool OnlyLetters(string s)
+        {
+            foreach (char c in s)
+            {
+                if (!Char.IsLetter(c))
+                    return false;
+            }
+            return true;
+        }
+
+        public static bool OnlyNumbers(string s)
+        {
+            foreach (char c in s)
+            {
+                if (!Char.IsNumber(c))
+                    return false;
+            }
+            return true;
+        }
+
+        public static bool groupCheck(string s)
+        {
+            bool isMat = false;
+
+            Regex reg1 = new Regex(@"(\d)-(\d)-(\d)-(\d)-(\d)");
+            if (reg1.IsMatch(s))
+            {
+                isMat = true;
+            }
+            else
+            {
+                isMat = false;
+            }
+
+            return isMat;
+            //TODO
+        }
+
+        public static bool numCheck(string s)
+        {
+            bool isMat = false;
+
+            Regex reg1 = new Regex(@"(\d)-(\d)-(\d)-(\d)-(\d)");
+            if (reg1.IsMatch(s))
+            {
+                isMat = true;
+            }
+            else
+            {
+                isMat = false;
+            }
+
+            return isMat;
+            //TODO
+        }
+
+        public string book;
         private void addReaderButton_Click(object sender, EventArgs e)
         {
-           /* if (surnameTextField.Text != "" && nameTextField.Text != "" && patronymicTextField.Text != "" && OnlyLetters(authorTextField.Text)
-                && (OnlyLetters(genreTextField.Text) || genreTextField.Text == "")
-                && (isbnCheck(isbnTextField.Text) || isbnTextField.Text == "")
-                && (OnlyNumbers(pagesTextField.Text) || pagesTextField.Text == "")
-                && (OnlyNumbers(lockerTextField.Text) || lockerTextField.Text == "")
-                && (OnlyNumbers(shelfTextField.Text) || shelfTextField.Text == "")
-                && (priceCheck(priceTextField.Text)) || priceTextField.Text == "")
+            if (surnameTextField.Text != ""&&(OnlyLetters(surnameTextField.Text)) 
+                && nameTextField.Text != "" && OnlyLetters(nameTextField.Text)
+                && patronymicTextField.Text != "" && OnlyLetters(patronymicTextField.Text)
+                && (OnlyLetters(positionTextField.Text) || positionTextField.Text == "")
+                && (groupCheck(groupTextField.Text) || groupTextField.Text == "")
+                && (numCheck(numberTextField.Text) || numberTextField.Text == "")
+                && (OnlyLetters(townTextField.Text) || townTextField.Text == "")
+                && (OnlyNumbers(passportTextField.Text) || passportTextField.Text == ""))
             {
 
 
-                if (typeComboBox.SelectedIndex == -1)
+                if (booksComboBox.SelectedIndex == -1)
                 {
-                    type = null;
+                    book = null;
                 }
                 else
                 {
-                    type = typeComboBox.Text;
+                    book = booksComboBox.Text;
                 }
 
-                if (publisherComboBox.SelectedIndex == -1)
-                {
-                    publisher = null;
-                }
-                else
-                {
-                    publisher = publisherComboBox.Text;
-                }
+                
 
                 string connectString = "Data Source=.\\SQLEXPRESS;Initial Catalog=Library;" +
                     "Integrated Security=true;";
 
 
-
+                //сделать ввод с оперделением id книги по названию
                 string sqlExpr = $"INSERT INTO Books (name, author, genre, type, publisher, pages, ISBN, locker, shelf, price) VALUES" +
-                    $" ('{nameTextField.Text}','{authorTextField.Text}','{genreTextField.Text}','{type}','{publisher}'," +
+                    $" ('{surnameTextField.Text}','{authorTextField.Text}','{genreTextField.Text}','{type}','{publisher}'," +
                     $"'{pagesTextField.Text}','{isbnTextField.Text}','{lockerTextField.Text}','{shelfTextField.Text}','{priceTextField.Text}')";
 
                 using (SqlConnection c = new SqlConnection(connectString))
@@ -71,7 +123,7 @@ namespace Library
             else
             {
                 MessageBox.Show("aaaa");
-            }*/
+            }
         }
     }
 }
