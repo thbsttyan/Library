@@ -164,6 +164,19 @@ namespace Library
             }*/
         }
 
-        
+        public bool clicked = false;
+        private void passwordShowButton_Click(object sender, EventArgs e)
+        {
+            if (!clicked)
+            {
+                passwordTextField.PasswordChar = '\0';
+                clicked = true;
+            }
+            else
+            {
+                passwordTextField.PasswordChar = '*';
+                clicked = false;
+            }
+        }
     }
 }

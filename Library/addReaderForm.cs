@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -16,6 +18,23 @@ namespace Library
         public addReaderForm()
         {
             InitializeComponent();
+
+            readDateTimePicker.MaxDate = DateTime.Now;
+
+            Sql s = new Sql();
+            readerDataGridView.DataSource = s.Select("Select * from Books");
+
+            string[] combo = new string[readerDataGridView.Rows.Count - 1];
+
+            for (int i = 0; i < readerDataGridView.Rows.Count - 1; i++)
+            {
+                combo[i] += readerDataGridView[1, i].Value.ToString();
+
+
+            }
+            //MessageBox.Show(combo[4]);
+
+            booksComboBox.Items.AddRange(combo);
         }
 
         public static bool OnlyLetters(string s)
@@ -74,6 +93,7 @@ namespace Library
             //TODO
         }
 
+        public string id_book;
         public string book;
         private void addReaderButton_Click(object sender, EventArgs e)
         {
@@ -84,29 +104,38 @@ namespace Library
                 && (groupCheck(groupTextField.Text) || groupTextField.Text == "")
                 && (numCheck(numberTextField.Text) || numberTextField.Text == "")
                 && (OnlyLetters(townTextField.Text) || townTextField.Text == "")
-                && (OnlyNumbers(passportTextField.Text) || passportTextField.Text == ""))
+                && (OnlyNumbers(passportTextField.Text) && passportTextField.Text != "")
+                && booksComboBox.SelectedIndex != -1)
             {
 
 
                 if (booksComboBox.SelectedIndex == -1)
                 {
-                    book = null;
+                    id_book = null;
                 }
                 else
                 {
-                    book = booksComboBox.Text;
+                    for (int i = 0; i < readerDataGridView.Rows.Count - 1; i++)
+                    {
+                        if (booksComboBox.Text == readerDataGridView[1, i].Value.ToString())
+                        {
+                            id_book = readerDataGridView[0, i].Value.ToString();
+                            book = readerDataGridView[1, i].Value.ToString();
+                        }
+                    }
                 }
 
                 
-
+                    
                 string connectString = "Data Source=.\\SQLEXPRESS;Initial Catalog=Library;" +
                     "Integrated Security=true;";
-
+                
 
                 //сделать ввод с оперделением id книги по названию
-                string sqlExpr = $"INSERT INTO Books (name, author, genre, type, publisher, pages, ISBN, locker, shelf, price) VALUES" +
-                    $" ('{surnameTextField.Text}','{authorTextField.Text}','{genreTextField.Text}','{type}','{publisher}'," +
-                    $"'{pagesTextField.Text}','{isbnTextField.Text}','{lockerTextField.Text}','{shelfTextField.Text}','{priceTextField.Text}')";
+                string sqlExpr = $"INSERT INTO Readers (id_book, book, surname, name, patronymic, position, [group], phone_number, town, " +
+                    $"[pasport number], [date of issue]) VALUES" +
+                    $" ('{id_book}', '{book}','{surnameTextField.Text}','{nameTextField.Text}','{patronymicTextField.Text}','{positionTextField.Text}'," +
+                    $"'{groupTextField.Text}','{numberTextField.Text}','{townTextField.Text}','{passportTextField.Text}', '{readDateTimePicker.Value.Date}')";
 
                 using (SqlConnection c = new SqlConnection(connectString))
                 {
@@ -115,14 +144,64 @@ namespace Library
                     com.ExecuteNonQuery();
                     c.Close();
 
-                    MessageBox.Show("Книга добавлена!");
+                    MessageBox.Show("Новый читатель добавлен!");
                 }
-
+                
 
             }
             else
             {
                 MessageBox.Show("aaaa");
+            }
+
+            Sql s = new Sql();
+            // mf.booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
+
+            mainForm main = this.Owner as mainForm;
+            if (main != null)
+            {
+                main.readerDataGridView.DataSource = s.Select("SELECT * FROM Readers");
+            }
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void readDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            readDateTimePicker.MaxDate = DateTime.Now;
+        }
+
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        /* private Point mouseOffset;
+         private bool isMouseDown = false;*/
+        private void panel_MouseDown(object sender, MouseEventArgs e)
+        {
+            /* int xOffset;
+             int yOffset;
+
+             if (e.Button == MouseButtons.Left)
+             {
+                 xOffset = -e.X - SystemInformation.FrameBorderSize.Width;
+                 yOffset = -e.Y - SystemInformation.CaptionHeight -
+                     SystemInformation.FrameBorderSize.Height;
+                 mouseOffset = new Point(xOffset, yOffset);
+                 isMouseDown = true;
+             }*/
+
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
     }
