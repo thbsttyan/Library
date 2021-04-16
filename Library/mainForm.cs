@@ -27,6 +27,11 @@ namespace Library
         public mainForm()
         {
             InitializeComponent();
+
+            booksDataGridView.AllowUserToAddRows = false;
+            readerDataGridView.AllowUserToAddRows = false;
+            publisherDataGridView.AllowUserToAddRows = false;
+
             Sql s = new Sql();
             booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
 
@@ -302,11 +307,14 @@ namespace Library
             if (redactBooksCheckBox.Checked)
             {
                 booksDataGridView.ReadOnly = false;
+                
 
             }
             if (!redactBooksCheckBox.Checked)
             {
+               
                 booksDataGridView.ReadOnly = true;
+                
 
             }
         }
@@ -428,6 +436,13 @@ namespace Library
         private void addReaderButton_Click(object sender, EventArgs e)
         {
             addReaderForm f = new addReaderForm();
+            f.Owner = this;
+            f.ShowDialog();
+        }
+
+        private void addReturnButton_Click(object sender, EventArgs e)
+        {
+            addReturnForm f = new addReturnForm();
             f.Owner = this;
             f.ShowDialog();
         }
