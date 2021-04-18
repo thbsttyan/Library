@@ -62,6 +62,12 @@
     <Compile Include="addReaderForm.Designer.cs">
       <DependentUpon>addReaderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="addReturnForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addReturnForm.Designer.cs">
+      <DependentUpon>addReturnForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="authorizationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="addReaderForm.resx">
       <DependentUpon>addReaderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addReturnForm.resx">
+      <DependentUpon>addReturnForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="authorizationForm.resx">
       <DependentUpon>authorizationForm.cs</DependentUpon>

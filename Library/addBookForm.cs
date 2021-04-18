@@ -166,7 +166,7 @@ namespace Library
             }
             else
             {
-                MessageBox.Show("aaaa");
+                MessageBox.Show("Данные введены неверно");
             }
 
             Sql s = new Sql();

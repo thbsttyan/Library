@@ -35,11 +35,11 @@ namespace Library
             Sql s = new Sql();
             booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
 
-            Sql ss = new Sql();
             publisherDataGridView.DataSource = s.Select("Select * from Publishers");
 
-            Sql sss = new Sql();
             readerDataGridView.DataSource = s.Select("Select * from Readers");
+
+            returnDataGridView.DataSource = s.Select("Select * from ReturnBook");
             //LoadData();
 
             booksDataGridView.Columns[1].HeaderText = "Название";

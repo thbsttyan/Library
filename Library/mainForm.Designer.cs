@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.registrationButton = new System.Windows.Forms.Button();
             this.readersButton = new System.Windows.Forms.Button();
             this.publisherButton = new System.Windows.Forms.Button();
             this.bookButton = new System.Windows.Forms.Button();
@@ -45,6 +46,8 @@
             this.booksPanel = new System.Windows.Forms.Panel();
             this.redactBooksCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
             this.readersPanel = new System.Windows.Forms.Panel();
+            this.addReturnButton = new System.Windows.Forms.Button();
+            this.returnDataGridView = new System.Windows.Forms.DataGridView();
             this.redactReadersCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
             this.addReaderButton = new System.Windows.Forms.Button();
             this.readerDataGridView = new System.Windows.Forms.DataGridView();
@@ -52,18 +55,15 @@
             this.redactPublishersCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
             this.addPublisherButton = new System.Windows.Forms.Button();
             this.publisherDataGridView = new System.Windows.Forms.DataGridView();
-            this.registrationButton = new System.Windows.Forms.Button();
-            this.returnDataGridView = new System.Windows.Forms.DataGridView();
-            this.addReturnButton = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.booksDataGridView)).BeginInit();
             this.panel.SuspendLayout();
             this.booksPanel.SuspendLayout();
             this.readersPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.returnDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.readerDataGridView)).BeginInit();
             this.publishersPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.publisherDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.returnDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -77,6 +77,24 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(161, 666);
             this.panel2.TabIndex = 1;
+            // 
+            // registrationButton
+            // 
+            this.registrationButton.BackColor = System.Drawing.Color.LightBlue;
+            this.registrationButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.registrationButton.FlatAppearance.BorderColor = System.Drawing.Color.LightBlue;
+            this.registrationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.registrationButton.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.registrationButton.Image = ((System.Drawing.Image)(resources.GetObject("registrationButton.Image")));
+            this.registrationButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.registrationButton.Location = new System.Drawing.Point(-1, 323);
+            this.registrationButton.Name = "registrationButton";
+            this.registrationButton.Size = new System.Drawing.Size(162, 78);
+            this.registrationButton.TabIndex = 5;
+            this.registrationButton.Text = "Регистрация";
+            this.registrationButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.registrationButton.UseVisualStyleBackColor = false;
+            this.registrationButton.Click += new System.EventHandler(this.newRegistrationButton_Click);
             // 
             // readersButton
             // 
@@ -258,7 +276,7 @@
             this.redactBooksCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
             this.redactBooksCheckBox.Name = "redactBooksCheckBox";
             this.redactBooksCheckBox.Ripple = true;
-            this.redactBooksCheckBox.Size = new System.Drawing.Size(227, 30);
+            this.redactBooksCheckBox.Size = new System.Drawing.Size(186, 30);
             this.redactBooksCheckBox.TabIndex = 23;
             this.redactBooksCheckBox.Text = "Режим редактирования";
             this.redactBooksCheckBox.UseVisualStyleBackColor = true;
@@ -278,6 +296,33 @@
             this.readersPanel.TabIndex = 21;
             this.readersPanel.Visible = false;
             // 
+            // addReturnButton
+            // 
+            this.addReturnButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.addReturnButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addReturnButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addReturnButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addReturnButton.Location = new System.Drawing.Point(2, 313);
+            this.addReturnButton.Name = "addReturnButton";
+            this.addReturnButton.Size = new System.Drawing.Size(154, 23);
+            this.addReturnButton.TabIndex = 26;
+            this.addReturnButton.Text = "Оформить возврат книги";
+            this.addReturnButton.UseVisualStyleBackColor = false;
+            this.addReturnButton.Click += new System.EventHandler(this.addReturnButton_Click);
+            // 
+            // returnDataGridView
+            // 
+            this.returnDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.returnDataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.returnDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.returnDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.returnDataGridView.Location = new System.Drawing.Point(3, 342);
+            this.returnDataGridView.Name = "returnDataGridView";
+            this.returnDataGridView.ReadOnly = true;
+            this.returnDataGridView.RowHeadersWidth = 51;
+            this.returnDataGridView.Size = new System.Drawing.Size(999, 365);
+            this.returnDataGridView.TabIndex = 25;
+            // 
             // redactReadersCheckBox
             // 
             this.redactReadersCheckBox.AutoSize = true;
@@ -289,7 +334,7 @@
             this.redactReadersCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
             this.redactReadersCheckBox.Name = "redactReadersCheckBox";
             this.redactReadersCheckBox.Ripple = true;
-            this.redactReadersCheckBox.Size = new System.Drawing.Size(227, 30);
+            this.redactReadersCheckBox.Size = new System.Drawing.Size(186, 30);
             this.redactReadersCheckBox.TabIndex = 24;
             this.redactReadersCheckBox.Text = "Режим редактирования";
             this.redactReadersCheckBox.UseVisualStyleBackColor = true;
@@ -347,7 +392,7 @@
             this.redactPublishersCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
             this.redactPublishersCheckBox.Name = "redactPublishersCheckBox";
             this.redactPublishersCheckBox.Ripple = true;
-            this.redactPublishersCheckBox.Size = new System.Drawing.Size(227, 30);
+            this.redactPublishersCheckBox.Size = new System.Drawing.Size(186, 30);
             this.redactPublishersCheckBox.TabIndex = 24;
             this.redactPublishersCheckBox.Text = "Режим редактирования";
             this.redactPublishersCheckBox.UseVisualStyleBackColor = true;
@@ -381,51 +426,6 @@
             this.publisherDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.publisherDataGridView_CellValueChanged);
             this.publisherDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.publisherDataGridView_DataError);
             // 
-            // registrationButton
-            // 
-            this.registrationButton.BackColor = System.Drawing.Color.LightBlue;
-            this.registrationButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.registrationButton.FlatAppearance.BorderColor = System.Drawing.Color.LightBlue;
-            this.registrationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.registrationButton.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.registrationButton.Image = ((System.Drawing.Image)(resources.GetObject("registrationButton.Image")));
-            this.registrationButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.registrationButton.Location = new System.Drawing.Point(-1, 323);
-            this.registrationButton.Name = "registrationButton";
-            this.registrationButton.Size = new System.Drawing.Size(162, 78);
-            this.registrationButton.TabIndex = 5;
-            this.registrationButton.Text = "Издательства";
-            this.registrationButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.registrationButton.UseVisualStyleBackColor = false;
-            this.registrationButton.Click += new System.EventHandler(this.newRegistrationButton_Click);
-            // 
-            // returnDataGridView
-            // 
-            this.returnDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.returnDataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.returnDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.returnDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.returnDataGridView.Location = new System.Drawing.Point(3, 342);
-            this.returnDataGridView.Name = "returnDataGridView";
-            this.returnDataGridView.ReadOnly = true;
-            this.returnDataGridView.RowHeadersWidth = 51;
-            this.returnDataGridView.Size = new System.Drawing.Size(999, 365);
-            this.returnDataGridView.TabIndex = 25;
-            // 
-            // addReturnButton
-            // 
-            this.addReturnButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.addReturnButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addReturnButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addReturnButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addReturnButton.Location = new System.Drawing.Point(-7, 313);
-            this.addReturnButton.Name = "addReturnButton";
-            this.addReturnButton.Size = new System.Drawing.Size(203, 23);
-            this.addReturnButton.TabIndex = 26;
-            this.addReturnButton.Text = "Оформить фозврат книги";
-            this.addReturnButton.UseVisualStyleBackColor = false;
-            this.addReturnButton.Click += new System.EventHandler(this.addReturnButton_Click);
-            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -455,11 +455,11 @@
             this.booksPanel.PerformLayout();
             this.readersPanel.ResumeLayout(false);
             this.readersPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.returnDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.readerDataGridView)).EndInit();
             this.publishersPanel.ResumeLayout(false);
             this.publishersPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.publisherDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.returnDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }

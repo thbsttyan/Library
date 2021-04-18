@@ -37,22 +37,22 @@
             this.panel = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.exitButton = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.passportTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.townTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.positionTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.booksComboBox = new System.Windows.Forms.ComboBox();
-            this.patronymicTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.nameTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.surnameTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.addReaderButton = new System.Windows.Forms.Button();
             this.groupTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.panel2 = new System.Windows.Forms.Panel();
             this.numberTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.exitButton = new System.Windows.Forms.Button();
+            this.readerComboBox = new System.Windows.Forms.ComboBox();
+            this.selectReaderDataGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.readerDataGridView)).BeginInit();
             this.panel.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.selectReaderDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // readDateTimePicker
@@ -60,7 +60,7 @@
             this.readDateTimePicker.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
             this.readDateTimePicker.Location = new System.Drawing.Point(96, 202);
             this.readDateTimePicker.Name = "readDateTimePicker";
-            this.readDateTimePicker.Size = new System.Drawing.Size(200, 32);
+            this.readDateTimePicker.Size = new System.Drawing.Size(200, 27);
             this.readDateTimePicker.TabIndex = 68;
             // 
             // panel3
@@ -83,7 +83,7 @@
             // readerDataGridView
             // 
             this.readerDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.readerDataGridView.Location = new System.Drawing.Point(387, 33);
+            this.readerDataGridView.Location = new System.Drawing.Point(393, 159);
             this.readerDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.readerDataGridView.Name = "readerDataGridView";
             this.readerDataGridView.RowHeadersWidth = 51;
@@ -130,6 +130,23 @@
             this.panel4.Size = new System.Drawing.Size(29, 448);
             this.panel4.TabIndex = 19;
             // 
+            // exitButton
+            // 
+            this.exitButton.BackColor = System.Drawing.Color.PowderBlue;
+            this.exitButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("exitButton.BackgroundImage")));
+            this.exitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.exitButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.exitButton.ForeColor = System.Drawing.Color.PowderBlue;
+            this.exitButton.ImageKey = "(отсутствует)";
+            this.exitButton.Location = new System.Drawing.Point(474, 3);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(19, 20);
+            this.exitButton.TabIndex = 17;
+            this.exitButton.UseVisualStyleBackColor = false;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Black;
@@ -152,7 +169,7 @@
             this.passportTextField.SelectedText = "";
             this.passportTextField.SelectionLength = 0;
             this.passportTextField.SelectionStart = 0;
-            this.passportTextField.Size = new System.Drawing.Size(129, 28);
+            this.passportTextField.Size = new System.Drawing.Size(129, 23);
             this.passportTextField.TabIndex = 64;
             this.passportTextField.TabStop = false;
             this.passportTextField.UseSystemPasswordChar = false;
@@ -170,7 +187,7 @@
             this.townTextField.SelectedText = "";
             this.townTextField.SelectionLength = 0;
             this.townTextField.SelectionStart = 0;
-            this.townTextField.Size = new System.Drawing.Size(129, 28);
+            this.townTextField.Size = new System.Drawing.Size(129, 23);
             this.townTextField.TabIndex = 63;
             this.townTextField.TabStop = false;
             this.townTextField.UseSystemPasswordChar = false;
@@ -188,75 +205,22 @@
             this.positionTextField.SelectedText = "";
             this.positionTextField.SelectionLength = 0;
             this.positionTextField.SelectionStart = 0;
-            this.positionTextField.Size = new System.Drawing.Size(129, 28);
+            this.positionTextField.Size = new System.Drawing.Size(129, 23);
             this.positionTextField.TabIndex = 60;
             this.positionTextField.TabStop = false;
             this.positionTextField.UseSystemPasswordChar = false;
             // 
             // booksComboBox
             // 
+            this.booksComboBox.Enabled = false;
             this.booksComboBox.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.booksComboBox.ForeColor = System.Drawing.Color.Black;
             this.booksComboBox.FormattingEnabled = true;
             this.booksComboBox.Location = new System.Drawing.Point(96, 159);
             this.booksComboBox.Name = "booksComboBox";
-            this.booksComboBox.Size = new System.Drawing.Size(292, 32);
+            this.booksComboBox.Size = new System.Drawing.Size(292, 27);
             this.booksComboBox.TabIndex = 59;
             this.booksComboBox.Text = "Выберите книгу";
-            // 
-            // patronymicTextField
-            // 
-            this.patronymicTextField.Depth = 0;
-            this.patronymicTextField.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.patronymicTextField.Hint = "Отчество";
-            this.patronymicTextField.Location = new System.Drawing.Point(96, 116);
-            this.patronymicTextField.MaxLength = 32767;
-            this.patronymicTextField.MouseState = MaterialSkin.MouseState.HOVER;
-            this.patronymicTextField.Name = "patronymicTextField";
-            this.patronymicTextField.PasswordChar = '\0';
-            this.patronymicTextField.SelectedText = "";
-            this.patronymicTextField.SelectionLength = 0;
-            this.patronymicTextField.SelectionStart = 0;
-            this.patronymicTextField.Size = new System.Drawing.Size(357, 28);
-            this.patronymicTextField.TabIndex = 57;
-            this.patronymicTextField.TabStop = false;
-            this.patronymicTextField.UseSystemPasswordChar = false;
-            // 
-            // nameTextField
-            // 
-            this.nameTextField.Depth = 0;
-            this.nameTextField.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nameTextField.Hint = "Имя";
-            this.nameTextField.Location = new System.Drawing.Point(96, 71);
-            this.nameTextField.MaxLength = 32767;
-            this.nameTextField.MouseState = MaterialSkin.MouseState.HOVER;
-            this.nameTextField.Name = "nameTextField";
-            this.nameTextField.PasswordChar = '\0';
-            this.nameTextField.SelectedText = "";
-            this.nameTextField.SelectionLength = 0;
-            this.nameTextField.SelectionStart = 0;
-            this.nameTextField.Size = new System.Drawing.Size(357, 28);
-            this.nameTextField.TabIndex = 56;
-            this.nameTextField.TabStop = false;
-            this.nameTextField.UseSystemPasswordChar = false;
-            // 
-            // surnameTextField
-            // 
-            this.surnameTextField.Depth = 0;
-            this.surnameTextField.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.surnameTextField.Hint = "Фамилия";
-            this.surnameTextField.Location = new System.Drawing.Point(96, 29);
-            this.surnameTextField.MaxLength = 32767;
-            this.surnameTextField.MouseState = MaterialSkin.MouseState.HOVER;
-            this.surnameTextField.Name = "surnameTextField";
-            this.surnameTextField.PasswordChar = '\0';
-            this.surnameTextField.SelectedText = "";
-            this.surnameTextField.SelectionLength = 0;
-            this.surnameTextField.SelectionStart = 0;
-            this.surnameTextField.Size = new System.Drawing.Size(357, 28);
-            this.surnameTextField.TabIndex = 55;
-            this.surnameTextField.TabStop = false;
-            this.surnameTextField.UseSystemPasswordChar = false;
             // 
             // addReaderButton
             // 
@@ -270,6 +234,7 @@
             this.addReaderButton.TabIndex = 54;
             this.addReaderButton.Text = "Добавить читателя";
             this.addReaderButton.UseVisualStyleBackColor = false;
+            this.addReaderButton.Click += new System.EventHandler(this.addReaderButton_Click);
             // 
             // groupTextField
             // 
@@ -284,7 +249,7 @@
             this.groupTextField.SelectedText = "";
             this.groupTextField.SelectionLength = 0;
             this.groupTextField.SelectionStart = 0;
-            this.groupTextField.Size = new System.Drawing.Size(129, 28);
+            this.groupTextField.Size = new System.Drawing.Size(129, 23);
             this.groupTextField.TabIndex = 61;
             this.groupTextField.TabStop = false;
             this.groupTextField.UseSystemPasswordChar = false;
@@ -311,33 +276,40 @@
             this.numberTextField.SelectedText = "";
             this.numberTextField.SelectionLength = 0;
             this.numberTextField.SelectionStart = 0;
-            this.numberTextField.Size = new System.Drawing.Size(129, 28);
+            this.numberTextField.Size = new System.Drawing.Size(129, 23);
             this.numberTextField.TabIndex = 62;
             this.numberTextField.TabStop = false;
             this.numberTextField.UseSystemPasswordChar = false;
             // 
-            // exitButton
+            // readerComboBox
             // 
-            this.exitButton.BackColor = System.Drawing.Color.PowderBlue;
-            this.exitButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("exitButton.BackgroundImage")));
-            this.exitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.exitButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exitButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.exitButton.ForeColor = System.Drawing.Color.PowderBlue;
-            this.exitButton.ImageKey = "(отсутствует)";
-            this.exitButton.Location = new System.Drawing.Point(474, 3);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(19, 20);
-            this.exitButton.TabIndex = 17;
-            this.exitButton.UseVisualStyleBackColor = false;
-            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            this.readerComboBox.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.readerComboBox.ForeColor = System.Drawing.Color.Black;
+            this.readerComboBox.FormattingEnabled = true;
+            this.readerComboBox.Location = new System.Drawing.Point(96, 73);
+            this.readerComboBox.Name = "readerComboBox";
+            this.readerComboBox.Size = new System.Drawing.Size(292, 27);
+            this.readerComboBox.TabIndex = 69;
+            this.readerComboBox.Text = "Выберите читателя";
+            this.readerComboBox.SelectedIndexChanged += new System.EventHandler(this.readerComboBox_SelectedIndexChanged);
+            // 
+            // selectReaderDataGridView
+            // 
+            this.selectReaderDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.selectReaderDataGridView.Location = new System.Drawing.Point(393, 33);
+            this.selectReaderDataGridView.Margin = new System.Windows.Forms.Padding(4);
+            this.selectReaderDataGridView.Name = "selectReaderDataGridView";
+            this.selectReaderDataGridView.RowHeadersWidth = 51;
+            this.selectReaderDataGridView.Size = new System.Drawing.Size(100, 118);
+            this.selectReaderDataGridView.TabIndex = 70;
             // 
             // addReturnForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(499, 424);
+            this.Controls.Add(this.selectReaderDataGridView);
+            this.Controls.Add(this.readerComboBox);
             this.Controls.Add(this.readDateTimePicker);
             this.Controls.Add(this.readerDataGridView);
             this.Controls.Add(this.panel6);
@@ -347,9 +319,6 @@
             this.Controls.Add(this.townTextField);
             this.Controls.Add(this.positionTextField);
             this.Controls.Add(this.booksComboBox);
-            this.Controls.Add(this.patronymicTextField);
-            this.Controls.Add(this.nameTextField);
-            this.Controls.Add(this.surnameTextField);
             this.Controls.Add(this.addReaderButton);
             this.Controls.Add(this.groupTextField);
             this.Controls.Add(this.panel2);
@@ -360,6 +329,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.readerDataGridView)).EndInit();
             this.panel.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.selectReaderDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -380,12 +350,11 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField townTextField;
         private MaterialSkin.Controls.MaterialSingleLineTextField positionTextField;
         public System.Windows.Forms.ComboBox booksComboBox;
-        private MaterialSkin.Controls.MaterialSingleLineTextField patronymicTextField;
-        private MaterialSkin.Controls.MaterialSingleLineTextField nameTextField;
-        private MaterialSkin.Controls.MaterialSingleLineTextField surnameTextField;
         private System.Windows.Forms.Button addReaderButton;
         private MaterialSkin.Controls.MaterialSingleLineTextField groupTextField;
         private System.Windows.Forms.Panel panel2;
         private MaterialSkin.Controls.MaterialSingleLineTextField numberTextField;
+        public System.Windows.Forms.ComboBox readerComboBox;
+        public System.Windows.Forms.DataGridView selectReaderDataGridView;
     }
 }

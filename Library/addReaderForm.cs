@@ -35,6 +35,8 @@ namespace Library
             //MessageBox.Show(combo[4]);
 
             booksComboBox.Items.AddRange(combo);
+
+            
         }
 
         public static bool OnlyLetters(string s)
@@ -61,7 +63,7 @@ namespace Library
         {
             bool isMat = false;
 
-            Regex reg1 = new Regex(@"(\d)-(\d)-(\d)-(\d)-(\d)");
+            Regex reg1 = new Regex(@"^[A-Z]-\d{2,4}");
             if (reg1.IsMatch(s))
             {
                 isMat = true;
@@ -79,7 +81,7 @@ namespace Library
         {
             bool isMat = false;
 
-            Regex reg1 = new Regex(@"(\d)-(\d)-(\d)-(\d)-(\d)");
+            Regex reg1 = new Regex(@"\d{14}");
             if (reg1.IsMatch(s))
             {
                 isMat = true;
@@ -151,7 +153,7 @@ namespace Library
             }
             else
             {
-                MessageBox.Show("aaaa");
+                MessageBox.Show("Данные введены неверно");
             }
 
             Sql s = new Sql();
