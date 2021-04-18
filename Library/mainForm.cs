@@ -30,6 +30,8 @@ namespace Library
 
             booksDataGridView.AllowUserToAddRows = false;
             readerDataGridView.AllowUserToAddRows = false;
+            lendingDataGridView.AllowUserToAddRows = false;
+            returnDataGridView.AllowUserToAddRows = false;
             publisherDataGridView.AllowUserToAddRows = false;
 
             Sql s = new Sql();
@@ -38,6 +40,8 @@ namespace Library
             publisherDataGridView.DataSource = s.Select("Select * from Publishers");
 
             readerDataGridView.DataSource = s.Select("Select * from Readers");
+
+            lendingDataGridView.DataSource = s.Select("Select * from LendingBooks");
 
             returnDataGridView.DataSource = s.Select("Select * from ReturnBook");
             //LoadData();
@@ -443,6 +447,13 @@ namespace Library
         private void addReturnButton_Click(object sender, EventArgs e)
         {
             addReturnForm f = new addReturnForm();
+            f.Owner = this;
+            f.ShowDialog();
+        }
+
+        private void lendingbutton_Click(object sender, EventArgs e)
+        {
+            LendingForm f = new LendingForm();
             f.Owner = this;
             f.ShowDialog();
         }

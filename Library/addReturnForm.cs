@@ -21,23 +21,18 @@ namespace Library
 
             readDateTimePicker.MaxDate = DateTime.Now;
 
-            Sql s = new Sql();
             
-            selectReaderDataGridView.DataSource = s.Select("Select * from Readers");
-            string[] combo = new string[selectReaderDataGridView.Rows.Count-1];
 
-            for (int i = 0; i < selectReaderDataGridView.Rows.Count - 1; i++)
-            {
-                combo[i] += selectReaderDataGridView[3, i].Value.ToString()+" "+ selectReaderDataGridView[4, i].Value.ToString() +" "
-                    + selectReaderDataGridView[5, i].Value.ToString();
-
-            }
-            readerComboBox.Items.AddRange(combo);
-
-            
 
 
         }
+        public int selectedID = 0;
+        public int selectedLending = 0;
+
+        public string surname;
+        public string name;
+        public string patronymic;
+
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -134,17 +129,8 @@ namespace Library
         public string id_book;
         public string book;
         private void addReaderButton_Click(object sender, EventArgs e)
-        {/*
-            if (surnameTextField.Text != "" && (OnlyLetters(surnameTextField.Text))
-                && nameTextField.Text != "" && OnlyLetters(nameTextField.Text)
-                && patronymicTextField.Text != "" && OnlyLetters(patronymicTextField.Text)
-                && (OnlyLetters(positionTextField.Text) || positionTextField.Text == "")
-                && (groupCheck(groupTextField.Text) || groupTextField.Text == "")
-                && (numCheck(numberTextField.Text) || numberTextField.Text == "")
-                && (OnlyLetters(townTextField.Text) || townTextField.Text == "")
-                && (OnlyNumbers(passportTextField.Text) && passportTextField.Text != "")
-                && booksComboBox.SelectedIndex != -1)
-            {
+        {
+            
 
 
                 if (booksComboBox.SelectedIndex == -1)
@@ -170,10 +156,8 @@ namespace Library
 
 
                 //сделать ввод с оперделением id книги по названию
-                string sqlExpr = $"INSERT INTO ReturnBook (id_book, book, surname, name, patronymic, position, [group], phone_number, town, " +
-                    $"[pasport number], [date of return]) VALUES" +
-                    $" ('{id_book}', '{book}','{surnameTextField.Text}','{nameTextField.Text}','{patronymicTextField.Text}','{positionTextField.Text}'," +
-                    $"'{groupTextField.Text}','{numberTextField.Text}','{townTextField.Text}','{passportTextField.Text}', '{readDateTimePicker.Value.Date}')";
+                string sqlExpr = $"INSERT INTO ReturnBook (id_reader, id_book, book, [date of return]) VALUES" +
+                    $" ('{selectedID}','{id_book}', '{book}','{readDateTimePicker.Value.Date}')";
 
                 using (SqlConnection c = new SqlConnection(connectString))
                 {
@@ -185,12 +169,17 @@ namespace Library
                     MessageBox.Show("Книга возвращена!");
                 }
 
+            string sqlE = $"update Books set status = '{"В библиотеке"}' where id = '{id_book}'";
+
+            using (SqlConnection c = new SqlConnection(connectString))
+            {
+                c.Open();
+                SqlCommand com = new SqlCommand(sqlE, c);
+                com.ExecuteNonQuery();
+                c.Close();
 
             }
-            else
-            {
-                MessageBox.Show("Данные введены неверно");
-            }
+
 
             Sql s = new Sql();
             // mf.booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
@@ -199,24 +188,56 @@ namespace Library
             if (main != null)
             {
                 main.returnDataGridView.DataSource = s.Select("SELECT * FROM ReturnBook");
-            }*/
+                main.booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
+            }
+
+            for (int i = 0; i < main.lendingDataGridView.Rows.Count - 1; i++)
+            {
+                if (main.lendingDataGridView[1, i] == cell)
+                {
+                    main.lendingDataGridView.Rows[i].ReadOnly = true;
+                }
+            }
+
+
         }
 
+        
         private void readerComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            booksComboBox.Items.Clear();
+            
+        }
+
+        public DataGridViewCell cell;
+        private void addReturnForm_Load(object sender, EventArgs e)
+        {
+            mainForm main = this.Owner as mainForm;
+
+            /*int rowNum = 2;
+            cell = main.lendingDataGridView.Rows[rowNum].Cells[0];
+            main.lendingDataGridView.CurrentCell = cell;
+            main.lendingDataGridView.CurrentCell.Selected = true;
+            */
+            selectedID = main.lendingDataGridView.CurrentCell.RowIndex + 1;
+            //selectedLending = main.lendingDataGridView.SelectedCells[0].RowIndex + 1;
+
+            // MessageBox.Show("aaaaa= " + selectedID.ToString());
+
             Sql s = new Sql();
-            readerDataGridView.DataSource = s.Select($"Select * from Readers where id_reader = {readerComboBox.SelectedIndex + 1}");
+
+
+            booksComboBox.Items.Clear();
+
+            readerDataGridView.DataSource = s.Select($"Select * from Books where id in (select id_book from LendingBooks where id_reader = {selectedID})");
             string[] combo2 = new string[readerDataGridView.Rows.Count - 1];
 
             for (int i = 0; i < readerDataGridView.Rows.Count - 1; i++)
             {
-                combo2[i] += readerDataGridView[2, i].Value.ToString();
+                combo2[i] += readerDataGridView[1, i].Value.ToString();
 
 
             }
             booksComboBox.Items.AddRange(combo2);
-            booksComboBox.Enabled = true;
         }
     }
 }

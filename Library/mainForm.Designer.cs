@@ -46,6 +46,8 @@
             this.booksPanel = new System.Windows.Forms.Panel();
             this.redactBooksCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
             this.readersPanel = new System.Windows.Forms.Panel();
+            this.lendingbutton = new System.Windows.Forms.Button();
+            this.lendingDataGridView = new System.Windows.Forms.DataGridView();
             this.addReturnButton = new System.Windows.Forms.Button();
             this.returnDataGridView = new System.Windows.Forms.DataGridView();
             this.redactReadersCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
@@ -60,6 +62,7 @@
             this.panel.SuspendLayout();
             this.booksPanel.SuspendLayout();
             this.readersPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lendingDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.returnDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.readerDataGridView)).BeginInit();
             this.publishersPanel.SuspendLayout();
@@ -75,7 +78,7 @@
             this.panel2.Controls.Add(this.bookButton);
             this.panel2.Location = new System.Drawing.Point(-3, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(161, 666);
+            this.panel2.Size = new System.Drawing.Size(161, 853);
             this.panel2.TabIndex = 1;
             // 
             // registrationButton
@@ -87,7 +90,7 @@
             this.registrationButton.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.registrationButton.Image = ((System.Drawing.Image)(resources.GetObject("registrationButton.Image")));
             this.registrationButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.registrationButton.Location = new System.Drawing.Point(-1, 323);
+            this.registrationButton.Location = new System.Drawing.Point(-2, 323);
             this.registrationButton.Name = "registrationButton";
             this.registrationButton.Size = new System.Drawing.Size(162, 78);
             this.registrationButton.TabIndex = 5;
@@ -167,11 +170,11 @@
             this.booksDataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.booksDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.booksDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.booksDataGridView.Location = new System.Drawing.Point(2, 32);
+            this.booksDataGridView.Location = new System.Drawing.Point(0, 31);
             this.booksDataGridView.Name = "booksDataGridView";
             this.booksDataGridView.ReadOnly = true;
             this.booksDataGridView.RowHeadersWidth = 51;
-            this.booksDataGridView.Size = new System.Drawing.Size(992, 457);
+            this.booksDataGridView.Size = new System.Drawing.Size(1068, 407);
             this.booksDataGridView.TabIndex = 5;
             this.booksDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksDataGridView_CellValueChanged);
             this.booksDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.booksDataGridView_DataError);
@@ -184,7 +187,7 @@
             this.panel.Controls.Add(this.exitButton);
             this.panel.Location = new System.Drawing.Point(0, 0);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(1166, 23);
+            this.panel.Size = new System.Drawing.Size(1250, 23);
             this.panel.TabIndex = 10;
             this.panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             // 
@@ -193,7 +196,7 @@
             this.panel4.BackColor = System.Drawing.Color.Black;
             this.panel4.Location = new System.Drawing.Point(-3, -17);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1154, 20);
+            this.panel4.Size = new System.Drawing.Size(1270, 20);
             this.panel4.TabIndex = 15;
             this.panel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             // 
@@ -207,7 +210,7 @@
             this.exitButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.exitButton.ForeColor = System.Drawing.Color.PowderBlue;
             this.exitButton.ImageKey = "(отсутствует)";
-            this.exitButton.Location = new System.Drawing.Point(1129, 3);
+            this.exitButton.Location = new System.Drawing.Point(1218, 3);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(19, 20);
             this.exitButton.TabIndex = 11;
@@ -217,9 +220,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(-1, 657);
+            this.panel1.Location = new System.Drawing.Point(-1, 849);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1154, 20);
+            this.panel1.Size = new System.Drawing.Size(1268, 20);
             this.panel1.TabIndex = 16;
             // 
             // panel3
@@ -227,16 +230,16 @@
             this.panel3.BackColor = System.Drawing.Color.Black;
             this.panel3.Location = new System.Drawing.Point(-26, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(29, 663);
+            this.panel3.Size = new System.Drawing.Size(29, 866);
             this.panel3.TabIndex = 17;
             this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Black;
-            this.panel5.Location = new System.Drawing.Point(1151, 0);
+            this.panel5.Location = new System.Drawing.Point(1241, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(29, 663);
+            this.panel5.Size = new System.Drawing.Size(29, 869);
             this.panel5.TabIndex = 18;
             this.panel5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             // 
@@ -246,7 +249,7 @@
             this.newRegistrationButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.newRegistrationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.newRegistrationButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.newRegistrationButton.Location = new System.Drawing.Point(164, 604);
+            this.newRegistrationButton.Location = new System.Drawing.Point(164, 801);
             this.newRegistrationButton.Name = "newRegistrationButton";
             this.newRegistrationButton.Size = new System.Drawing.Size(208, 45);
             this.newRegistrationButton.TabIndex = 19;
@@ -260,9 +263,9 @@
             this.booksPanel.Controls.Add(this.redactBooksCheckBox);
             this.booksPanel.Controls.Add(this.booksDataGridView);
             this.booksPanel.Controls.Add(this.addBookButton);
-            this.booksPanel.Location = new System.Drawing.Point(219, 72);
+            this.booksPanel.Location = new System.Drawing.Point(215, 83);
             this.booksPanel.Name = "booksPanel";
-            this.booksPanel.Size = new System.Drawing.Size(994, 575);
+            this.booksPanel.Size = new System.Drawing.Size(1035, 575);
             this.booksPanel.TabIndex = 20;
             // 
             // redactBooksCheckBox
@@ -285,16 +288,45 @@
             // readersPanel
             // 
             this.readersPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.readersPanel.Controls.Add(this.lendingbutton);
+            this.readersPanel.Controls.Add(this.lendingDataGridView);
             this.readersPanel.Controls.Add(this.addReturnButton);
             this.readersPanel.Controls.Add(this.returnDataGridView);
             this.readersPanel.Controls.Add(this.redactReadersCheckBox);
             this.readersPanel.Controls.Add(this.addReaderButton);
             this.readersPanel.Controls.Add(this.readerDataGridView);
-            this.readersPanel.Location = new System.Drawing.Point(176, 48);
+            this.readersPanel.Location = new System.Drawing.Point(176, 52);
             this.readersPanel.Name = "readersPanel";
-            this.readersPanel.Size = new System.Drawing.Size(1022, 558);
+            this.readersPanel.Size = new System.Drawing.Size(1022, 743);
             this.readersPanel.TabIndex = 21;
             this.readersPanel.Visible = false;
+            // 
+            // lendingbutton
+            // 
+            this.lendingbutton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lendingbutton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lendingbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lendingbutton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lendingbutton.Location = new System.Drawing.Point(3, 245);
+            this.lendingbutton.Name = "lendingbutton";
+            this.lendingbutton.Size = new System.Drawing.Size(104, 23);
+            this.lendingbutton.TabIndex = 28;
+            this.lendingbutton.Text = "Выдать книгу";
+            this.lendingbutton.UseVisualStyleBackColor = false;
+            this.lendingbutton.Click += new System.EventHandler(this.lendingbutton_Click);
+            // 
+            // lendingDataGridView
+            // 
+            this.lendingDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.lendingDataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.lendingDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lendingDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.lendingDataGridView.Location = new System.Drawing.Point(2, 272);
+            this.lendingDataGridView.Name = "lendingDataGridView";
+            this.lendingDataGridView.ReadOnly = true;
+            this.lendingDataGridView.RowHeadersWidth = 51;
+            this.lendingDataGridView.Size = new System.Drawing.Size(1008, 131);
+            this.lendingDataGridView.TabIndex = 27;
             // 
             // addReturnButton
             // 
@@ -302,7 +334,7 @@
             this.addReturnButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addReturnButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addReturnButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addReturnButton.Location = new System.Drawing.Point(2, 313);
+            this.addReturnButton.Location = new System.Drawing.Point(2, 444);
             this.addReturnButton.Name = "addReturnButton";
             this.addReturnButton.Size = new System.Drawing.Size(154, 23);
             this.addReturnButton.TabIndex = 26;
@@ -316,11 +348,11 @@
             this.returnDataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.returnDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.returnDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.returnDataGridView.Location = new System.Drawing.Point(3, 342);
+            this.returnDataGridView.Location = new System.Drawing.Point(3, 473);
             this.returnDataGridView.Name = "returnDataGridView";
             this.returnDataGridView.ReadOnly = true;
             this.returnDataGridView.RowHeadersWidth = 51;
-            this.returnDataGridView.Size = new System.Drawing.Size(999, 365);
+            this.returnDataGridView.Size = new System.Drawing.Size(999, 147);
             this.returnDataGridView.TabIndex = 25;
             // 
             // redactReadersCheckBox
@@ -364,7 +396,7 @@
             this.readerDataGridView.Name = "readerDataGridView";
             this.readerDataGridView.ReadOnly = true;
             this.readerDataGridView.RowHeadersWidth = 51;
-            this.readerDataGridView.Size = new System.Drawing.Size(999, 275);
+            this.readerDataGridView.Size = new System.Drawing.Size(999, 186);
             this.readerDataGridView.TabIndex = 5;
             this.readerDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.readerDataGridView_CellValueChanged);
             this.readerDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.readerDataGridView_DataError);
@@ -377,7 +409,7 @@
             this.publishersPanel.Controls.Add(this.publisherDataGridView);
             this.publishersPanel.Location = new System.Drawing.Point(159, 22);
             this.publishersPanel.Name = "publishersPanel";
-            this.publishersPanel.Size = new System.Drawing.Size(992, 558);
+            this.publishersPanel.Size = new System.Drawing.Size(1018, 558);
             this.publishersPanel.TabIndex = 22;
             this.publishersPanel.Visible = false;
             // 
@@ -431,7 +463,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1156, 661);
+            this.ClientSize = new System.Drawing.Size(1246, 853);
             this.Controls.Add(this.booksPanel);
             this.Controls.Add(this.readersPanel);
             this.Controls.Add(this.publishersPanel);
@@ -455,6 +487,7 @@
             this.booksPanel.PerformLayout();
             this.readersPanel.ResumeLayout(false);
             this.readersPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lendingDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.returnDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.readerDataGridView)).EndInit();
             this.publishersPanel.ResumeLayout(false);
@@ -491,5 +524,7 @@
         private System.Windows.Forms.Button registrationButton;
         public System.Windows.Forms.DataGridView returnDataGridView;
         private System.Windows.Forms.Button addReturnButton;
+        public System.Windows.Forms.DataGridView lendingDataGridView;
+        private System.Windows.Forms.Button lendingbutton;
     }
 }

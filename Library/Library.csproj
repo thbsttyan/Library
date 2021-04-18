@@ -74,6 +74,12 @@
     <Compile Include="authorizationForm.Designer.cs">
       <DependentUpon>authorizationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LendingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LendingForm.Designer.cs">
+      <DependentUpon>LendingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="mainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="authorizationForm.resx">
       <DependentUpon>authorizationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LendingForm.resx">
+      <DependentUpon>LendingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>

@@ -95,8 +95,7 @@ namespace Library
             //TODO
         }
 
-        public string id_book;
-        public string book;
+       
         private void addReaderButton_Click(object sender, EventArgs e)
         {
             if (surnameTextField.Text != ""&&(OnlyLetters(surnameTextField.Text)) 
@@ -106,26 +105,12 @@ namespace Library
                 && (groupCheck(groupTextField.Text) || groupTextField.Text == "")
                 && (numCheck(numberTextField.Text) || numberTextField.Text == "")
                 && (OnlyLetters(townTextField.Text) || townTextField.Text == "")
-                && (OnlyNumbers(passportTextField.Text) && passportTextField.Text != "")
-                && booksComboBox.SelectedIndex != -1)
+                && (OnlyNumbers(passportTextField.Text) && passportTextField.Text != ""))
             {
 
 
-                if (booksComboBox.SelectedIndex == -1)
-                {
-                    id_book = null;
-                }
-                else
-                {
-                    for (int i = 0; i < readerDataGridView.Rows.Count - 1; i++)
-                    {
-                        if (booksComboBox.Text == readerDataGridView[1, i].Value.ToString())
-                        {
-                            id_book = readerDataGridView[0, i].Value.ToString();
-                            book = readerDataGridView[1, i].Value.ToString();
-                        }
-                    }
-                }
+                
+                
 
                 
                     
@@ -134,10 +119,10 @@ namespace Library
                 
 
                 //сделать ввод с оперделением id книги по названию
-                string sqlExpr = $"INSERT INTO Readers (id_book, book, surname, name, patronymic, position, [group], phone_number, town, " +
-                    $"[pasport number], [date of issue]) VALUES" +
-                    $" ('{id_book}', '{book}','{surnameTextField.Text}','{nameTextField.Text}','{patronymicTextField.Text}','{positionTextField.Text}'," +
-                    $"'{groupTextField.Text}','{numberTextField.Text}','{townTextField.Text}','{passportTextField.Text}', '{readDateTimePicker.Value.Date}')";
+                string sqlExpr = $"INSERT INTO Readers ( surname, name, patronymic, position, [group], phone_number, town, " +
+                    $"[pasport number]) VALUES" +
+                    $" ('{surnameTextField.Text}','{nameTextField.Text}','{patronymicTextField.Text}','{positionTextField.Text}'," +
+                    $"'{groupTextField.Text}','{numberTextField.Text}','{townTextField.Text}','{passportTextField.Text}')";
 
                 using (SqlConnection c = new SqlConnection(connectString))
                 {

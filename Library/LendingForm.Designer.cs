@@ -1,6 +1,6 @@
 ﻿namespace Library
 {
-    partial class addReturnForm
+    partial class LendingForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(addReturnForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LendingForm));
             this.readDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -37,22 +37,20 @@
             this.panel = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.exitButton = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.booksComboBox = new System.Windows.Forms.ComboBox();
-            this.addReaderButton = new System.Windows.Forms.Button();
+            this.addLendingButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.selectReaderDataGridView = new System.Windows.Forms.DataGridView();
+            this.exitButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.readerDataGridView)).BeginInit();
             this.panel.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.selectReaderDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // readDateTimePicker
             // 
             this.readDateTimePicker.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
-            this.readDateTimePicker.Location = new System.Drawing.Point(96, 96);
+            this.readDateTimePicker.Location = new System.Drawing.Point(94, 95);
             this.readDateTimePicker.Name = "readDateTimePicker";
             this.readDateTimePicker.Size = new System.Drawing.Size(200, 27);
             this.readDateTimePicker.TabIndex = 68;
@@ -64,7 +62,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(29, 448);
             this.panel3.TabIndex = 18;
-            this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel7_MouseDown);
             // 
             // panel1
             // 
@@ -77,21 +74,20 @@
             // readerDataGridView
             // 
             this.readerDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.readerDataGridView.Location = new System.Drawing.Point(393, 113);
+            this.readerDataGridView.Location = new System.Drawing.Point(386, 32);
             this.readerDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.readerDataGridView.Name = "readerDataGridView";
             this.readerDataGridView.RowHeadersWidth = 51;
-            this.readerDataGridView.Size = new System.Drawing.Size(100, 94);
+            this.readerDataGridView.Size = new System.Drawing.Size(100, 118);
             this.readerDataGridView.TabIndex = 67;
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.Black;
-            this.panel6.Location = new System.Drawing.Point(0, 243);
+            this.panel6.Location = new System.Drawing.Point(0, 198);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(498, 28);
             this.panel6.TabIndex = 66;
-            this.panel6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel7_MouseDown);
             // 
             // panel
             // 
@@ -101,11 +97,10 @@
             this.panel.Controls.Add(this.panel4);
             this.panel.Controls.Add(this.panel1);
             this.panel.Controls.Add(this.exitButton);
-            this.panel.Location = new System.Drawing.Point(0, 0);
+            this.panel.Location = new System.Drawing.Point(-1, -1);
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(497, 23);
             this.panel.TabIndex = 58;
-            this.panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel7_MouseDown);
             // 
             // panel7
             // 
@@ -114,7 +109,6 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(498, 28);
             this.panel7.TabIndex = 22;
-            this.panel7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel7_MouseDown);
             // 
             // panel4
             // 
@@ -123,6 +117,49 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(29, 448);
             this.panel4.TabIndex = 19;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Black;
+            this.panel5.Location = new System.Drawing.Point(493, -2);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(29, 448);
+            this.panel5.TabIndex = 65;
+            // 
+            // booksComboBox
+            // 
+            this.booksComboBox.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.booksComboBox.ForeColor = System.Drawing.Color.Black;
+            this.booksComboBox.FormattingEnabled = true;
+            this.booksComboBox.Location = new System.Drawing.Point(94, 52);
+            this.booksComboBox.Name = "booksComboBox";
+            this.booksComboBox.Size = new System.Drawing.Size(292, 27);
+            this.booksComboBox.TabIndex = 59;
+            this.booksComboBox.Text = "Выберите книгу";
+            this.booksComboBox.SelectedIndexChanged += new System.EventHandler(this.booksComboBox_SelectedIndexChanged);
+            // 
+            // addLendingButton
+            // 
+            this.addLendingButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.addLendingButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addLendingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addLendingButton.Font = new System.Drawing.Font("Bahnschrift Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addLendingButton.Location = new System.Drawing.Point(94, 159);
+            this.addLendingButton.Name = "addLendingButton";
+            this.addLendingButton.Size = new System.Drawing.Size(142, 33);
+            this.addLendingButton.TabIndex = 54;
+            this.addLendingButton.Text = "Выдать книгу";
+            this.addLendingButton.UseVisualStyleBackColor = false;
+            this.addLendingButton.Click += new System.EventHandler(this.addLendingButton_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.PowderBlue;
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Location = new System.Drawing.Point(-1, -1);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(89, 421);
+            this.panel2.TabIndex = 53;
             // 
             // exitButton
             // 
@@ -141,81 +178,25 @@
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.Black;
-            this.panel5.Location = new System.Drawing.Point(494, -1);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(29, 448);
-            this.panel5.TabIndex = 65;
-            this.panel5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel7_MouseDown);
-            // 
-            // booksComboBox
-            // 
-            this.booksComboBox.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.booksComboBox.ForeColor = System.Drawing.Color.Black;
-            this.booksComboBox.FormattingEnabled = true;
-            this.booksComboBox.Location = new System.Drawing.Point(96, 53);
-            this.booksComboBox.Name = "booksComboBox";
-            this.booksComboBox.Size = new System.Drawing.Size(292, 27);
-            this.booksComboBox.TabIndex = 59;
-            this.booksComboBox.Text = "Выберите книгу";
-            // 
-            // addReaderButton
-            // 
-            this.addReaderButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.addReaderButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addReaderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addReaderButton.Font = new System.Drawing.Font("Bahnschrift Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addReaderButton.Location = new System.Drawing.Point(95, 150);
-            this.addReaderButton.Name = "addReaderButton";
-            this.addReaderButton.Size = new System.Drawing.Size(142, 33);
-            this.addReaderButton.TabIndex = 54;
-            this.addReaderButton.Text = "Вернуть книгу";
-            this.addReaderButton.UseVisualStyleBackColor = false;
-            this.addReaderButton.Click += new System.EventHandler(this.addReaderButton_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.PowderBlue;
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(89, 421);
-            this.panel2.TabIndex = 53;
-            // 
-            // selectReaderDataGridView
-            // 
-            this.selectReaderDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.selectReaderDataGridView.Location = new System.Drawing.Point(393, 33);
-            this.selectReaderDataGridView.Margin = new System.Windows.Forms.Padding(4);
-            this.selectReaderDataGridView.Name = "selectReaderDataGridView";
-            this.selectReaderDataGridView.RowHeadersWidth = 51;
-            this.selectReaderDataGridView.Size = new System.Drawing.Size(100, 72);
-            this.selectReaderDataGridView.TabIndex = 70;
-            // 
-            // addReturnForm
+            // LendingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(499, 211);
-            this.Controls.Add(this.selectReaderDataGridView);
+            this.ClientSize = new System.Drawing.Size(497, 201);
             this.Controls.Add(this.readDateTimePicker);
             this.Controls.Add(this.readerDataGridView);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.booksComboBox);
-            this.Controls.Add(this.addReaderButton);
+            this.Controls.Add(this.addLendingButton);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "addReturnForm";
-            this.Text = "addReturnForm";
-            this.Load += new System.EventHandler(this.addReturnForm_Load);
+            this.Name = "LendingForm";
+            this.Text = "LendingForm";
             ((System.ComponentModel.ISupportInitialize)(this.readerDataGridView)).EndInit();
             this.panel.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.selectReaderDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -233,8 +214,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         public System.Windows.Forms.ComboBox booksComboBox;
-        private System.Windows.Forms.Button addReaderButton;
+        private System.Windows.Forms.Button addLendingButton;
         private System.Windows.Forms.Panel panel2;
-        public System.Windows.Forms.DataGridView selectReaderDataGridView;
     }
 }
