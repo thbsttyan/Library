@@ -44,6 +44,8 @@ namespace Library
             lendingDataGridView.DataSource = s.Select("Select * from LendingBooks");
 
             returnDataGridView.DataSource = s.Select("Select * from ReturnBook");
+
+            chronologyDataGridView.DataSource = s.Select("Select * from Chronology");
             //LoadData();
 
             booksDataGridView.Columns[1].HeaderText = "Название";
@@ -456,6 +458,16 @@ namespace Library
             LendingForm f = new LendingForm();
             f.Owner = this;
             f.ShowDialog();
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void readerDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //readerDataGridView.ClearSelection();
         }
     }
 }

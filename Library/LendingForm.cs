@@ -51,11 +51,22 @@ namespace Library
         private void addLendingButton_Click(object sender, EventArgs e)
         {
             mainForm main = this.Owner as mainForm;
-            selectedReader = main.readerDataGridView.CurrentCell.RowIndex + 1;
+              int rowindex = main.readerDataGridView.CurrentCell.RowIndex;
+              int columnindex = main.readerDataGridView.CurrentCell.ColumnIndex;
+              selectedReader = Convert.ToInt32(main.readerDataGridView.Rows[rowindex].Cells[columnindex].Value.ToString());
+            // selectedReader = Convert.ToInt32(main.readerDataGridView.SelectedRows[0].Cells[0].Value.ToString()) ;
+
+           /* if (main.readerDataGridView.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = main.readerDataGridView.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = main.readerDataGridView.Rows[selectedrowindex];
+                string a = Convert.ToString(selectedRow.Cells["id_reader"].Value);
+            }*/
+
             MessageBox.Show("aaaaa= " + selectedReader.ToString());
 
 
-            if (booksComboBox.SelectedIndex == -1)
+                if (booksComboBox.SelectedIndex == -1)
                 {
                     id_book = null;
                 }
@@ -101,11 +112,28 @@ namespace Library
                         c.Close();
 
                     }
-              
+
+            string sqlForChronology = $"INSERT INTO Chronology (id_reader, id_book, book, [date]) VALUES" +
+                  $" ('{selectedReader}','{id_book}', '{book}','{readDateTimePicker.Value.Date}')";
+            using (SqlConnection c = new SqlConnection(connectString))
+            {
+                c.Open();
+                SqlCommand com = new SqlCommand(sqlForChronology, c);
+                com.ExecuteNonQuery();
+                c.Close();
+            }
+/*
+            string sqlForDelete = $"delete from LendingBooks where ";
+            using (SqlConnection c = new SqlConnection(connectString))
+            {
+                c.Open();
+                SqlCommand com = new SqlCommand(sqlForChronology, c);
+                com.ExecuteNonQuery();
+                c.Close();
+            }*/
 
 
-
-                Sql s = new Sql();
+            Sql s = new Sql();
             // mf.booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
 
             //mainForm main = this.Owner as mainForm;

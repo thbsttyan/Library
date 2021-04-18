@@ -57,6 +57,7 @@
             this.redactPublishersCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
             this.addPublisherButton = new System.Windows.Forms.Button();
             this.publisherDataGridView = new System.Windows.Forms.DataGridView();
+            this.chronologyDataGridView = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.booksDataGridView)).BeginInit();
             this.panel.SuspendLayout();
@@ -67,6 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.readerDataGridView)).BeginInit();
             this.publishersPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.publisherDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chronologyDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -263,7 +265,7 @@
             this.booksPanel.Controls.Add(this.redactBooksCheckBox);
             this.booksPanel.Controls.Add(this.booksDataGridView);
             this.booksPanel.Controls.Add(this.addBookButton);
-            this.booksPanel.Location = new System.Drawing.Point(215, 83);
+            this.booksPanel.Location = new System.Drawing.Point(411, 814);
             this.booksPanel.Name = "booksPanel";
             this.booksPanel.Size = new System.Drawing.Size(1035, 575);
             this.booksPanel.TabIndex = 20;
@@ -288,6 +290,7 @@
             // readersPanel
             // 
             this.readersPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.readersPanel.Controls.Add(this.chronologyDataGridView);
             this.readersPanel.Controls.Add(this.lendingbutton);
             this.readersPanel.Controls.Add(this.lendingDataGridView);
             this.readersPanel.Controls.Add(this.addReturnButton);
@@ -325,7 +328,7 @@
             this.lendingDataGridView.Name = "lendingDataGridView";
             this.lendingDataGridView.ReadOnly = true;
             this.lendingDataGridView.RowHeadersWidth = 51;
-            this.lendingDataGridView.Size = new System.Drawing.Size(1008, 131);
+            this.lendingDataGridView.Size = new System.Drawing.Size(511, 131);
             this.lendingDataGridView.TabIndex = 27;
             // 
             // addReturnButton
@@ -352,7 +355,7 @@
             this.returnDataGridView.Name = "returnDataGridView";
             this.returnDataGridView.ReadOnly = true;
             this.returnDataGridView.RowHeadersWidth = 51;
-            this.returnDataGridView.Size = new System.Drawing.Size(999, 147);
+            this.returnDataGridView.Size = new System.Drawing.Size(510, 147);
             this.returnDataGridView.TabIndex = 25;
             // 
             // redactReadersCheckBox
@@ -398,6 +401,7 @@
             this.readerDataGridView.RowHeadersWidth = 51;
             this.readerDataGridView.Size = new System.Drawing.Size(999, 186);
             this.readerDataGridView.TabIndex = 5;
+            this.readerDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.readerDataGridView_CellClick);
             this.readerDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.readerDataGridView_CellValueChanged);
             this.readerDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.readerDataGridView_DataError);
             // 
@@ -458,6 +462,20 @@
             this.publisherDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.publisherDataGridView_CellValueChanged);
             this.publisherDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.publisherDataGridView_DataError);
             // 
+            // chronologyDataGridView
+            // 
+            this.chronologyDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.chronologyDataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.chronologyDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chronologyDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.chronologyDataGridView.Location = new System.Drawing.Point(519, 271);
+            this.chronologyDataGridView.Name = "chronologyDataGridView";
+            this.chronologyDataGridView.ReadOnly = true;
+            this.chronologyDataGridView.RowHeadersWidth = 51;
+            this.chronologyDataGridView.Size = new System.Drawing.Size(500, 349);
+            this.chronologyDataGridView.TabIndex = 29;
+            this.chronologyDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -493,6 +511,7 @@
             this.publishersPanel.ResumeLayout(false);
             this.publishersPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.publisherDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chronologyDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -526,5 +545,6 @@
         private System.Windows.Forms.Button addReturnButton;
         public System.Windows.Forms.DataGridView lendingDataGridView;
         private System.Windows.Forms.Button lendingbutton;
+        public System.Windows.Forms.DataGridView chronologyDataGridView;
     }
 }

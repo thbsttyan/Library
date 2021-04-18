@@ -180,6 +180,17 @@ namespace Library
 
             }
 
+            string sqlForChronology = $"INSERT INTO Chronology (id_reader, id_book, book, [date]) VALUES" +
+                    $" ('{selectedID}','{id_book}', '{book}','{readDateTimePicker.Value.Date}')";
+            using (SqlConnection c = new SqlConnection(connectString))
+            {
+                c.Open();
+                SqlCommand com = new SqlCommand(sqlForChronology, c);
+                com.ExecuteNonQuery();
+                c.Close();
+
+            }
+
 
             Sql s = new Sql();
             // mf.booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
