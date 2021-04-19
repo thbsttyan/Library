@@ -191,6 +191,15 @@ namespace Library
 
             }
 
+            //ПРОВЕРКА НА ПУСТОТУ
+            string sqlForDelete = $"delete from LendingBooks where id_book = {id_book}";
+            using (SqlConnection c = new SqlConnection(connectString))
+            {
+                c.Open();
+                SqlCommand com = new SqlCommand(sqlForDelete, c);
+                com.ExecuteNonQuery();
+                c.Close();
+            }
 
             Sql s = new Sql();
             // mf.booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
@@ -200,6 +209,7 @@ namespace Library
             {
                 main.returnDataGridView.DataSource = s.Select("SELECT * FROM ReturnBook");
                 main.booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
+                main.chronologyDataGridView.DataSource = s.Select("SELECT * FROM Chronology");
             }
 
             for (int i = 0; i < main.lendingDataGridView.Rows.Count - 1; i++)

@@ -37,11 +37,11 @@
             this.panel = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.exitButton = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.booksComboBox = new System.Windows.Forms.ComboBox();
             this.addLendingButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.exitButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.readerDataGridView)).BeginInit();
             this.panel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -52,7 +52,7 @@
             this.readDateTimePicker.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
             this.readDateTimePicker.Location = new System.Drawing.Point(94, 95);
             this.readDateTimePicker.Name = "readDateTimePicker";
-            this.readDateTimePicker.Size = new System.Drawing.Size(200, 27);
+            this.readDateTimePicker.Size = new System.Drawing.Size(200, 32);
             this.readDateTimePicker.TabIndex = 68;
             // 
             // panel3
@@ -62,6 +62,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(29, 448);
             this.panel3.TabIndex = 18;
+            this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             // 
             // panel1
             // 
@@ -88,6 +89,8 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(498, 28);
             this.panel6.TabIndex = 66;
+            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
+            this.panel6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             // 
             // panel
             // 
@@ -101,6 +104,7 @@
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(497, 23);
             this.panel.TabIndex = 58;
+            this.panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             // 
             // panel7
             // 
@@ -109,6 +113,8 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(498, 28);
             this.panel7.TabIndex = 22;
+            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
+            this.panel7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             // 
             // panel4
             // 
@@ -118,6 +124,23 @@
             this.panel4.Size = new System.Drawing.Size(29, 448);
             this.panel4.TabIndex = 19;
             // 
+            // exitButton
+            // 
+            this.exitButton.BackColor = System.Drawing.Color.PowderBlue;
+            this.exitButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("exitButton.BackgroundImage")));
+            this.exitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.exitButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.exitButton.ForeColor = System.Drawing.Color.PowderBlue;
+            this.exitButton.ImageKey = "(отсутствует)";
+            this.exitButton.Location = new System.Drawing.Point(474, 3);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(19, 20);
+            this.exitButton.TabIndex = 17;
+            this.exitButton.UseVisualStyleBackColor = false;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Black;
@@ -125,6 +148,8 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(29, 448);
             this.panel5.TabIndex = 65;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
+            this.panel5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             // 
             // booksComboBox
             // 
@@ -133,7 +158,7 @@
             this.booksComboBox.FormattingEnabled = true;
             this.booksComboBox.Location = new System.Drawing.Point(94, 52);
             this.booksComboBox.Name = "booksComboBox";
-            this.booksComboBox.Size = new System.Drawing.Size(292, 27);
+            this.booksComboBox.Size = new System.Drawing.Size(292, 32);
             this.booksComboBox.TabIndex = 59;
             this.booksComboBox.Text = "Выберите книгу";
             this.booksComboBox.SelectedIndexChanged += new System.EventHandler(this.booksComboBox_SelectedIndexChanged);
@@ -160,23 +185,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(89, 421);
             this.panel2.TabIndex = 53;
-            // 
-            // exitButton
-            // 
-            this.exitButton.BackColor = System.Drawing.Color.PowderBlue;
-            this.exitButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("exitButton.BackgroundImage")));
-            this.exitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.exitButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exitButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.exitButton.ForeColor = System.Drawing.Color.PowderBlue;
-            this.exitButton.ImageKey = "(отсутствует)";
-            this.exitButton.Location = new System.Drawing.Point(474, 3);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(19, 20);
-            this.exitButton.TabIndex = 17;
-            this.exitButton.UseVisualStyleBackColor = false;
-            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // LendingForm
             // 

@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -48,20 +49,26 @@ namespace Library
         public string id_book;
         public string book;
         int selectedReader;
+        bool BookOnHands = false;
         private void addLendingButton_Click(object sender, EventArgs e)
         {
+            
+
             mainForm main = this.Owner as mainForm;
-              int rowindex = main.readerDataGridView.CurrentCell.RowIndex;
+             /* int rowindex = main.readerDataGridView.CurrentCell.RowIndex;
               int columnindex = main.readerDataGridView.CurrentCell.ColumnIndex;
-              selectedReader = Convert.ToInt32(main.readerDataGridView.Rows[rowindex].Cells[columnindex].Value.ToString());
+            
+            selectedReader = Convert.ToInt32(main.readerDataGridView.Rows[rowindex].Cells[columnindex].Value.ToString());*/
             // selectedReader = Convert.ToInt32(main.readerDataGridView.SelectedRows[0].Cells[0].Value.ToString()) ;
 
-           /* if (main.readerDataGridView.SelectedCells.Count > 0)
-            {
-                int selectedrowindex = main.readerDataGridView.SelectedCells[0].RowIndex;
-                DataGridViewRow selectedRow = main.readerDataGridView.Rows[selectedrowindex];
-                string a = Convert.ToString(selectedRow.Cells["id_reader"].Value);
-            }*/
+            /* if (main.readerDataGridView.SelectedCells.Count > 0)
+             {
+                 int selectedrowindex = main.readerDataGridView.SelectedCells[0].RowIndex;
+                 DataGridViewRow selectedRow = main.readerDataGridView.Rows[selectedrowindex];
+                 string a = Convert.ToString(selectedRow.Cells["id_reader"].Value);
+             }*/
+            selectedReader = Convert.ToInt32(main.readerDataGridView.SelectedRows[0].Cells[0].Value);
+
 
             MessageBox.Show("aaaaa= " + selectedReader.ToString());
 
@@ -82,11 +89,31 @@ namespace Library
                     }
                 }
 
-
-
                 string connectString = "Data Source=.\\SQLEXPRESS;Initial Catalog=Library;" +
                     "Integrated Security=true;";
 
+            MessageBox.Show("id_book = " + id_book );
+            for (int i = 0; i < main.booksDataGridView.Rows.Count - 1; i++)
+            {
+                if (main.booksDataGridView[0, i].Value.ToString()==id_book )
+                {
+                    if (main.booksDataGridView[11, i].Value.ToString() == "На руках")
+                    {
+                        BookOnHands = true;
+                        MessageBox.Show("НАШЕЛ КНИГУ " + main.booksDataGridView[0, i].Value.ToString());
+                    }
+                    else
+                    {
+                        BookOnHands = false;
+                    }
+                    MessageBox.Show("нашел книгу " + main.booksDataGridView[0, i].Value.ToString());
+                }
+                
+            }
+            
+
+            if (!BookOnHands)
+            {
 
                 //сделать ввод с оперделением id книги по названию
                 string sqlExpr = $"INSERT INTO LendingBooks (id_reader, id_book, book, [date of issue]) VALUES" +
@@ -102,46 +129,86 @@ namespace Library
                     MessageBox.Show("Книга выдана!");
                 }
 
-            string sqlE = $"update Books set status = '{"На руках"}' where id = '{id_book}'";
-           
-                    using (SqlConnection c = new SqlConnection(connectString))
-                    {
-                        c.Open();
-                        SqlCommand com = new SqlCommand(sqlE, c);
-                        com.ExecuteNonQuery();
-                        c.Close();
+                string sqlE = $"update Books set status = '{"На руках"}' where id = '{id_book}'";
 
-                    }
+                using (SqlConnection c = new SqlConnection(connectString))
+                {
+                    c.Open();
+                    SqlCommand com = new SqlCommand(sqlE, c);
+                    com.ExecuteNonQuery();
+                    c.Close();
 
-            string sqlForChronology = $"INSERT INTO Chronology (id_reader, id_book, book, [date]) VALUES" +
-                  $" ('{selectedReader}','{id_book}', '{book}','{readDateTimePicker.Value.Date}')";
-            using (SqlConnection c = new SqlConnection(connectString))
-            {
-                c.Open();
-                SqlCommand com = new SqlCommand(sqlForChronology, c);
-                com.ExecuteNonQuery();
-                c.Close();
+                }
+
+                string sqlForChronology = $"INSERT INTO Chronology (id_reader, id_book, book, [date]) VALUES" +
+                      $" ('{selectedReader}','{id_book}', '{book}','{readDateTimePicker.Value.Date}')";
+                using (SqlConnection c = new SqlConnection(connectString))
+                {
+                    c.Open();
+                    SqlCommand com = new SqlCommand(sqlForChronology, c);
+                    com.ExecuteNonQuery();
+                    c.Close();
+                }
+                
+                //ПРОВЕРКА НА ПУСТОТУ
+                            string sqlForDelete = $"delete from ReturnBooks where id_book = {id_book}";
+                            using (SqlConnection c = new SqlConnection(connectString))
+                            {
+                                c.Open();
+                                SqlCommand com = new SqlCommand(sqlForDelete, c);
+                                com.ExecuteNonQuery();
+                                c.Close();
+                            }
+
+
+                Sql s = new Sql();
+                // mf.booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
+
+                //mainForm main = this.Owner as mainForm;
+                if (main != null)
+                {
+                    main.lendingDataGridView.DataSource = s.Select("SELECT * FROM LendingBooks");
+                    main.booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
+                    main.chronologyDataGridView.DataSource = s.Select("SELECT * FROM Chronology");
+                }
             }
-/*
-            string sqlForDelete = $"delete from LendingBooks where ";
-            using (SqlConnection c = new SqlConnection(connectString))
+            else
             {
-                c.Open();
-                SqlCommand com = new SqlCommand(sqlForChronology, c);
-                com.ExecuteNonQuery();
-                c.Close();
-            }*/
-
-
-            Sql s = new Sql();
-            // mf.booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
-
-            //mainForm main = this.Owner as mainForm;
-            if (main != null)
-            {
-                main.lendingDataGridView.DataSource = s.Select("SELECT * FROM LendingBooks");
-                main.booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
+                MessageBox.Show("Книга уже взята!");
             }
+
+            //this.Close();
+        }
+
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+        private void panel_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
