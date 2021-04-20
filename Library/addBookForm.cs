@@ -178,6 +178,7 @@ namespace Library
                 main.booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
             }
 
+            this.Close();
         }
 
 

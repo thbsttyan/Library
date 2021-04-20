@@ -130,8 +130,8 @@ namespace Library
         public string book;
         private void addReaderButton_Click(object sender, EventArgs e)
         {
-            
 
+            mainForm main = this.Owner as mainForm;
 
                 if (booksComboBox.SelectedIndex == -1)
                 {
@@ -192,24 +192,28 @@ namespace Library
             }
 
             //ПРОВЕРКА НА ПУСТОТУ
-            string sqlForDelete = $"delete from LendingBooks where id_book = {id_book}";
-            using (SqlConnection c = new SqlConnection(connectString))
+            if (main.returnDataGridView != null)
             {
-                c.Open();
-                SqlCommand com = new SqlCommand(sqlForDelete, c);
-                com.ExecuteNonQuery();
-                c.Close();
+                string sqlForDelete = $"delete from LendingBooks where id_book = {id_book}";
+                using (SqlConnection c = new SqlConnection(connectString))
+                {
+                    c.Open();
+                    SqlCommand com = new SqlCommand(sqlForDelete, c);
+                    com.ExecuteNonQuery();
+                    c.Close();
+                }
             }
 
             Sql s = new Sql();
             // mf.booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
 
-            mainForm main = this.Owner as mainForm;
+           
             if (main != null)
             {
                 main.returnDataGridView.DataSource = s.Select("SELECT * FROM ReturnBook");
                 main.booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
                 main.chronologyDataGridView.DataSource = s.Select("SELECT * FROM Chronology");
+                main.lendingDataGridView.DataSource = s.Select("SELECT * FROM LendingBooks");
             }
 
             for (int i = 0; i < main.lendingDataGridView.Rows.Count - 1; i++)
@@ -220,7 +224,7 @@ namespace Library
                 }
             }
 
-
+            this.Close();
         }
 
         
@@ -239,10 +243,11 @@ namespace Library
             main.lendingDataGridView.CurrentCell = cell;
             main.lendingDataGridView.CurrentCell.Selected = true;
             */
-            selectedID = main.lendingDataGridView.CurrentCell.RowIndex + 1;
+            //selectedID = main.lendingDataGridView.CurrentCell.RowIndex + 1;
             //selectedLending = main.lendingDataGridView.SelectedCells[0].RowIndex + 1;
+            selectedID = Convert.ToInt32(main.lendingDataGridView.SelectedRows[0].Cells["id_reader"].Value);
 
-            // MessageBox.Show("aaaaa= " + selectedID.ToString());
+            MessageBox.Show("aaaaa= " + selectedID.ToString());
 
             Sql s = new Sql();
 

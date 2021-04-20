@@ -149,6 +149,8 @@ namespace Library
             {
                 main.readerDataGridView.DataSource = s.Select("SELECT * FROM Readers");
             }
+
+            this.Close();
         }
 
         private void exitButton_Click(object sender, EventArgs e)

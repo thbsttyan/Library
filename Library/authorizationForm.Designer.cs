@@ -34,6 +34,7 @@
             this.authorizationButton = new System.Windows.Forms.Button();
             this.panel = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.exitButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.authDataGridView = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -42,7 +43,6 @@
             this.passwordShowButton = new System.Windows.Forms.Button();
             this.showPasswordLabel = new System.Windows.Forms.Label();
             this.passordPictureBox = new System.Windows.Forms.PictureBox();
-            this.exitButton = new System.Windows.Forms.Button();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.authDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.passordPictureBox)).BeginInit();
@@ -61,7 +61,7 @@
             this.loginTextField.SelectedText = "";
             this.loginTextField.SelectionLength = 0;
             this.loginTextField.SelectionStart = 0;
-            this.loginTextField.Size = new System.Drawing.Size(279, 28);
+            this.loginTextField.Size = new System.Drawing.Size(279, 23);
             this.loginTextField.TabIndex = 5;
             this.loginTextField.TabStop = false;
             this.loginTextField.UseSystemPasswordChar = false;
@@ -80,7 +80,7 @@
             this.passwordTextField.SelectedText = "";
             this.passwordTextField.SelectionLength = 0;
             this.passwordTextField.SelectionStart = 0;
-            this.passwordTextField.Size = new System.Drawing.Size(279, 28);
+            this.passwordTextField.Size = new System.Drawing.Size(279, 23);
             this.passwordTextField.TabIndex = 6;
             this.passwordTextField.TabStop = false;
             this.passwordTextField.UseSystemPasswordChar = false;
@@ -123,10 +123,28 @@
             this.panel4.TabIndex = 14;
             this.panel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             // 
+            // exitButton
+            // 
+            this.exitButton.BackColor = System.Drawing.Color.PowderBlue;
+            this.exitButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("exitButton.BackgroundImage")));
+            this.exitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.exitButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.exitButton.ForeColor = System.Drawing.Color.PowderBlue;
+            this.exitButton.ImageKey = "(отсутствует)";
+            this.exitButton.Location = new System.Drawing.Point(360, 3);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(19, 20);
+            this.exitButton.TabIndex = 12;
+            this.exitButton.UseVisualStyleBackColor = false;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(-24, 28);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(21, 20);
             this.textBox1.TabIndex = 11;
             // 
@@ -174,7 +192,7 @@
             this.passwordShowButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.passwordShowButton.Font = new System.Drawing.Font("Bahnschrift Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.passwordShowButton.Location = new System.Drawing.Point(13, 225);
-            this.passwordShowButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.passwordShowButton.Margin = new System.Windows.Forms.Padding(4);
             this.passwordShowButton.Name = "passwordShowButton";
             this.passwordShowButton.Size = new System.Drawing.Size(133, 26);
             this.passwordShowButton.TabIndex = 33;
@@ -187,7 +205,7 @@
             this.showPasswordLabel.AutoSize = true;
             this.showPasswordLabel.Location = new System.Drawing.Point(24, 255);
             this.showPasswordLabel.Name = "showPasswordLabel";
-            this.showPasswordLabel.Size = new System.Drawing.Size(108, 15);
+            this.showPasswordLabel.Size = new System.Drawing.Size(95, 13);
             this.showPasswordLabel.TabIndex = 34;
             this.showPasswordLabel.Text = "Показать пароль";
             this.showPasswordLabel.Click += new System.EventHandler(this.passwordShowButton_Click);
@@ -202,23 +220,6 @@
             this.passordPictureBox.TabIndex = 35;
             this.passordPictureBox.TabStop = false;
             this.passordPictureBox.Click += new System.EventHandler(this.passordPictureBox_Click);
-            // 
-            // exitButton
-            // 
-            this.exitButton.BackColor = System.Drawing.Color.PowderBlue;
-            this.exitButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("exitButton.BackgroundImage")));
-            this.exitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.exitButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exitButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.exitButton.ForeColor = System.Drawing.Color.PowderBlue;
-            this.exitButton.ImageKey = "(отсутствует)";
-            this.exitButton.Location = new System.Drawing.Point(360, 3);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(19, 20);
-            this.exitButton.TabIndex = 12;
-            this.exitButton.UseVisualStyleBackColor = false;
-            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // authorizationForm
             // 

@@ -149,16 +149,19 @@ namespace Library
                     com.ExecuteNonQuery();
                     c.Close();
                 }
-                
+
                 //ПРОВЕРКА НА ПУСТОТУ
-                            string sqlForDelete = $"delete from ReturnBooks where id_book = {id_book}";
-                            using (SqlConnection c = new SqlConnection(connectString))
-                            {
-                                c.Open();
-                                SqlCommand com = new SqlCommand(sqlForDelete, c);
-                                com.ExecuteNonQuery();
-                                c.Close();
-                            }
+                if (main.returnDataGridView != null)
+                {
+                    string sqlForDelete = $"delete from ReturnBook where id_book = {id_book}";
+                    using (SqlConnection c = new SqlConnection(connectString))
+                    {
+                        c.Open();
+                        SqlCommand com = new SqlCommand(sqlForDelete, c);
+                        com.ExecuteNonQuery();
+                        c.Close();
+                    }
+                }
 
 
                 Sql s = new Sql();
@@ -170,6 +173,8 @@ namespace Library
                     main.lendingDataGridView.DataSource = s.Select("SELECT * FROM LendingBooks");
                     main.booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
                     main.chronologyDataGridView.DataSource = s.Select("SELECT * FROM Chronology");
+                    main.chronologyDataGridView.DataSource = s.Select("SELECT * FROM Chronology");
+                    main.returnDataGridView.DataSource = s.Select("SELECT * FROM ReturnBook");
                 }
             }
             else
@@ -177,7 +182,7 @@ namespace Library
                 MessageBox.Show("Книга уже взята!");
             }
 
-            //this.Close();
+            this.Close();
         }
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
