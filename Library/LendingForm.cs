@@ -140,8 +140,8 @@ namespace Library
 
                 }
 
-                string sqlForChronology = $"INSERT INTO Chronology (id_reader, id_book, book, [date]) VALUES" +
-                      $" ('{selectedReader}','{id_book}', '{book}','{readDateTimePicker.Value.Date}')";
+                string sqlForChronology = $"INSERT INTO Chronology (id_reader, id_book, book, [date], operation) VALUES" +
+                      $" ('{selectedReader}','{id_book}', '{book}','{readDateTimePicker.Value.Date}', 'Выдача')";
                 using (SqlConnection c = new SqlConnection(connectString))
                 {
                     c.Open();
@@ -149,6 +149,7 @@ namespace Library
                     com.ExecuteNonQuery();
                     c.Close();
                 }
+
 
                 //ПРОВЕРКА НА ПУСТОТУ
                 if (main.returnDataGridView != null)
@@ -176,6 +177,8 @@ namespace Library
                     main.chronologyDataGridView.DataSource = s.Select("SELECT * FROM Chronology");
                     main.returnDataGridView.DataSource = s.Select("SELECT * FROM ReturnBook");
                 }
+
+
             }
             else
             {

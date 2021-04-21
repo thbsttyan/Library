@@ -161,7 +161,7 @@ namespace Library
         public bool clicked = false;
         private void passwordShowButton_Click(object sender, EventArgs e)
         {
-            if (!clicked)
+            /*if (!clicked)
             {
                 passwordTextField.PasswordChar = '\0';
                 clicked = true;
@@ -170,7 +170,7 @@ namespace Library
             {
                 passwordTextField.PasswordChar = '*';
                 clicked = false;
-            }
+            }*/
         }
 
         private void loginTextField_KeyDown(object sender, KeyEventArgs e)

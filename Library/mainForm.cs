@@ -132,7 +132,7 @@ namespace Library
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            string connectString = "Data Source=.\\SQLEXPRESS;Initial Catalog=Library;" +
+            /*string connectString = "Data Source=.\\SQLEXPRESS;Initial Catalog=Library;" +
                "Integrated Security=true;";
 
             SqlConnection myConnection = new SqlConnection(connectString);
@@ -169,7 +169,7 @@ namespace Library
             myConnection.Close();
 
             //foreach (string[] s in data)
-               // nobooksDataGridView.Rows.Add(s);
+               // nobooksDataGridView.Rows.Add(s);*/
         }
 
         private void button1_Click(object sender, EventArgs e)

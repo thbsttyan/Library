@@ -180,8 +180,8 @@ namespace Library
 
             }
 
-            string sqlForChronology = $"INSERT INTO Chronology (id_reader, id_book, book, [date]) VALUES" +
-                    $" ('{selectedID}','{id_book}', '{book}','{readDateTimePicker.Value.Date}')";
+            string sqlForChronology = $"INSERT INTO Chronology (id_reader, id_book, book, [date], operation) VALUES" +
+                    $" ('{selectedID}','{id_book}', '{book}','{readDateTimePicker.Value.Date}', 'Возврат')";
             using (SqlConnection c = new SqlConnection(connectString))
             {
                 c.Open();
