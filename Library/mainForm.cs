@@ -59,8 +59,8 @@ namespace Library
             booksDataGridView.Columns[10].HeaderText = "Ценаx";
             Ready = true;
 
-          /*  DataGridViewComboBoxColumn col = new DataGridViewComboBoxColumn();
-            booksDataGridView.Columns[5].*/
+          /* DataGridViewComboBoxColumn col = new DataGridViewComboBoxColumn();
+            booksDataGridView.Columns.Add(col);*/
         }
 
         private void mainForm_Load(object sender, EventArgs e)
