@@ -130,6 +130,24 @@ namespace Library
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
+
+        private void passordPictureBox_Click(object sender, EventArgs e)
+        {
+            if (!clicked)
+            {
+                passordPictureBox.Image = Properties.Resources.visible_1_ as Bitmap;
+                passwordTextField.PasswordChar = '\0';
+                password2TextField.PasswordChar = '\0';
+                clicked = true;
+            }
+            else
+            {
+                passordPictureBox.Image = Properties.Resources.visible_2_ as Bitmap;
+                passwordTextField.PasswordChar = '*';
+                password2TextField.PasswordChar = '*';
+                clicked = false;
+            }
+        }
     }
 }
 

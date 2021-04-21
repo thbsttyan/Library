@@ -174,11 +174,11 @@
             this.booksDataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.booksDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.booksDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.booksDataGridView.Location = new System.Drawing.Point(0, 30);
+            this.booksDataGridView.Location = new System.Drawing.Point(2, 31);
             this.booksDataGridView.Name = "booksDataGridView";
             this.booksDataGridView.ReadOnly = true;
             this.booksDataGridView.RowHeadersWidth = 51;
-            this.booksDataGridView.Size = new System.Drawing.Size(1068, 407);
+            this.booksDataGridView.Size = new System.Drawing.Size(1032, 407);
             this.booksDataGridView.TabIndex = 5;
             this.booksDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksDataGridView_CellValueChanged);
             this.booksDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.booksDataGridView_DataError);
@@ -269,9 +269,9 @@
             this.booksPanel.Controls.Add(this.redactBooksCheckBox);
             this.booksPanel.Controls.Add(this.booksDataGridView);
             this.booksPanel.Controls.Add(this.addBookButton);
-            this.booksPanel.Location = new System.Drawing.Point(227, 93);
+            this.booksPanel.Location = new System.Drawing.Point(166, 93);
             this.booksPanel.Name = "booksPanel";
-            this.booksPanel.Size = new System.Drawing.Size(1035, 575);
+            this.booksPanel.Size = new System.Drawing.Size(1069, 575);
             this.booksPanel.TabIndex = 20;
             // 
             // redactBooksCheckBox
@@ -304,7 +304,7 @@
             this.readersPanel.Controls.Add(this.readerDataGridView);
             this.readersPanel.Location = new System.Drawing.Point(176, 52);
             this.readersPanel.Name = "readersPanel";
-            this.readersPanel.Size = new System.Drawing.Size(1022, 743);
+            this.readersPanel.Size = new System.Drawing.Size(1036, 743);
             this.readersPanel.TabIndex = 21;
             this.readersPanel.Visible = false;
             // 
@@ -469,6 +469,7 @@
             this.addPublisherButton.TabIndex = 6;
             this.addPublisherButton.Text = "Добавить издательство";
             this.addPublisherButton.UseVisualStyleBackColor = false;
+            this.addPublisherButton.Click += new System.EventHandler(this.addPublisherButton_Click);
             // 
             // publisherDataGridView
             // 

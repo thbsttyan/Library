@@ -58,6 +58,9 @@ namespace Library
             booksDataGridView.Columns[9].HeaderText = "Номер полки";
             booksDataGridView.Columns[10].HeaderText = "Ценаx";
             Ready = true;
+
+          /*  DataGridViewComboBoxColumn col = new DataGridViewComboBoxColumn();
+            booksDataGridView.Columns[5].*/
         }
 
         private void mainForm_Load(object sender, EventArgs e)
@@ -69,7 +72,7 @@ namespace Library
         {
            //nobooksDataGridView.Rows.Clear();
 
-            string connectString = "Data Source=.\\SQLEXPRESS;Initial Catalog=Library;" +
+            /*string connectString = "Data Source=.\\SQLEXPRESS;Initial Catalog=Library;" +
                 "Integrated Security=true;";
 
             SqlConnection myConnection = new SqlConnection(connectString);
@@ -106,7 +109,7 @@ namespace Library
             myConnection.Close();
 
             //foreach (string[] s in data)
-               // nobooksDataGridView.Rows.Add(s);
+               // nobooksDataGridView.Rows.Add(s);*/
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -468,6 +471,13 @@ namespace Library
         private void readerDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //readerDataGridView.ClearSelection();
+        }
+
+        private void addPublisherButton_Click(object sender, EventArgs e)
+        {
+            PublisherForm f = new PublisherForm();
+            f.Owner = this;
+            f.ShowDialog();
         }
     }
 }

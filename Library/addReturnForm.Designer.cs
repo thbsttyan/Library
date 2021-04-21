@@ -37,12 +37,12 @@
             this.panel = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.exitButton = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.booksComboBox = new System.Windows.Forms.ComboBox();
-            this.addReaderButton = new System.Windows.Forms.Button();
+            this.addReturnButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.selectReaderDataGridView = new System.Windows.Forms.DataGridView();
+            this.exitButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.readerDataGridView)).BeginInit();
             this.panel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -124,23 +124,6 @@
             this.panel4.Size = new System.Drawing.Size(29, 448);
             this.panel4.TabIndex = 19;
             // 
-            // exitButton
-            // 
-            this.exitButton.BackColor = System.Drawing.Color.PowderBlue;
-            this.exitButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("exitButton.BackgroundImage")));
-            this.exitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.exitButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exitButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.exitButton.ForeColor = System.Drawing.Color.PowderBlue;
-            this.exitButton.ImageKey = "(отсутствует)";
-            this.exitButton.Location = new System.Drawing.Point(474, 3);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(19, 20);
-            this.exitButton.TabIndex = 17;
-            this.exitButton.UseVisualStyleBackColor = false;
-            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
-            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Black;
@@ -161,19 +144,19 @@
             this.booksComboBox.TabIndex = 59;
             this.booksComboBox.Text = "Выберите книгу";
             // 
-            // addReaderButton
+            // addReturnButton
             // 
-            this.addReaderButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.addReaderButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addReaderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addReaderButton.Font = new System.Drawing.Font("Bahnschrift Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addReaderButton.Location = new System.Drawing.Point(95, 150);
-            this.addReaderButton.Name = "addReaderButton";
-            this.addReaderButton.Size = new System.Drawing.Size(142, 33);
-            this.addReaderButton.TabIndex = 54;
-            this.addReaderButton.Text = "Вернуть книгу";
-            this.addReaderButton.UseVisualStyleBackColor = false;
-            this.addReaderButton.Click += new System.EventHandler(this.addReaderButton_Click);
+            this.addReturnButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.addReturnButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addReturnButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addReturnButton.Font = new System.Drawing.Font("Bahnschrift Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addReturnButton.Location = new System.Drawing.Point(95, 150);
+            this.addReturnButton.Name = "addReturnButton";
+            this.addReturnButton.Size = new System.Drawing.Size(142, 33);
+            this.addReturnButton.TabIndex = 54;
+            this.addReturnButton.Text = "Вернуть книгу";
+            this.addReturnButton.UseVisualStyleBackColor = false;
+            this.addReturnButton.Click += new System.EventHandler(this.addReturnButton_Click);
             // 
             // panel2
             // 
@@ -194,6 +177,23 @@
             this.selectReaderDataGridView.Size = new System.Drawing.Size(100, 72);
             this.selectReaderDataGridView.TabIndex = 70;
             // 
+            // exitButton
+            // 
+            this.exitButton.BackColor = System.Drawing.Color.PowderBlue;
+            this.exitButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("exitButton.BackgroundImage")));
+            this.exitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.exitButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.exitButton.ForeColor = System.Drawing.Color.PowderBlue;
+            this.exitButton.ImageKey = "(отсутствует)";
+            this.exitButton.Location = new System.Drawing.Point(474, 3);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(19, 20);
+            this.exitButton.TabIndex = 17;
+            this.exitButton.UseVisualStyleBackColor = false;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
             // addReturnForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -206,7 +206,7 @@
             this.Controls.Add(this.panel);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.booksComboBox);
-            this.Controls.Add(this.addReaderButton);
+            this.Controls.Add(this.addReturnButton);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "addReturnForm";
@@ -233,7 +233,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         public System.Windows.Forms.ComboBox booksComboBox;
-        private System.Windows.Forms.Button addReaderButton;
+        private System.Windows.Forms.Button addReturnButton;
         private System.Windows.Forms.Panel panel2;
         public System.Windows.Forms.DataGridView selectReaderDataGridView;
     }

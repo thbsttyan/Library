@@ -95,7 +95,25 @@ namespace Library
             //TODO
         }
 
-       
+        public static bool phoneCheck(string s)
+        {
+            bool isMat = false;
+
+            Regex reg1 = new Regex(@"^((\+)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,11}$");
+            if (reg1.IsMatch(s))
+            {
+                isMat = true;
+            }
+            else
+            {
+                isMat = false;
+            }
+
+            return isMat;
+            //TODO
+        }
+
+
         private void addReaderButton_Click(object sender, EventArgs e)
         {
             if (surnameTextField.Text != ""&&(OnlyLetters(surnameTextField.Text)) 
@@ -103,9 +121,9 @@ namespace Library
                 && patronymicTextField.Text != "" && OnlyLetters(patronymicTextField.Text)
                 && (OnlyLetters(positionTextField.Text) || positionTextField.Text == "")
                 && (groupCheck(groupTextField.Text) || groupTextField.Text == "")
-                && (numCheck(numberTextField.Text) || numberTextField.Text == "")
+                && (phoneCheck(numberTextField.Text) || numberTextField.Text == "")
                 && (OnlyLetters(townTextField.Text) || townTextField.Text == "")
-                && (OnlyNumbers(passportTextField.Text) && passportTextField.Text != ""))
+                && (numCheck(passportTextField.Text) && passportTextField.Text != ""))
             {
 
 
@@ -133,8 +151,8 @@ namespace Library
 
                     MessageBox.Show("Новый читатель добавлен!");
                 }
-                
 
+                this.Close();
             }
             else
             {
@@ -150,7 +168,7 @@ namespace Library
                 main.readerDataGridView.DataSource = s.Select("SELECT * FROM Readers");
             }
 
-            this.Close();
+            
         }
 
         private void exitButton_Click(object sender, EventArgs e)
