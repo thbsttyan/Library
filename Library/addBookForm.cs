@@ -115,13 +115,13 @@ namespace Library
         private void addBookButton_Click(object sender, EventArgs e)
         {
             
-            if (nameTextField.Text!="" && authorTextField.Text != "" && OnlyLetters(authorTextField.Text) && isbnCheck(isbnTextField.Text)
+            if (nameTextField.Text!="" && (authorTextField.Text != "" || OnlyLetters(authorTextField.Text))
                 && (OnlyLetters(genreTextField.Text) || genreTextField.Text=="")
                 && (isbnCheck(isbnTextField.Text) || isbnTextField.Text=="") 
                 && (OnlyNumbers(pagesTextField.Text) || pagesTextField.Text == "")
                 && (OnlyNumbers(lockerTextField.Text) || lockerTextField.Text=="")
                 && (OnlyNumbers(shelfTextField.Text) || shelfTextField.Text=="")
-                && (priceCheck(priceTextField.Text)) || priceTextField.Text=="")
+                && (priceCheck(priceTextField.Text) || priceTextField.Text==""))
             {
                 
 
@@ -162,7 +162,23 @@ namespace Library
                     MessageBox.Show("Книга добавлена!");
                 }
 
+                mainForm f = new mainForm();
+                if (f.booksDataGridView != null)
+                {
+                    f.booksDataGridView.Columns[1].HeaderText = "Название";
+                    f.booksDataGridView.Columns[2].HeaderText = "Автор";
+                    f.booksDataGridView.Columns[3].HeaderText = "Жанр";
+                    f.booksDataGridView.Columns[4].HeaderText = "Тип";
+                    f.booksDataGridView.Columns[5].HeaderText = "Издательство";
+                    f.booksDataGridView.Columns[6].HeaderText = "Страницы";
+                    f.booksDataGridView.Columns[8].HeaderText = "Номер шкафа";
+                    f.booksDataGridView.Columns[9].HeaderText = "Номер полки";
+                    f.booksDataGridView.Columns[10].HeaderText = "Цена";
+                    f.booksDataGridView.Columns[11].HeaderText = "Статус";
+                }
                 
+
+                this.Close();
             }
             else
             {
@@ -178,7 +194,6 @@ namespace Library
                 main.booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
             }
 
-            this.Close();
         }
 
 

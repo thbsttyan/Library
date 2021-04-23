@@ -172,10 +172,8 @@
     <None Include="Resources\books_icon_131785.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\visible%281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\visible%282%29.png" />
+    <Content Include="Resources\visible%281%29.png" />
+    <Content Include="Resources\visible%282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

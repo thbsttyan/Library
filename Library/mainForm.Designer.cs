@@ -37,6 +37,7 @@
             this.addBookButton = new System.Windows.Forms.Button();
             this.booksDataGridView = new System.Windows.Forms.DataGridView();
             this.panel = new System.Windows.Forms.Panel();
+            this.passordPictureBox = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.exitButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -44,6 +45,9 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.newRegistrationButton = new System.Windows.Forms.Button();
             this.booksPanel = new System.Windows.Forms.Panel();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.searchTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.redactBooksCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
             this.readersPanel = new System.Windows.Forms.Panel();
             this.chronologyDataGridView = new System.Windows.Forms.DataGridView();
@@ -58,11 +62,10 @@
             this.redactPublishersCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
             this.addPublisherButton = new System.Windows.Forms.Button();
             this.publisherDataGridView = new System.Windows.Forms.DataGridView();
-            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.booksDataGridView)).BeginInit();
             this.panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.passordPictureBox)).BeginInit();
             this.booksPanel.SuspendLayout();
             this.readersPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chronologyDataGridView)).BeginInit();
@@ -80,9 +83,9 @@
             this.panel2.Controls.Add(this.readersButton);
             this.panel2.Controls.Add(this.publisherButton);
             this.panel2.Controls.Add(this.bookButton);
-            this.panel2.Location = new System.Drawing.Point(-3, 0);
+            this.panel2.Location = new System.Drawing.Point(-3, 55);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(161, 853);
+            this.panel2.Size = new System.Drawing.Size(161, 798);
             this.panel2.TabIndex = 1;
             // 
             // registrationButton
@@ -94,7 +97,7 @@
             this.registrationButton.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.registrationButton.Image = ((System.Drawing.Image)(resources.GetObject("registrationButton.Image")));
             this.registrationButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.registrationButton.Location = new System.Drawing.Point(-2, 323);
+            this.registrationButton.Location = new System.Drawing.Point(-2, 262);
             this.registrationButton.Name = "registrationButton";
             this.registrationButton.Size = new System.Drawing.Size(162, 78);
             this.registrationButton.TabIndex = 5;
@@ -111,7 +114,7 @@
             this.readersButton.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.readersButton.Image = ((System.Drawing.Image)(resources.GetObject("readersButton.Image")));
             this.readersButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.readersButton.Location = new System.Drawing.Point(-2, 141);
+            this.readersButton.Location = new System.Drawing.Point(-2, 80);
             this.readersButton.Name = "readersButton";
             this.readersButton.Size = new System.Drawing.Size(162, 78);
             this.readersButton.TabIndex = 4;
@@ -128,7 +131,7 @@
             this.publisherButton.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.publisherButton.Image = ((System.Drawing.Image)(resources.GetObject("publisherButton.Image")));
             this.publisherButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.publisherButton.Location = new System.Drawing.Point(-2, 219);
+            this.publisherButton.Location = new System.Drawing.Point(-2, 158);
             this.publisherButton.Name = "publisherButton";
             this.publisherButton.Size = new System.Drawing.Size(162, 78);
             this.publisherButton.TabIndex = 3;
@@ -145,7 +148,7 @@
             this.bookButton.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bookButton.Image = ((System.Drawing.Image)(resources.GetObject("bookButton.Image")));
             this.bookButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bookButton.Location = new System.Drawing.Point(-2, 63);
+            this.bookButton.Location = new System.Drawing.Point(-2, 2);
             this.bookButton.Name = "bookButton";
             this.bookButton.Size = new System.Drawing.Size(162, 78);
             this.bookButton.TabIndex = 2;
@@ -156,13 +159,13 @@
             // 
             // addBookButton
             // 
-            this.addBookButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.addBookButton.BackColor = System.Drawing.Color.PowderBlue;
             this.addBookButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addBookButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addBookButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addBookButton.Location = new System.Drawing.Point(2, 2);
             this.addBookButton.Name = "addBookButton";
-            this.addBookButton.Size = new System.Drawing.Size(116, 23);
+            this.addBookButton.Size = new System.Drawing.Size(156, 23);
             this.addBookButton.TabIndex = 0;
             this.addBookButton.Text = "Добавить книгу";
             this.addBookButton.UseVisualStyleBackColor = false;
@@ -174,11 +177,11 @@
             this.booksDataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.booksDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.booksDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.booksDataGridView.Location = new System.Drawing.Point(2, 31);
+            this.booksDataGridView.Location = new System.Drawing.Point(2, 33);
             this.booksDataGridView.Name = "booksDataGridView";
             this.booksDataGridView.ReadOnly = true;
             this.booksDataGridView.RowHeadersWidth = 51;
-            this.booksDataGridView.Size = new System.Drawing.Size(1032, 407);
+            this.booksDataGridView.Size = new System.Drawing.Size(1079, 407);
             this.booksDataGridView.TabIndex = 5;
             this.booksDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksDataGridView_CellValueChanged);
             this.booksDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.booksDataGridView_DataError);
@@ -187,13 +190,24 @@
             // 
             this.panel.BackColor = System.Drawing.Color.PowderBlue;
             this.panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel.Controls.Add(this.passordPictureBox);
             this.panel.Controls.Add(this.panel4);
             this.panel.Controls.Add(this.exitButton);
             this.panel.Location = new System.Drawing.Point(0, 0);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(1250, 23);
+            this.panel.Size = new System.Drawing.Size(1250, 57);
             this.panel.TabIndex = 10;
             this.panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
+            // 
+            // passordPictureBox
+            // 
+            this.passordPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("passordPictureBox.Image")));
+            this.passordPictureBox.Location = new System.Drawing.Point(5, 5);
+            this.passordPictureBox.Name = "passordPictureBox";
+            this.passordPictureBox.Size = new System.Drawing.Size(153, 51);
+            this.passordPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.passordPictureBox.TabIndex = 38;
+            this.passordPictureBox.TabStop = false;
             // 
             // panel4
             // 
@@ -214,7 +228,7 @@
             this.exitButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.exitButton.ForeColor = System.Drawing.Color.PowderBlue;
             this.exitButton.ImageKey = "(отсутствует)";
-            this.exitButton.Location = new System.Drawing.Point(1218, 3);
+            this.exitButton.Location = new System.Drawing.Point(1220, 2);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(19, 20);
             this.exitButton.TabIndex = 11;
@@ -253,7 +267,7 @@
             this.newRegistrationButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.newRegistrationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.newRegistrationButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.newRegistrationButton.Location = new System.Drawing.Point(164, 801);
+            this.newRegistrationButton.Location = new System.Drawing.Point(164, 860);
             this.newRegistrationButton.Name = "newRegistrationButton";
             this.newRegistrationButton.Size = new System.Drawing.Size(208, 45);
             this.newRegistrationButton.TabIndex = 19;
@@ -264,28 +278,74 @@
             // booksPanel
             // 
             this.booksPanel.BackColor = System.Drawing.SystemColors.Control;
-            this.booksPanel.Controls.Add(this.button1);
-            this.booksPanel.Controls.Add(this.materialSingleLineTextField1);
+            this.booksPanel.Controls.Add(this.cancelButton);
+            this.booksPanel.Controls.Add(this.searchButton);
+            this.booksPanel.Controls.Add(this.searchTextField);
             this.booksPanel.Controls.Add(this.redactBooksCheckBox);
             this.booksPanel.Controls.Add(this.booksDataGridView);
             this.booksPanel.Controls.Add(this.addBookButton);
-            this.booksPanel.Location = new System.Drawing.Point(166, 93);
+            this.booksPanel.Location = new System.Drawing.Point(158, 56);
             this.booksPanel.Name = "booksPanel";
-            this.booksPanel.Size = new System.Drawing.Size(1069, 575);
+            this.booksPanel.Size = new System.Drawing.Size(1082, 575);
             this.booksPanel.TabIndex = 20;
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.BackColor = System.Drawing.Color.PowderBlue;
+            this.cancelButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cancelButton.Location = new System.Drawing.Point(998, 2);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(83, 23);
+            this.cancelButton.TabIndex = 26;
+            this.cancelButton.Text = "Сброс";
+            this.cancelButton.UseVisualStyleBackColor = false;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // searchButton
+            // 
+            this.searchButton.BackColor = System.Drawing.Color.PowderBlue;
+            this.searchButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.searchButton.Location = new System.Drawing.Point(640, 3);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(83, 23);
+            this.searchButton.TabIndex = 25;
+            this.searchButton.Text = "Поиск";
+            this.searchButton.UseVisualStyleBackColor = false;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
+            // searchTextField
+            // 
+            this.searchTextField.Depth = 0;
+            this.searchTextField.Hint = "Введите название книги";
+            this.searchTextField.Location = new System.Drawing.Point(375, 4);
+            this.searchTextField.MaxLength = 32767;
+            this.searchTextField.MouseState = MaterialSkin.MouseState.HOVER;
+            this.searchTextField.Name = "searchTextField";
+            this.searchTextField.PasswordChar = '\0';
+            this.searchTextField.SelectedText = "";
+            this.searchTextField.SelectionLength = 0;
+            this.searchTextField.SelectionStart = 0;
+            this.searchTextField.Size = new System.Drawing.Size(262, 28);
+            this.searchTextField.TabIndex = 24;
+            this.searchTextField.TabStop = false;
+            this.searchTextField.UseSystemPasswordChar = false;
             // 
             // redactBooksCheckBox
             // 
             this.redactBooksCheckBox.AutoSize = true;
             this.redactBooksCheckBox.Depth = 0;
             this.redactBooksCheckBox.Font = new System.Drawing.Font("Roboto", 10F);
-            this.redactBooksCheckBox.Location = new System.Drawing.Point(140, -1);
+            this.redactBooksCheckBox.Location = new System.Drawing.Point(172, 1);
             this.redactBooksCheckBox.Margin = new System.Windows.Forms.Padding(0);
             this.redactBooksCheckBox.MouseLocation = new System.Drawing.Point(-1, -1);
             this.redactBooksCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
             this.redactBooksCheckBox.Name = "redactBooksCheckBox";
             this.redactBooksCheckBox.Ripple = true;
-            this.redactBooksCheckBox.Size = new System.Drawing.Size(186, 30);
+            this.redactBooksCheckBox.Size = new System.Drawing.Size(227, 30);
             this.redactBooksCheckBox.TabIndex = 23;
             this.redactBooksCheckBox.Text = "Режим редактирования";
             this.redactBooksCheckBox.UseVisualStyleBackColor = true;
@@ -302,9 +362,9 @@
             this.readersPanel.Controls.Add(this.redactReadersCheckBox);
             this.readersPanel.Controls.Add(this.addReaderButton);
             this.readersPanel.Controls.Add(this.readerDataGridView);
-            this.readersPanel.Location = new System.Drawing.Point(176, 52);
+            this.readersPanel.Location = new System.Drawing.Point(158, 56);
             this.readersPanel.Name = "readersPanel";
-            this.readersPanel.Size = new System.Drawing.Size(1036, 743);
+            this.readersPanel.Size = new System.Drawing.Size(1082, 734);
             this.readersPanel.TabIndex = 21;
             this.readersPanel.Visible = false;
             // 
@@ -314,21 +374,21 @@
             this.chronologyDataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.chronologyDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chronologyDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.chronologyDataGridView.Location = new System.Drawing.Point(519, 271);
+            this.chronologyDataGridView.Location = new System.Drawing.Point(501, 271);
             this.chronologyDataGridView.Name = "chronologyDataGridView";
             this.chronologyDataGridView.ReadOnly = true;
             this.chronologyDataGridView.RowHeadersWidth = 51;
-            this.chronologyDataGridView.Size = new System.Drawing.Size(540, 349);
+            this.chronologyDataGridView.Size = new System.Drawing.Size(581, 349);
             this.chronologyDataGridView.TabIndex = 29;
             this.chronologyDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
             // lendingbutton
             // 
-            this.lendingbutton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lendingbutton.BackColor = System.Drawing.Color.PowderBlue;
             this.lendingbutton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lendingbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lendingbutton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lendingbutton.Location = new System.Drawing.Point(3, 245);
+            this.lendingbutton.Location = new System.Drawing.Point(2, 245);
             this.lendingbutton.Name = "lendingbutton";
             this.lendingbutton.Size = new System.Drawing.Size(104, 23);
             this.lendingbutton.TabIndex = 28;
@@ -352,7 +412,7 @@
             // 
             // addReturnButton
             // 
-            this.addReturnButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.addReturnButton.BackColor = System.Drawing.Color.PowderBlue;
             this.addReturnButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addReturnButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addReturnButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -382,13 +442,13 @@
             this.redactReadersCheckBox.AutoSize = true;
             this.redactReadersCheckBox.Depth = 0;
             this.redactReadersCheckBox.Font = new System.Drawing.Font("Roboto", 10F);
-            this.redactReadersCheckBox.Location = new System.Drawing.Point(169, 2);
+            this.redactReadersCheckBox.Location = new System.Drawing.Point(172, 2);
             this.redactReadersCheckBox.Margin = new System.Windows.Forms.Padding(0);
             this.redactReadersCheckBox.MouseLocation = new System.Drawing.Point(-1, -1);
             this.redactReadersCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
             this.redactReadersCheckBox.Name = "redactReadersCheckBox";
             this.redactReadersCheckBox.Ripple = true;
-            this.redactReadersCheckBox.Size = new System.Drawing.Size(186, 30);
+            this.redactReadersCheckBox.Size = new System.Drawing.Size(227, 30);
             this.redactReadersCheckBox.TabIndex = 24;
             this.redactReadersCheckBox.Text = "Режим редактирования";
             this.redactReadersCheckBox.UseVisualStyleBackColor = true;
@@ -396,7 +456,7 @@
             // 
             // addReaderButton
             // 
-            this.addReaderButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.addReaderButton.BackColor = System.Drawing.Color.PowderBlue;
             this.addReaderButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addReaderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addReaderButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -434,7 +494,7 @@
             this.publishersPanel.Controls.Add(this.redactPublishersCheckBox);
             this.publishersPanel.Controls.Add(this.addPublisherButton);
             this.publishersPanel.Controls.Add(this.publisherDataGridView);
-            this.publishersPanel.Location = new System.Drawing.Point(159, 22);
+            this.publishersPanel.Location = new System.Drawing.Point(158, 56);
             this.publishersPanel.Name = "publishersPanel";
             this.publishersPanel.Size = new System.Drawing.Size(1018, 558);
             this.publishersPanel.TabIndex = 22;
@@ -451,7 +511,7 @@
             this.redactPublishersCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
             this.redactPublishersCheckBox.Name = "redactPublishersCheckBox";
             this.redactPublishersCheckBox.Ripple = true;
-            this.redactPublishersCheckBox.Size = new System.Drawing.Size(186, 30);
+            this.redactPublishersCheckBox.Size = new System.Drawing.Size(227, 30);
             this.redactPublishersCheckBox.TabIndex = 24;
             this.redactPublishersCheckBox.Text = "Режим редактирования";
             this.redactPublishersCheckBox.UseVisualStyleBackColor = true;
@@ -459,7 +519,7 @@
             // 
             // addPublisherButton
             // 
-            this.addPublisherButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.addPublisherButton.BackColor = System.Drawing.Color.PowderBlue;
             this.addPublisherButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addPublisherButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addPublisherButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -486,36 +546,6 @@
             this.publisherDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.publisherDataGridView_CellValueChanged);
             this.publisherDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.publisherDataGridView_DataError);
             // 
-            // materialSingleLineTextField1
-            // 
-            this.materialSingleLineTextField1.Depth = 0;
-            this.materialSingleLineTextField1.Hint = "Введите название книги";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(372, 3);
-            this.materialSingleLineTextField1.MaxLength = 32767;
-            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
-            this.materialSingleLineTextField1.PasswordChar = '\0';
-            this.materialSingleLineTextField1.SelectedText = "";
-            this.materialSingleLineTextField1.SelectionLength = 0;
-            this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(262, 23);
-            this.materialSingleLineTextField1.TabIndex = 24;
-            this.materialSingleLineTextField1.TabStop = false;
-            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(640, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(83, 23);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "Поиск";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -541,6 +571,7 @@
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.booksDataGridView)).EndInit();
             this.panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.passordPictureBox)).EndInit();
             this.booksPanel.ResumeLayout(false);
             this.booksPanel.PerformLayout();
             this.readersPanel.ResumeLayout(false);
@@ -586,7 +617,9 @@
         public System.Windows.Forms.DataGridView lendingDataGridView;
         private System.Windows.Forms.Button lendingbutton;
         public System.Windows.Forms.DataGridView chronologyDataGridView;
-        private System.Windows.Forms.Button button1;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
+        private System.Windows.Forms.Button searchButton;
+        private MaterialSkin.Controls.MaterialSingleLineTextField searchTextField;
+        private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.PictureBox passordPictureBox;
     }
 }

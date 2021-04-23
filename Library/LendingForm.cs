@@ -185,6 +185,15 @@ namespace Library
                 MessageBox.Show("Книга уже взята!");
             }
 
+            if (main.lendingDataGridView != null)
+            {
+                main.lendingDataGridView.Columns[0].HeaderText = "id";
+                main.lendingDataGridView.Columns[1].HeaderText = "id читателя";
+                main.lendingDataGridView.Columns[2].HeaderText = "id книги";
+                main.lendingDataGridView.Columns[3].HeaderText = "Название книги";
+                main.lendingDataGridView.Columns[4].HeaderText = "Дата выдачи";
+            }
+
             this.Close();
         }
 

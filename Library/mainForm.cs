@@ -46,17 +46,75 @@ namespace Library
             returnDataGridView.DataSource = s.Select("Select * from ReturnBook");
 
             chronologyDataGridView.DataSource = s.Select("Select * from Chronology");
-            //LoadData();
 
-            booksDataGridView.Columns[1].HeaderText = "Название";
-            booksDataGridView.Columns[2].HeaderText = "Автор";
-            booksDataGridView.Columns[3].HeaderText = "Жанр";
-            booksDataGridView.Columns[4].HeaderText = "Тип";
-            booksDataGridView.Columns[5].HeaderText = "Издательство";
-            booksDataGridView.Columns[6].HeaderText = "Страницы";
-            booksDataGridView.Columns[8].HeaderText = "Номер шкафа";
-            booksDataGridView.Columns[9].HeaderText = "Номер полки";
-            booksDataGridView.Columns[10].HeaderText = "Ценаx";
+            //Книги
+            if (booksDataGridView != null)
+            {
+                booksDataGridView.Columns[1].HeaderText = "Название";
+                booksDataGridView.Columns[2].HeaderText = "Автор";
+                booksDataGridView.Columns[3].HeaderText = "Жанр";
+                booksDataGridView.Columns[4].HeaderText = "Тип";
+                booksDataGridView.Columns[5].HeaderText = "Издательство";
+                booksDataGridView.Columns[6].HeaderText = "Страницы";
+                booksDataGridView.Columns[8].HeaderText = "Номер шкафа";
+                booksDataGridView.Columns[9].HeaderText = "Номер полки";
+                booksDataGridView.Columns[10].HeaderText = "Цена";
+                booksDataGridView.Columns[11].HeaderText = "Статус";
+            }
+            //Читатели
+            if (readerDataGridView != null)
+            {
+                readerDataGridView.Columns[0].HeaderText = "id";
+                readerDataGridView.Columns[1].HeaderText = "Фамилия";
+                readerDataGridView.Columns[2].HeaderText = "Имя";
+                readerDataGridView.Columns[3].HeaderText = "Отчество";
+                readerDataGridView.Columns[4].HeaderText = "Должность";
+                readerDataGridView.Columns[5].HeaderText = "Группа";
+                readerDataGridView.Columns[6].HeaderText = "Номер телефона";
+                readerDataGridView.Columns[7].HeaderText = "Город";
+                readerDataGridView.Columns[8].HeaderText = "Номер паспорта";
+            }
+            //выдачи
+            if (lendingDataGridView != null)
+            {
+                lendingDataGridView.Columns[0].HeaderText = "id";
+                lendingDataGridView.Columns[1].HeaderText = "id читателя";
+                lendingDataGridView.Columns[2].HeaderText = "id книги";
+                lendingDataGridView.Columns[3].HeaderText = "Название книги";
+                lendingDataGridView.Columns[4].HeaderText = "Дата выдачи";
+            }
+            //возвраты
+            if (returnDataGridView != null)
+            {
+                returnDataGridView.Columns[0].HeaderText = "id";
+                returnDataGridView.Columns[1].HeaderText = "id читателя";
+                returnDataGridView.Columns[2].HeaderText = "id книги";
+                returnDataGridView.Columns[3].HeaderText = "Название книги";
+                returnDataGridView.Columns[4].HeaderText = "Дата возврата";
+            }
+            //хронология
+            if (chronologyDataGridView != null)
+            {
+                chronologyDataGridView.Columns[0].HeaderText = "id";
+                chronologyDataGridView.Columns[1].HeaderText = "id читателя";
+                chronologyDataGridView.Columns[2].HeaderText = "id книги";
+                chronologyDataGridView.Columns[3].HeaderText = "Название книги";
+                chronologyDataGridView.Columns[4].HeaderText = "Дата выдачи/возврата";
+                chronologyDataGridView.Columns[5].HeaderText = "Вид операции";
+            }
+            if (publisherDataGridView != null)
+            {
+                //Издательства
+                publisherDataGridView.Columns[0].HeaderText = "id";
+                publisherDataGridView.Columns[1].HeaderText = "Издательство";
+                publisherDataGridView.Columns[2].HeaderText = "Компания";
+                publisherDataGridView.Columns[3].HeaderText = "Адрес";
+                publisherDataGridView.Columns[4].HeaderText = "Город";
+                publisherDataGridView.Columns[5].HeaderText = "Номер телефона";
+                publisherDataGridView.Columns[6].HeaderText = "Рейтинг";
+                publisherDataGridView.Columns[7].HeaderText = "Дата добавления";
+            }
+
             Ready = true;
 
           /* DataGridViewComboBoxColumn col = new DataGridViewComboBoxColumn();
@@ -478,6 +536,18 @@ namespace Library
             PublisherForm f = new PublisherForm();
             f.Owner = this;
             f.ShowDialog();
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            Sql s = new Sql();
+            booksDataGridView.DataSource = s.Select($"SELECT * FROM Books where name = '{searchTextField.Text}'");
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            Sql s = new Sql();
+            booksDataGridView.DataSource = s.Select($"SELECT * FROM Books");
         }
     }
 }

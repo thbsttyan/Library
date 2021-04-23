@@ -267,6 +267,15 @@ namespace Library
                 }
             }
 
+            if (main.returnDataGridView != null)
+            {
+                main.returnDataGridView.Columns[0].HeaderText = "id";
+                main.returnDataGridView.Columns[1].HeaderText = "id читателя";
+                main.returnDataGridView.Columns[2].HeaderText = "id книги";
+                main.returnDataGridView.Columns[3].HeaderText = "Название книги";
+                main.returnDataGridView.Columns[4].HeaderText = "Дата возврата";
+            }
+
             this.Close();
         }
     }

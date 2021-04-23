@@ -103,6 +103,7 @@ namespace Library
 
         private void addPublisherButton_Click(object sender, EventArgs e)
         {
+            mainForm main = this.Owner as mainForm;
             if (publisherTextField.Text != ""
                && (phoneCheck(numberTextField.Text) || numberTextField.Text == "")
                && (OnlyLetters(townTextField.Text) || townTextField.Text == "")
@@ -135,6 +136,19 @@ namespace Library
                     MessageBox.Show("Новое издательство добавлено!");
                 }
 
+                if (main.publisherDataGridView != null)
+                {
+                    //Издательства
+                    main.publisherDataGridView.Columns[0].HeaderText = "id";
+                    main.publisherDataGridView.Columns[1].HeaderText = "Издательство";
+                    main.publisherDataGridView.Columns[2].HeaderText = "Компания";
+                    main.publisherDataGridView.Columns[3].HeaderText = "Адрес";
+                    main.publisherDataGridView.Columns[4].HeaderText = "Город";
+                    main.publisherDataGridView.Columns[5].HeaderText = "Номер телефона";
+                    main.publisherDataGridView.Columns[6].HeaderText = "Рейтинг";
+                    main.publisherDataGridView.Columns[7].HeaderText = "Дата добавления";
+                }
+
                 this.Close();
 
             }
@@ -146,13 +160,18 @@ namespace Library
             Sql s = new Sql();
             // mf.booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
 
-            mainForm main = this.Owner as mainForm;
+            
             if (main != null)
             {
                 main.publisherDataGridView.DataSource = s.Select("SELECT * FROM Publishers");
             }
 
             //this.Close();
+        }
+
+        private void PublisherForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

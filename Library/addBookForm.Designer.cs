@@ -44,32 +44,35 @@
             this.priceTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.panel = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.exitButton = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pubDataGridView = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.passordPictureBox = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pubDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passordPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.PowderBlue;
             this.panel2.Controls.Add(this.panel3);
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Location = new System.Drawing.Point(0, 50);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(119, 518);
+            this.panel2.Size = new System.Drawing.Size(162, 500);
             this.panel2.TabIndex = 2;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Black;
-            this.panel3.Location = new System.Drawing.Point(-35, 22);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Location = new System.Drawing.Point(-35, 3);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(39, 551);
             this.panel3.TabIndex = 18;
@@ -77,12 +80,12 @@
             // 
             // addBookButton
             // 
-            this.addBookButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.addBookButton.BackColor = System.Drawing.Color.PowderBlue;
             this.addBookButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addBookButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addBookButton.Font = new System.Drawing.Font("Bahnschrift Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addBookButton.Location = new System.Drawing.Point(492, 464);
-            this.addBookButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addBookButton.Location = new System.Drawing.Point(543, 497);
+            this.addBookButton.Margin = new System.Windows.Forms.Padding(4);
             this.addBookButton.Name = "addBookButton";
             this.addBookButton.Size = new System.Drawing.Size(155, 41);
             this.addBookButton.TabIndex = 3;
@@ -95,8 +98,8 @@
             this.nameTextField.Depth = 0;
             this.nameTextField.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.nameTextField.Hint = "Название";
-            this.nameTextField.Location = new System.Drawing.Point(128, 36);
-            this.nameTextField.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nameTextField.Location = new System.Drawing.Point(175, 74);
+            this.nameTextField.Margin = new System.Windows.Forms.Padding(4);
             this.nameTextField.MaxLength = 32767;
             this.nameTextField.MouseState = MaterialSkin.MouseState.HOVER;
             this.nameTextField.Name = "nameTextField";
@@ -114,8 +117,8 @@
             this.authorTextField.Depth = 0;
             this.authorTextField.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.authorTextField.Hint = "Автор";
-            this.authorTextField.Location = new System.Drawing.Point(128, 87);
-            this.authorTextField.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.authorTextField.Location = new System.Drawing.Point(175, 125);
+            this.authorTextField.Margin = new System.Windows.Forms.Padding(4);
             this.authorTextField.MaxLength = 32767;
             this.authorTextField.MouseState = MaterialSkin.MouseState.HOVER;
             this.authorTextField.Name = "authorTextField";
@@ -133,8 +136,8 @@
             this.genreTextField.Depth = 0;
             this.genreTextField.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.genreTextField.Hint = "Жанр";
-            this.genreTextField.Location = new System.Drawing.Point(128, 143);
-            this.genreTextField.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.genreTextField.Location = new System.Drawing.Point(175, 181);
+            this.genreTextField.Margin = new System.Windows.Forms.Padding(4);
             this.genreTextField.MaxLength = 32767;
             this.genreTextField.MouseState = MaterialSkin.MouseState.HOVER;
             this.genreTextField.Name = "genreTextField";
@@ -155,8 +158,8 @@
             this.typeComboBox.Items.AddRange(new object[] {
             "Книга",
             "Журнал"});
-            this.typeComboBox.Location = new System.Drawing.Point(128, 194);
-            this.typeComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.typeComboBox.Location = new System.Drawing.Point(175, 232);
+            this.typeComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.typeComboBox.Name = "typeComboBox";
             this.typeComboBox.Size = new System.Drawing.Size(208, 32);
             this.typeComboBox.TabIndex = 10;
@@ -167,8 +170,8 @@
             this.publisherComboBox.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.publisherComboBox.ForeColor = System.Drawing.Color.Black;
             this.publisherComboBox.FormattingEnabled = true;
-            this.publisherComboBox.Location = new System.Drawing.Point(365, 194);
-            this.publisherComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.publisherComboBox.Location = new System.Drawing.Point(412, 232);
+            this.publisherComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.publisherComboBox.Name = "publisherComboBox";
             this.publisherComboBox.Size = new System.Drawing.Size(267, 32);
             this.publisherComboBox.TabIndex = 11;
@@ -179,8 +182,8 @@
             this.pagesTextField.Depth = 0;
             this.pagesTextField.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.pagesTextField.Hint = "Страницы";
-            this.pagesTextField.Location = new System.Drawing.Point(128, 263);
-            this.pagesTextField.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pagesTextField.Location = new System.Drawing.Point(175, 301);
+            this.pagesTextField.Margin = new System.Windows.Forms.Padding(4);
             this.pagesTextField.MaxLength = 32767;
             this.pagesTextField.MouseState = MaterialSkin.MouseState.HOVER;
             this.pagesTextField.Name = "pagesTextField";
@@ -198,8 +201,8 @@
             this.isbnTextField.Depth = 0;
             this.isbnTextField.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.isbnTextField.Hint = "ISBN";
-            this.isbnTextField.Location = new System.Drawing.Point(365, 263);
-            this.isbnTextField.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.isbnTextField.Location = new System.Drawing.Point(412, 301);
+            this.isbnTextField.Margin = new System.Windows.Forms.Padding(4);
             this.isbnTextField.MaxLength = 32767;
             this.isbnTextField.MouseState = MaterialSkin.MouseState.HOVER;
             this.isbnTextField.Name = "isbnTextField";
@@ -217,8 +220,8 @@
             this.lockerTextField.Depth = 0;
             this.lockerTextField.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lockerTextField.Hint = "Номер шкафа";
-            this.lockerTextField.Location = new System.Drawing.Point(128, 331);
-            this.lockerTextField.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lockerTextField.Location = new System.Drawing.Point(175, 369);
+            this.lockerTextField.Margin = new System.Windows.Forms.Padding(4);
             this.lockerTextField.MaxLength = 32767;
             this.lockerTextField.MouseState = MaterialSkin.MouseState.HOVER;
             this.lockerTextField.Name = "lockerTextField";
@@ -236,8 +239,8 @@
             this.shelfTextField.Depth = 0;
             this.shelfTextField.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.shelfTextField.Hint = "Номер полки";
-            this.shelfTextField.Location = new System.Drawing.Point(365, 331);
-            this.shelfTextField.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.shelfTextField.Location = new System.Drawing.Point(412, 369);
+            this.shelfTextField.Margin = new System.Windows.Forms.Padding(4);
             this.shelfTextField.MaxLength = 32767;
             this.shelfTextField.MouseState = MaterialSkin.MouseState.HOVER;
             this.shelfTextField.Name = "shelfTextField";
@@ -255,8 +258,8 @@
             this.priceTextField.Depth = 0;
             this.priceTextField.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.priceTextField.Hint = "Цена";
-            this.priceTextField.Location = new System.Drawing.Point(128, 400);
-            this.priceTextField.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.priceTextField.Location = new System.Drawing.Point(175, 438);
+            this.priceTextField.Margin = new System.Windows.Forms.Padding(4);
             this.priceTextField.MaxLength = 32767;
             this.priceTextField.MouseState = MaterialSkin.MouseState.HOVER;
             this.priceTextField.Name = "priceTextField";
@@ -273,14 +276,15 @@
             // 
             this.panel.BackColor = System.Drawing.Color.PowderBlue;
             this.panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel.Controls.Add(this.pictureBox1);
+            this.panel.Controls.Add(this.passordPictureBox);
             this.panel.Controls.Add(this.panel7);
-            this.panel.Controls.Add(this.panel4);
             this.panel.Controls.Add(this.panel1);
             this.panel.Controls.Add(this.exitButton);
             this.panel.Location = new System.Drawing.Point(0, 0);
-            this.panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel.Margin = new System.Windows.Forms.Padding(4);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(663, 28);
+            this.panel.Size = new System.Drawing.Size(705, 56);
             this.panel.TabIndex = 9;
             this.panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             // 
@@ -288,26 +292,17 @@
             // 
             this.panel7.BackColor = System.Drawing.Color.Black;
             this.panel7.Location = new System.Drawing.Point(1, -31);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(664, 34);
+            this.panel7.Size = new System.Drawing.Size(726, 34);
             this.panel7.TabIndex = 22;
             this.panel7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.Black;
-            this.panel4.Location = new System.Drawing.Point(659, -2);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(39, 551);
-            this.panel4.TabIndex = 19;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.Location = new System.Drawing.Point(-35, -4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(39, 551);
             this.panel1.TabIndex = 19;
@@ -322,8 +317,8 @@
             this.exitButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.exitButton.ForeColor = System.Drawing.Color.PowderBlue;
             this.exitButton.ImageKey = "(отсутствует)";
-            this.exitButton.Location = new System.Drawing.Point(632, 4);
-            this.exitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.exitButton.Location = new System.Drawing.Point(676, 3);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(4);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(25, 25);
             this.exitButton.TabIndex = 17;
@@ -333,8 +328,8 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Black;
-            this.panel5.Location = new System.Drawing.Point(659, -1);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel5.Location = new System.Drawing.Point(705, -1);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(39, 551);
             this.panel5.TabIndex = 20;
@@ -343,29 +338,51 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.Black;
-            this.panel6.Location = new System.Drawing.Point(0, 516);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel6.Location = new System.Drawing.Point(-31, 546);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(664, 34);
+            this.panel6.Size = new System.Drawing.Size(742, 34);
             this.panel6.TabIndex = 21;
             this.panel6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             // 
             // pubDataGridView
             // 
             this.pubDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.pubDataGridView.Location = new System.Drawing.Point(516, 41);
-            this.pubDataGridView.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pubDataGridView.Location = new System.Drawing.Point(545, 79);
+            this.pubDataGridView.Margin = new System.Windows.Forms.Padding(5);
             this.pubDataGridView.Name = "pubDataGridView";
             this.pubDataGridView.RowHeadersWidth = 51;
             this.pubDataGridView.Size = new System.Drawing.Size(133, 145);
             this.pubDataGridView.TabIndex = 35;
             this.pubDataGridView.Visible = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(6, 5);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(58, 47);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 42;
+            this.pictureBox1.TabStop = false;
+            // 
+            // passordPictureBox
+            // 
+            this.passordPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("passordPictureBox.Image")));
+            this.passordPictureBox.Location = new System.Drawing.Point(67, 5);
+            this.passordPictureBox.Margin = new System.Windows.Forms.Padding(4);
+            this.passordPictureBox.Name = "passordPictureBox";
+            this.passordPictureBox.Size = new System.Drawing.Size(95, 47);
+            this.passordPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.passordPictureBox.TabIndex = 41;
+            this.passordPictureBox.TabStop = false;
+            // 
             // addBookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(663, 519);
+            this.ClientSize = new System.Drawing.Size(708, 548);
             this.Controls.Add(this.pubDataGridView);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
@@ -384,7 +401,7 @@
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "addBookForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавление книги";
@@ -392,6 +409,8 @@
             this.panel2.ResumeLayout(false);
             this.panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pubDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passordPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -413,10 +432,11 @@
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         public System.Windows.Forms.DataGridView pubDataGridView;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox passordPictureBox;
     }
 }

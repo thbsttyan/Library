@@ -19,7 +19,7 @@ namespace Library
         {
             InitializeComponent();
 
-            readDateTimePicker.MaxDate = DateTime.Now;
+            //readDateTimePicker.MaxDate = DateTime.Now;
 
             Sql s = new Sql();
             readerDataGridView.DataSource = s.Select("Select * from Books");
@@ -34,7 +34,7 @@ namespace Library
             }
             //MessageBox.Show(combo[4]);
 
-            booksComboBox.Items.AddRange(combo);
+           // booksComboBox.Items.AddRange(combo);
 
             
         }
@@ -116,6 +116,7 @@ namespace Library
 
         private void addReaderButton_Click(object sender, EventArgs e)
         {
+            mainForm f = new mainForm();
             if (surnameTextField.Text != ""&&(OnlyLetters(surnameTextField.Text)) 
                 && nameTextField.Text != "" && OnlyLetters(nameTextField.Text)
                 && patronymicTextField.Text != "" && OnlyLetters(patronymicTextField.Text)
@@ -152,6 +153,19 @@ namespace Library
                     MessageBox.Show("Новый читатель добавлен!");
                 }
 
+                if (f.readerDataGridView != null)
+                {
+                    f.readerDataGridView.Columns[0].HeaderText = "id";
+                    f.readerDataGridView.Columns[1].HeaderText = "Фамилия";
+                    f.readerDataGridView.Columns[2].HeaderText = "Имя";
+                    f.readerDataGridView.Columns[3].HeaderText = "Отчество";
+                    f.readerDataGridView.Columns[4].HeaderText = "Должность";
+                    f.readerDataGridView.Columns[5].HeaderText = "Группа";
+                    f.readerDataGridView.Columns[6].HeaderText = "Номер телефона";
+                    f.readerDataGridView.Columns[7].HeaderText = "Город";
+                    f.readerDataGridView.Columns[8].HeaderText = "Номер паспорта";
+                }
+
                 this.Close();
             }
             else
@@ -178,7 +192,7 @@ namespace Library
 
         private void readDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            readDateTimePicker.MaxDate = DateTime.Now;
+            //readDateTimePicker.MaxDate = DateTime.Now;
         }
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
