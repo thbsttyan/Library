@@ -70,7 +70,7 @@ namespace Library
             selectedReader = Convert.ToInt32(main.readerDataGridView.SelectedRows[0].Cells[0].Value);
 
 
-           //MessageBox.Show("aaaaa= " + selectedReader.ToString());
+           MessageBox.Show("aaaaa= " + selectedReader.ToString());
 
 
                 if (booksComboBox.SelectedIndex == -1)
@@ -92,21 +92,21 @@ namespace Library
                 string connectString = "Data Source=.\\SQLEXPRESS;Initial Catalog=Library;" +
                     "Integrated Security=true;";
 
-           // MessageBox.Show("id_book = " + id_book );
-            for (int i = 0; i < main.booksDataGridView.Rows.Count - 1; i++)
+            MessageBox.Show("id_book = " + id_book );
+            for (int i = 0; i < main.booksDataGridView.Rows.Count; i++)//ВНИМАНИЕ! Возможна поломка в связи с удалением "-1" после main.booksDataGridView.Rows.Count. СПАСИБО ЗА ВНИАНИЕ!
             {
                 if (main.booksDataGridView[0, i].Value.ToString()==id_book )
                 {
                     if (main.booksDataGridView[11, i].Value.ToString() == "На руках")
                     {
                         BookOnHands = true;
-                        //MessageBox.Show("НАШЕЛ КНИГУ " + main.booksDataGridView[0, i].Value.ToString());
+                        MessageBox.Show("НАШЕЛ КНИГУ " + main.booksDataGridView[0, i].Value.ToString());
                     }
                     else
                     {
                         BookOnHands = false;
                     }
-                    //MessageBox.Show("нашел книгу " + main.booksDataGridView[0, i].Value.ToString());
+                    MessageBox.Show("нашел книгу " + main.booksDataGridView[0, i].Value.ToString());
                 }
                 
             }

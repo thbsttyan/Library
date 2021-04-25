@@ -148,9 +148,9 @@ namespace Library
 
                 
 
-                string sqlExpr = $"INSERT INTO Books (name, author, genre, type, publisher, pages, ISBN, locker, shelf, price) VALUES" +
+                string sqlExpr = $"INSERT INTO Books (name, author, genre, type, publisher, pages, ISBN, locker, shelf, price, status) VALUES" +
                     $" ('{nameTextField.Text}','{authorTextField.Text}','{genreTextField.Text}','{type}','{publisher}'," +
-                    $"'{pagesTextField.Text}','{isbnTextField.Text}','{lockerTextField.Text}','{shelfTextField.Text}','{priceTextField.Text}')";
+                    $"'{pagesTextField.Text}','{isbnTextField.Text}','{lockerTextField.Text}','{shelfTextField.Text}','{priceTextField.Text}', 'В библиотеке')";
 
                 using (SqlConnection c = new SqlConnection(connectString))
                 {

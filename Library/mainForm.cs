@@ -391,11 +391,13 @@ namespace Library
             if (redactReadersCheckBox.Checked)
             {
                 readerDataGridView.ReadOnly = false;
+                readerDataGridView.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect;
 
             }
             if (!redactReadersCheckBox.Checked)
             {
                 readerDataGridView.ReadOnly = true;
+                readerDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             }
         }
@@ -429,7 +431,7 @@ namespace Library
                     var value = readerDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
                     var id = readerDataGridView.Rows[e.RowIndex].Cells[0].Value;
 
-                    SqlCommand com = new SqlCommand($"UPDATE Readers set {column} = @value where id_reader = {id}", connection);
+                    SqlCommand com = new SqlCommand($"UPDATE Readers set [{column}] = @value where id_reader = {id}", connection);
 
                     com.Parameters.AddWithValue("@value", value);
                     com.ExecuteNonQuery();
