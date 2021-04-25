@@ -22,10 +22,13 @@ namespace Library
             readDateTimePicker.MaxDate = DateTime.Now;
 
             
+            
 
 
 
         }
+        public DateTime dateOfIssue;
+
         public int selectedID = 0;
         public int selectedLending = 0;
 
@@ -170,15 +173,126 @@ namespace Library
 
             }
             booksComboBox.Items.AddRange(combo2);
+
+            
+
+
         }
 
+
+        
         private void addReturnButton_Click(object sender, EventArgs e)
+        {
+            
+            mainForm main = this.Owner as mainForm;
+
+          
+            
+
+
+            
+            
+
+
+            /*if (readDateTimePicker.Value >= dateOfIssue)
+            {*/
+
+            string connectString = "Data Source=.\\SQLEXPRESS;Initial Catalog=Library;" +
+                    "Integrated Security=true;";
+
+
+                //сделать ввод с оперделением id книги по названию
+                string sqlExpr = $"INSERT INTO ReturnBook (id_reader, id_book, book, [date of return]) VALUES" +
+                    $" ('{selectedID}','{id_book}', '{book}','{readDateTimePicker.Value.Date}')";
+
+                using (SqlConnection c = new SqlConnection(connectString))
+                {
+                    c.Open();
+                    SqlCommand com = new SqlCommand(sqlExpr, c);
+                    com.ExecuteNonQuery();
+                    c.Close();
+
+                    MessageBox.Show("Книга возвращена!");
+                }
+
+                string sqlE = $"update Books set status = '{"В библиотеке"}' where id = '{id_book}'";
+
+                using (SqlConnection c = new SqlConnection(connectString))
+                {
+                    c.Open();
+                    SqlCommand com = new SqlCommand(sqlE, c);
+                    com.ExecuteNonQuery();
+                    c.Close();
+
+                }
+
+                string sqlForChronology = $"INSERT INTO Chronology (id_reader, id_book, book, [date], operation) VALUES" +
+                        $" ('{selectedID}','{id_book}', '{book}','{readDateTimePicker.Value.Date}', 'Возврат')";
+                using (SqlConnection c = new SqlConnection(connectString))
+                {
+                    c.Open();
+                    SqlCommand com = new SqlCommand(sqlForChronology, c);
+                    com.ExecuteNonQuery();
+                    c.Close();
+
+                }
+
+                //ПРОВЕРКА НА ПУСТОТУ
+                if (main.returnDataGridView != null)
+                {
+                    string sqlForDelete = $"delete from LendingBooks where id_book = {id_book}";
+                    using (SqlConnection c = new SqlConnection(connectString))
+                    {
+                        c.Open();
+                        SqlCommand com = new SqlCommand(sqlForDelete, c);
+                        com.ExecuteNonQuery();
+                        c.Close();
+                    }
+                }
+
+                Sql s = new Sql();
+                // mf.booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
+
+
+                if (main != null)
+                {
+                    main.returnDataGridView.DataSource = s.Select("SELECT * FROM ReturnBook");
+                    main.booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
+                    main.chronologyDataGridView.DataSource = s.Select("SELECT * FROM Chronology");
+                    main.lendingDataGridView.DataSource = s.Select("SELECT * FROM LendingBooks");
+                }
+
+                for (int i = 0; i < main.lendingDataGridView.Rows.Count - 1; i++)
+                {
+                    if (main.lendingDataGridView[1, i] == cell)
+                    {
+                        main.lendingDataGridView.Rows[i].ReadOnly = true;
+                    }
+                }
+
+                if (main.returnDataGridView.RowCount > 0)
+                {
+                    main.returnDataGridView.Columns[0].HeaderText = "id";
+                    main.returnDataGridView.Columns[1].HeaderText = "id читателя";
+                    main.returnDataGridView.Columns[2].HeaderText = "id книги";
+                    main.returnDataGridView.Columns[3].HeaderText = "Название книги";
+                    main.returnDataGridView.Columns[4].HeaderText = "Дата возврата";
+                }
+
+                this.Close();
+            //}
+
+        }
+
+        private void booksComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             mainForm main = this.Owner as mainForm;
 
             if (booksComboBox.SelectedIndex == -1)
             {
-                id_book = null;
+                //id_book = null;
+                MessageBox.Show("Пожалуйста, выберите книгу!");
+                return;
             }
             else
             {
@@ -193,90 +307,21 @@ namespace Library
             }
 
 
-
-            string connectString = "Data Source=.\\SQLEXPRESS;Initial Catalog=Library;" +
-                "Integrated Security=true;";
-
-
-            //сделать ввод с оперделением id книги по названию
-            string sqlExpr = $"INSERT INTO ReturnBook (id_reader, id_book, book, [date of return]) VALUES" +
-                $" ('{selectedID}','{id_book}', '{book}','{readDateTimePicker.Value.Date}')";
-
-            using (SqlConnection c = new SqlConnection(connectString))
+            for (int i = 0; i < main.lendingDataGridView.Rows.Count; i++)
             {
-                c.Open();
-                SqlCommand com = new SqlCommand(sqlExpr, c);
-                com.ExecuteNonQuery();
-                c.Close();
-
-                MessageBox.Show("Книга возвращена!");
-            }
-
-            string sqlE = $"update Books set status = '{"В библиотеке"}' where id = '{id_book}'";
-
-            using (SqlConnection c = new SqlConnection(connectString))
-            {
-                c.Open();
-                SqlCommand com = new SqlCommand(sqlE, c);
-                com.ExecuteNonQuery();
-                c.Close();
-
-            }
-
-            string sqlForChronology = $"INSERT INTO Chronology (id_reader, id_book, book, [date], operation) VALUES" +
-                    $" ('{selectedID}','{id_book}', '{book}','{readDateTimePicker.Value.Date}', 'Возврат')";
-            using (SqlConnection c = new SqlConnection(connectString))
-            {
-                c.Open();
-                SqlCommand com = new SqlCommand(sqlForChronology, c);
-                com.ExecuteNonQuery();
-                c.Close();
-
-            }
-
-            //ПРОВЕРКА НА ПУСТОТУ
-            if (main.returnDataGridView != null)
-            {
-                string sqlForDelete = $"delete from LendingBooks where id_book = {id_book}";
-                using (SqlConnection c = new SqlConnection(connectString))
+                if (Convert.ToInt32(main.lendingDataGridView[1, i].Value.ToString()) == selectedID && main.lendingDataGridView[2, i].Value.ToString() == id_book)
                 {
-                    c.Open();
-                    SqlCommand com = new SqlCommand(sqlForDelete, c);
-                    com.ExecuteNonQuery();
-                    c.Close();
+
+                    dateOfIssue = Convert.ToDateTime(main.lendingDataGridView[4, i].Value.ToString());
                 }
+                /* MessageBox.Show(main.lendingDataGridView[1, i].Value.ToString());
+                 MessageBox.Show(main.lendingDataGridView[2, i].Value.ToString());*/
             }
 
-            Sql s = new Sql();
-            // mf.booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
+            //MessageBox.Show(dateOfIssue.ToString());
+            readDateTimePicker.MinDate = dateOfIssue;
 
-
-            if (main != null)
-            {
-                main.returnDataGridView.DataSource = s.Select("SELECT * FROM ReturnBook");
-                main.booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
-                main.chronologyDataGridView.DataSource = s.Select("SELECT * FROM Chronology");
-                main.lendingDataGridView.DataSource = s.Select("SELECT * FROM LendingBooks");
-            }
-
-            for (int i = 0; i < main.lendingDataGridView.Rows.Count - 1; i++)
-            {
-                if (main.lendingDataGridView[1, i] == cell)
-                {
-                    main.lendingDataGridView.Rows[i].ReadOnly = true;
-                }
-            }
-
-            if (main.returnDataGridView != null)
-            {
-                main.returnDataGridView.Columns[0].HeaderText = "id";
-                main.returnDataGridView.Columns[1].HeaderText = "id читателя";
-                main.returnDataGridView.Columns[2].HeaderText = "id книги";
-                main.returnDataGridView.Columns[3].HeaderText = "Название книги";
-                main.returnDataGridView.Columns[4].HeaderText = "Дата возврата";
-            }
-
-            this.Close();
+            readDateTimePicker.Enabled = true;
         }
     }
 }

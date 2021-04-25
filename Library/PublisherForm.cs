@@ -154,6 +154,23 @@ namespace Library
             }
             else
             {
+                if (publisherTextField.Text == "")
+                { 
+                
+                }
+                if(!phoneCheck(numberTextField.Text) )
+                {
+                    numberTextField.Text = "";
+                }
+                if(!OnlyLetters(townTextField.Text) )
+                {
+                    townTextField.Text = "";
+                }
+                if(!OnlyNumbers(ratingTextField.Text) )
+                {
+                    ratingTextField.Text = "";
+                }
+
                 MessageBox.Show("Данные введены неверно");
             }
 

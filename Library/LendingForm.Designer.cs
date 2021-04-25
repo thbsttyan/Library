@@ -71,7 +71,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(-26, -3);
+            this.panel1.Location = new System.Drawing.Point(-27, -3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(29, 448);
             this.panel1.TabIndex = 19;
@@ -80,7 +80,7 @@
             // 
             this.readerDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.readerDataGridView.Location = new System.Drawing.Point(420, 44);
-            this.readerDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.readerDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.readerDataGridView.Name = "readerDataGridView";
             this.readerDataGridView.RowHeadersWidth = 51;
             this.readerDataGridView.Size = new System.Drawing.Size(100, 118);
@@ -90,7 +90,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.Black;
-            this.panel6.Location = new System.Drawing.Point(0, 218);
+            this.panel6.Location = new System.Drawing.Point(0, 217);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(498, 28);
             this.panel6.TabIndex = 66;
@@ -107,7 +107,7 @@
             this.panel.Controls.Add(this.panel4);
             this.panel.Controls.Add(this.panel1);
             this.panel.Controls.Add(this.exitButton);
-            this.panel.Location = new System.Drawing.Point(-1, -1);
+            this.panel.Location = new System.Drawing.Point(0, -1);
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(497, 46);
             this.panel.TabIndex = 58;
@@ -122,6 +122,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 48;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             // 
             // passordPictureBox
             // 
@@ -132,11 +133,12 @@
             this.passordPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.passordPictureBox.TabIndex = 47;
             this.passordPictureBox.TabStop = false;
+            this.passordPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.Black;
-            this.panel7.Location = new System.Drawing.Point(1, -24);
+            this.panel7.Location = new System.Drawing.Point(2, -25);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(498, 28);
             this.panel7.TabIndex = 22;
@@ -171,7 +173,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Black;
-            this.panel5.Location = new System.Drawing.Point(494, 2);
+            this.panel5.Location = new System.Drawing.Point(495, 2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(29, 448);
             this.panel5.TabIndex = 65;
@@ -228,6 +230,7 @@
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LendingForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LendingForm";
             ((System.ComponentModel.ISupportInitialize)(this.readerDataGridView)).EndInit();
             this.panel.ResumeLayout(false);

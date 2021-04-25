@@ -58,7 +58,7 @@ namespace Library
         {
             foreach (char c in s)
             {
-                if (!Char.IsLetter(c))
+                if (!Char.IsLetter(c) && c != ' ')
                     return false;
             }
             return true;
@@ -109,39 +109,47 @@ namespace Library
         }
 
         public string type;
+        public bool isType = false;
         public string publisher;
+        public bool isPublisher = false;
         public float price;
         mainForm mf = new mainForm();
         private void addBookButton_Click(object sender, EventArgs e)
         {
-            
-            if (nameTextField.Text!="" && (authorTextField.Text != "" || OnlyLetters(authorTextField.Text))
+            if (typeComboBox.SelectedIndex == -1)
+            {
+                type = null;
+                isType = false;
+            }
+            else
+            {
+                type = typeComboBox.Text;
+                isType = true;
+            }
+
+            if (publisherComboBox.SelectedIndex == -1)
+            {
+                publisher = null;
+                isPublisher = false;
+            }
+            else
+            {
+                publisher = publisherComboBox.Text;
+                isPublisher = true;
+            }
+
+            if (nameTextField.Text!="" && (authorTextField.Text != "" && OnlyLetters(authorTextField.Text))
                 && (OnlyLetters(genreTextField.Text) || genreTextField.Text=="")
                 && (isbnCheck(isbnTextField.Text) || isbnTextField.Text=="") 
                 && (OnlyNumbers(pagesTextField.Text) || pagesTextField.Text == "")
                 && (OnlyNumbers(lockerTextField.Text) || lockerTextField.Text=="")
                 && (OnlyNumbers(shelfTextField.Text) || shelfTextField.Text=="")
-                && (priceCheck(priceTextField.Text) || priceTextField.Text==""))
+                && (priceCheck(priceTextField.Text) || priceTextField.Text=="")
+                && isType && isPublisher)
             {
                 
 
-                if (typeComboBox.SelectedIndex == -1)
-                {
-                    type = null;
-                }
-                else
-                {
-                    type = typeComboBox.Text;
-                }
-
-                if (publisherComboBox.SelectedIndex == -1)
-                {
-                    publisher = null;
-                }
-                else
-                {
-                    publisher = publisherComboBox.Text;
-                }
+                
 
                 string connectString = "Data Source=.\\SQLEXPRESS;Initial Catalog=Library;" +
                     "Integrated Security=true;";
@@ -182,6 +190,44 @@ namespace Library
             }
             else
             {
+                if(nameTextField.Text == "")
+                {
+                    
+                }
+                if (authorTextField.Text == "" || !OnlyLetters(authorTextField.Text))
+                {
+                    authorTextField.Text = "";
+                }
+
+                if (!OnlyLetters(genreTextField.Text) )
+                {
+                    genreTextField.Text = "";
+                }
+
+                if (!isbnCheck(isbnTextField.Text) )
+                {
+                    isbnTextField.Text = "";
+                }
+
+                if(!OnlyNumbers(pagesTextField.Text) )
+                {
+                    pagesTextField.Text = "";
+                }
+
+                if(!OnlyNumbers(lockerTextField.Text) )
+                {
+                    lockerTextField.Text = "";
+                }
+
+                if(!OnlyNumbers(shelfTextField.Text) )
+                {
+                    shelfTextField.Text = "";
+                }
+
+                if(!priceCheck(priceTextField.Text) )
+                {
+                    priceTextField.Text = "";
+                }
                 MessageBox.Show("Данные введены неверно");
             }
 

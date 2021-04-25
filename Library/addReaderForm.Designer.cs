@@ -61,7 +61,7 @@
             // 
             this.readerDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.readerDataGridView.Location = new System.Drawing.Point(442, 172);
-            this.readerDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.readerDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.readerDataGridView.Name = "readerDataGridView";
             this.readerDataGridView.RowHeadersWidth = 51;
             this.readerDataGridView.Size = new System.Drawing.Size(100, 118);
@@ -128,6 +128,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 44;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             // 
             // passordPictureBox
             // 
@@ -138,6 +139,7 @@
             this.passordPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.passordPictureBox.TabIndex = 43;
             this.passordPictureBox.TabStop = false;
+            this.passordPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             // 
             // panel4
             // 
@@ -177,7 +179,7 @@
             this.passportTextField.SelectedText = "";
             this.passportTextField.SelectionLength = 0;
             this.passportTextField.SelectionStart = 0;
-            this.passportTextField.Size = new System.Drawing.Size(207, 28);
+            this.passportTextField.Size = new System.Drawing.Size(207, 23);
             this.passportTextField.TabIndex = 48;
             this.passportTextField.TabStop = false;
             this.passportTextField.UseSystemPasswordChar = false;
@@ -195,7 +197,7 @@
             this.townTextField.SelectedText = "";
             this.townTextField.SelectionLength = 0;
             this.townTextField.SelectionStart = 0;
-            this.townTextField.Size = new System.Drawing.Size(129, 28);
+            this.townTextField.Size = new System.Drawing.Size(129, 23);
             this.townTextField.TabIndex = 47;
             this.townTextField.TabStop = false;
             this.townTextField.UseSystemPasswordChar = false;
@@ -213,7 +215,7 @@
             this.numberTextField.SelectedText = "";
             this.numberTextField.SelectionLength = 0;
             this.numberTextField.SelectionStart = 0;
-            this.numberTextField.Size = new System.Drawing.Size(129, 28);
+            this.numberTextField.Size = new System.Drawing.Size(129, 23);
             this.numberTextField.TabIndex = 46;
             this.numberTextField.TabStop = false;
             this.numberTextField.UseSystemPasswordChar = false;
@@ -231,7 +233,7 @@
             this.positionTextField.SelectedText = "";
             this.positionTextField.SelectionLength = 0;
             this.positionTextField.SelectionStart = 0;
-            this.positionTextField.Size = new System.Drawing.Size(129, 28);
+            this.positionTextField.Size = new System.Drawing.Size(129, 23);
             this.positionTextField.TabIndex = 44;
             this.positionTextField.TabStop = false;
             this.positionTextField.UseSystemPasswordChar = false;
@@ -249,7 +251,7 @@
             this.patronymicTextField.SelectedText = "";
             this.patronymicTextField.SelectionLength = 0;
             this.patronymicTextField.SelectionStart = 0;
-            this.patronymicTextField.Size = new System.Drawing.Size(357, 28);
+            this.patronymicTextField.Size = new System.Drawing.Size(357, 23);
             this.patronymicTextField.TabIndex = 40;
             this.patronymicTextField.TabStop = false;
             this.patronymicTextField.UseSystemPasswordChar = false;
@@ -267,7 +269,7 @@
             this.nameTextField.SelectedText = "";
             this.nameTextField.SelectionLength = 0;
             this.nameTextField.SelectionStart = 0;
-            this.nameTextField.Size = new System.Drawing.Size(357, 28);
+            this.nameTextField.Size = new System.Drawing.Size(357, 23);
             this.nameTextField.TabIndex = 39;
             this.nameTextField.TabStop = false;
             this.nameTextField.UseSystemPasswordChar = false;
@@ -285,7 +287,7 @@
             this.surnameTextField.SelectedText = "";
             this.surnameTextField.SelectionLength = 0;
             this.surnameTextField.SelectionStart = 0;
-            this.surnameTextField.Size = new System.Drawing.Size(357, 28);
+            this.surnameTextField.Size = new System.Drawing.Size(357, 23);
             this.surnameTextField.TabIndex = 38;
             this.surnameTextField.TabStop = false;
             this.surnameTextField.UseSystemPasswordChar = false;
@@ -326,7 +328,7 @@
             this.groupTextField.SelectedText = "";
             this.groupTextField.SelectionLength = 0;
             this.groupTextField.SelectionStart = 0;
-            this.groupTextField.Size = new System.Drawing.Size(129, 28);
+            this.groupTextField.Size = new System.Drawing.Size(129, 23);
             this.groupTextField.TabIndex = 45;
             this.groupTextField.TabStop = false;
             this.groupTextField.UseSystemPasswordChar = false;

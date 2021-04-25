@@ -48,7 +48,7 @@ namespace Library
             chronologyDataGridView.DataSource = s.Select("Select * from Chronology");
 
             //Книги
-            if (booksDataGridView != null)
+            if (booksDataGridView.RowCount > 0)
             {
                 booksDataGridView.Columns[1].HeaderText = "Название";
                 booksDataGridView.Columns[2].HeaderText = "Автор";
@@ -62,7 +62,7 @@ namespace Library
                 booksDataGridView.Columns[11].HeaderText = "Статус";
             }
             //Читатели
-            if (readerDataGridView != null)
+            if (readerDataGridView.RowCount > 0)
             {
                 readerDataGridView.Columns[0].HeaderText = "id";
                 readerDataGridView.Columns[1].HeaderText = "Фамилия";
@@ -75,7 +75,7 @@ namespace Library
                 readerDataGridView.Columns[8].HeaderText = "Номер паспорта";
             }
             //выдачи
-            if (lendingDataGridView != null)
+            if (lendingDataGridView.RowCount > 0)
             {
                 lendingDataGridView.Columns[0].HeaderText = "id";
                 lendingDataGridView.Columns[1].HeaderText = "id читателя";
@@ -84,7 +84,7 @@ namespace Library
                 lendingDataGridView.Columns[4].HeaderText = "Дата выдачи";
             }
             //возвраты
-            if (returnDataGridView != null)
+            if (returnDataGridView.RowCount > 0)
             {
                 returnDataGridView.Columns[0].HeaderText = "id";
                 returnDataGridView.Columns[1].HeaderText = "id читателя";
@@ -93,7 +93,7 @@ namespace Library
                 returnDataGridView.Columns[4].HeaderText = "Дата возврата";
             }
             //хронология
-            if (chronologyDataGridView != null)
+            if (chronologyDataGridView.RowCount > 0)
             {
                 chronologyDataGridView.Columns[0].HeaderText = "id";
                 chronologyDataGridView.Columns[1].HeaderText = "id читателя";
@@ -102,7 +102,7 @@ namespace Library
                 chronologyDataGridView.Columns[4].HeaderText = "Дата выдачи/возврата";
                 chronologyDataGridView.Columns[5].HeaderText = "Вид операции";
             }
-            if (publisherDataGridView != null)
+            if (publisherDataGridView.RowCount > 0)
             {
                 //Издательства
                 publisherDataGridView.Columns[0].HeaderText = "id";
@@ -374,13 +374,14 @@ namespace Library
             if (redactBooksCheckBox.Checked)
             {
                 booksDataGridView.ReadOnly = false;
-                
+                booksDataGridView.Columns[11].ReadOnly = true;
 
             }
             if (!redactBooksCheckBox.Checked)
             {
                
                 booksDataGridView.ReadOnly = true;
+                
                 
 
             }
@@ -407,6 +408,7 @@ namespace Library
             if (redactPublishersCheckBox.Checked)
             {
                 publisherDataGridView.ReadOnly = false;
+                publisherDataGridView.Columns[7].ReadOnly = true;
 
             }
             if (!redactPublishersCheckBox.Checked)
@@ -511,16 +513,22 @@ namespace Library
 
         private void addReturnButton_Click(object sender, EventArgs e)
         {
-            addReturnForm f = new addReturnForm();
-            f.Owner = this;
-            f.ShowDialog();
+            if (lendingDataGridView.RowCount > 0)
+            {
+                addReturnForm f = new addReturnForm();
+                f.Owner = this;
+                f.ShowDialog();
+            }
         }
 
         private void lendingbutton_Click(object sender, EventArgs e)
         {
-            LendingForm f = new LendingForm();
-            f.Owner = this;
-            f.ShowDialog();
+            if (readerDataGridView.RowCount > 0)
+            {
+                LendingForm f = new LendingForm();
+                f.Owner = this;
+                f.ShowDialog();
+            }
         }
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -544,12 +552,21 @@ namespace Library
         {
             Sql s = new Sql();
             booksDataGridView.DataSource = s.Select($"SELECT * FROM Books where name like '%{searchTextField.Text}%'");
+            
+            if(booksDataGridView.RowCount<1)
+            {
+                booksDataGridView.DataSource = s.Select($"SELECT * FROM Books");
+                MessageBox.Show("Соответствия не найдены!");
+                searchTextField.Text = "";
+                
+            }
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
             Sql s = new Sql();
             booksDataGridView.DataSource = s.Select($"SELECT * FROM Books");
+            searchTextField.Text = "";
         }
 
         private void searchTextField_TextChanged(object sender, EventArgs e)
@@ -562,6 +579,14 @@ namespace Library
             {
                 searchButton.Enabled = false;
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            authorizationForm auth = new authorizationForm();
+            auth.Show();
+            this.Close();
+
         }
     }
 }

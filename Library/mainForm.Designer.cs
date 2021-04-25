@@ -62,6 +62,7 @@
             this.redactPublishersCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
             this.addPublisherButton = new System.Windows.Forms.Button();
             this.publisherDataGridView = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.booksDataGridView)).BeginInit();
             this.panel.SuspendLayout();
@@ -79,6 +80,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.PowderBlue;
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.registrationButton);
             this.panel2.Controls.Add(this.readersButton);
             this.panel2.Controls.Add(this.publisherButton);
@@ -208,6 +210,7 @@
             this.passordPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.passordPictureBox.TabIndex = 38;
             this.passordPictureBox.TabStop = false;
+            this.passordPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             // 
             // panel4
             // 
@@ -228,7 +231,7 @@
             this.exitButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.exitButton.ForeColor = System.Drawing.Color.PowderBlue;
             this.exitButton.ImageKey = "(отсутствует)";
-            this.exitButton.Location = new System.Drawing.Point(1220, 2);
+            this.exitButton.Location = new System.Drawing.Point(1224, 2);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(19, 20);
             this.exitButton.TabIndex = 11;
@@ -255,7 +258,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Black;
-            this.panel5.Location = new System.Drawing.Point(1241, 0);
+            this.panel5.Location = new System.Drawing.Point(1242, 0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(29, 869);
             this.panel5.TabIndex = 18;
@@ -286,7 +289,7 @@
             this.booksPanel.Controls.Add(this.addBookButton);
             this.booksPanel.Location = new System.Drawing.Point(158, 56);
             this.booksPanel.Name = "booksPanel";
-            this.booksPanel.Size = new System.Drawing.Size(1082, 575);
+            this.booksPanel.Size = new System.Drawing.Size(1082, 760);
             this.booksPanel.TabIndex = 20;
             // 
             // cancelButton
@@ -366,7 +369,7 @@
             this.readersPanel.Controls.Add(this.readerDataGridView);
             this.readersPanel.Location = new System.Drawing.Point(158, 56);
             this.readersPanel.Name = "readersPanel";
-            this.readersPanel.Size = new System.Drawing.Size(1082, 734);
+            this.readersPanel.Size = new System.Drawing.Size(1082, 778);
             this.readersPanel.TabIndex = 21;
             this.readersPanel.Visible = false;
             // 
@@ -498,7 +501,7 @@
             this.publishersPanel.Controls.Add(this.publisherDataGridView);
             this.publishersPanel.Location = new System.Drawing.Point(158, 56);
             this.publishersPanel.Name = "publishersPanel";
-            this.publishersPanel.Size = new System.Drawing.Size(1018, 558);
+            this.publishersPanel.Size = new System.Drawing.Size(1082, 794);
             this.publishersPanel.TabIndex = 22;
             this.publishersPanel.Visible = false;
             // 
@@ -547,6 +550,24 @@
             this.publisherDataGridView.TabIndex = 5;
             this.publisherDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.publisherDataGridView_CellValueChanged);
             this.publisherDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.publisherDataGridView_DataError);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.LightBlue;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.LightBlue;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1.Location = new System.Drawing.Point(-1, 684);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(162, 95);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Вернуться к аворизации";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // mainForm
             // 
@@ -623,5 +644,6 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField searchTextField;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.PictureBox passordPictureBox;
+        private System.Windows.Forms.Button button1;
     }
 }

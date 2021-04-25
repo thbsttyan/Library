@@ -43,7 +43,7 @@ namespace Library
         {
             foreach (char c in s)
             {
-                if (!Char.IsLetter(c))
+                if (!Char.IsLetter(c) && c!= ' ')
                     return false;
             }
             return true;
@@ -170,6 +170,47 @@ namespace Library
             }
             else
             {
+                if(surnameTextField.Text == "" || !OnlyLetters(surnameTextField.Text))
+                {
+                    surnameTextField.Text = "";
+                }
+
+                 if(nameTextField.Text == "" || !OnlyLetters(nameTextField.Text))
+                 {
+                    nameTextField.Text = "";
+                 }
+
+                 if(patronymicTextField.Text == "" || !OnlyLetters(patronymicTextField.Text))
+                 {
+                    patronymicTextField.Text = "";
+                 }
+
+                 if(!OnlyLetters(positionTextField.Text) )
+                 {
+                    positionTextField.Text = "";
+                 }
+
+                 if(!groupCheck(groupTextField.Text) )
+                 {
+                    groupTextField.Text = "";
+                }
+
+                 if(!phoneCheck(numberTextField.Text) )
+                 {
+                    numberTextField.Text = "";
+                }
+
+                 if(!OnlyLetters(townTextField.Text) )
+                 {
+                    townTextField.Text = "";
+                }
+
+                 if(!numCheck(passportTextField.Text) || passportTextField.Text == "")
+                 {
+                    passportTextField.Text = "";
+                }
+
+                 
                 MessageBox.Show("Данные введены неверно");
             }
 

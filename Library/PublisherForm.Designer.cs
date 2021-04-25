@@ -256,22 +256,24 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(4, 5);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(44, 38);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 40;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel5_MouseDown);
             // 
             // passordPictureBox
             // 
             this.passordPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("passordPictureBox.Image")));
-            this.passordPictureBox.Location = new System.Drawing.Point(50, 4);
+            this.passordPictureBox.Location = new System.Drawing.Point(50, 5);
             this.passordPictureBox.Name = "passordPictureBox";
             this.passordPictureBox.Size = new System.Drawing.Size(71, 38);
             this.passordPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.passordPictureBox.TabIndex = 39;
             this.passordPictureBox.TabStop = false;
+            this.passordPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel5_MouseDown);
             // 
             // panel6
             // 
@@ -286,7 +288,7 @@
             // 
             this.readerDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.readerDataGridView.Location = new System.Drawing.Point(387, 67);
-            this.readerDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.readerDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.readerDataGridView.Name = "readerDataGridView";
             this.readerDataGridView.RowHeadersWidth = 51;
             this.readerDataGridView.Size = new System.Drawing.Size(100, 118);
@@ -326,6 +328,7 @@
             this.Controls.Add(this.numberTextField);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PublisherForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PublisherForm";
             this.Load += new System.EventHandler(this.PublisherForm_Load);
             this.panel2.ResumeLayout(false);
