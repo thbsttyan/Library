@@ -153,7 +153,7 @@ namespace Library
             //selectedLending = main.lendingDataGridView.SelectedCells[0].RowIndex + 1;
             selectedID = Convert.ToInt32(main.lendingDataGridView.SelectedRows[0].Cells["id_reader"].Value);
 
-            MessageBox.Show("aaaaa= " + selectedID.ToString());
+           // MessageBox.Show("aaaaa= " + selectedID.ToString());
 
             Sql s = new Sql();
 

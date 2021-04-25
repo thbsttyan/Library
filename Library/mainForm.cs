@@ -541,13 +541,25 @@ namespace Library
         private void searchButton_Click(object sender, EventArgs e)
         {
             Sql s = new Sql();
-            booksDataGridView.DataSource = s.Select($"SELECT * FROM Books where name = '{searchTextField.Text}'");
+            booksDataGridView.DataSource = s.Select($"SELECT * FROM Books where name like '%{searchTextField.Text}%'");
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
             Sql s = new Sql();
             booksDataGridView.DataSource = s.Select($"SELECT * FROM Books");
+        }
+
+        private void searchTextField_TextChanged(object sender, EventArgs e)
+        {
+            if(searchTextField.Text!="")
+            {
+                searchButton.Enabled = true;
+            }
+            else
+            {
+                searchButton.Enabled = false;
+            }
         }
     }
 }

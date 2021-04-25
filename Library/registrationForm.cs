@@ -40,62 +40,71 @@ namespace Library
         {
             Sql s = new Sql();
             authDataGridView.DataSource = s.Select("SELECT * FROM Users");
-
-            bool isFound = false;
-            for (int i = 0; i < authDataGridView.Rows.Count; i++)
+            if ( passwordTextField.Text != "" && password2TextField.Text != ""
+                    && loginTextField.Text != "")
             {
-                try
+                
+
+                bool isFound = false;
+                for (int i = 0; i < authDataGridView.Rows.Count; i++)
                 {
-                    if (authDataGridView[1, i].Value.ToString() == loginTextField.Text)
+                    try
                     {
-                        isFound = true;
+                        if (authDataGridView[1, i].Value.ToString() == loginTextField.Text)
+                        {
+                            isFound = true;
+                            break;
+                        }
+
+
+                    }
+                    catch
+                    {
+                        isFound = false;
                         break;
                     }
-
-
                 }
-                catch
+
+                if (isFound)
                 {
-                    isFound = false;
-                    break;
-                }
-            }
-
-            if (isFound)
-            {
-                MessageBox.Show("Такой логин уже существует");
-            }
-            else
-            {
-                if (passwordTextField.Text == password2TextField.Text)
-                {
-                    string connectString = "Data Source=.\\SQLEXPRESS;Initial Catalog=Library;" +
-                        "Integrated Security=true;";
-
-
-
-                    string sqlExpr = $"INSERT INTO Users (login, pass) VALUES" +
-                        $" ('{loginTextField.Text}','{passwordTextField.Text}')";
-
-                    using (SqlConnection c = new SqlConnection(connectString))
-                    {
-                        c.Open();
-                        SqlCommand com = new SqlCommand(sqlExpr, c);
-                        com.ExecuteNonQuery();
-                        c.Close();
-
-                        MessageBox.Show("Регистрация успешна!");
-                    }
-                    this.Close();
+                    MessageBox.Show("Такой логин уже существует");
                 }
                 else
                 {
-                    MessageBox.Show("Пароли не совпадают!");
+                    if (passwordTextField.Text == password2TextField.Text)
+                    {
+
+                        string connectString = "Data Source=.\\SQLEXPRESS;Initial Catalog=Library;" +
+                            "Integrated Security=true;";
+
+
+
+                        string sqlExpr = $"INSERT INTO Users (login, pass) VALUES" +
+                            $" ('{loginTextField.Text}','{passwordTextField.Text}')";
+
+                        using (SqlConnection c = new SqlConnection(connectString))
+                        {
+                            c.Open();
+                            SqlCommand com = new SqlCommand(sqlExpr, c);
+                            com.ExecuteNonQuery();
+                            c.Close();
+
+                            MessageBox.Show("Регистрация успешна!");
+                        }
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Пароли не совпадают!");
+                    }
                 }
             }
+            else
+            {
+                MessageBox.Show("Данные введены неверно!");
+            }
 
-            
-            authDataGridView.DataSource = s.Select("SELECT * FROM Users");
+                authDataGridView.DataSource = s.Select("SELECT * FROM Users");
         }
 
         private void exitButton_Click(object sender, EventArgs e)

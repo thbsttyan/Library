@@ -307,6 +307,7 @@
             // 
             this.searchButton.BackColor = System.Drawing.Color.PowderBlue;
             this.searchButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.searchButton.Enabled = false;
             this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.searchButton.Location = new System.Drawing.Point(640, 3);
@@ -329,10 +330,11 @@
             this.searchTextField.SelectedText = "";
             this.searchTextField.SelectionLength = 0;
             this.searchTextField.SelectionStart = 0;
-            this.searchTextField.Size = new System.Drawing.Size(262, 28);
+            this.searchTextField.Size = new System.Drawing.Size(262, 23);
             this.searchTextField.TabIndex = 24;
             this.searchTextField.TabStop = false;
             this.searchTextField.UseSystemPasswordChar = false;
+            this.searchTextField.TextChanged += new System.EventHandler(this.searchTextField_TextChanged);
             // 
             // redactBooksCheckBox
             // 
@@ -345,7 +347,7 @@
             this.redactBooksCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
             this.redactBooksCheckBox.Name = "redactBooksCheckBox";
             this.redactBooksCheckBox.Ripple = true;
-            this.redactBooksCheckBox.Size = new System.Drawing.Size(227, 30);
+            this.redactBooksCheckBox.Size = new System.Drawing.Size(186, 30);
             this.redactBooksCheckBox.TabIndex = 23;
             this.redactBooksCheckBox.Text = "Режим редактирования";
             this.redactBooksCheckBox.UseVisualStyleBackColor = true;
@@ -448,7 +450,7 @@
             this.redactReadersCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
             this.redactReadersCheckBox.Name = "redactReadersCheckBox";
             this.redactReadersCheckBox.Ripple = true;
-            this.redactReadersCheckBox.Size = new System.Drawing.Size(227, 30);
+            this.redactReadersCheckBox.Size = new System.Drawing.Size(186, 30);
             this.redactReadersCheckBox.TabIndex = 24;
             this.redactReadersCheckBox.Text = "Режим редактирования";
             this.redactReadersCheckBox.UseVisualStyleBackColor = true;
@@ -511,7 +513,7 @@
             this.redactPublishersCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
             this.redactPublishersCheckBox.Name = "redactPublishersCheckBox";
             this.redactPublishersCheckBox.Ripple = true;
-            this.redactPublishersCheckBox.Size = new System.Drawing.Size(227, 30);
+            this.redactPublishersCheckBox.Size = new System.Drawing.Size(186, 30);
             this.redactPublishersCheckBox.TabIndex = 24;
             this.redactPublishersCheckBox.Text = "Режим редактирования";
             this.redactPublishersCheckBox.UseVisualStyleBackColor = true;
