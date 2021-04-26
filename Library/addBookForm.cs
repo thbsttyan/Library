@@ -16,10 +16,7 @@ namespace Library
 {
     public partial class addBookForm : Form
     {
-       /* public void DoSomethingElse(mainForm firstForm)
-        {
-            var data = firstForm.BooksDataGridView.DataSource;
-        }*/
+       
         public addBookForm()
         {
             InitializeComponent();
@@ -35,17 +32,9 @@ namespace Library
 
                 
             }
-            //MessageBox.Show(combo[4]);
 
            publisherComboBox.Items.AddRange(combo);
             
-        }
-
-        private void addBookForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            
-           // mainForm newForm = new mainForm();
-           // newForm.Show();
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -232,7 +221,6 @@ namespace Library
             }
 
             Sql s = new Sql();
-            // mf.booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
 
             mainForm main = this.Owner as mainForm;
             if (main != null)
@@ -263,21 +251,10 @@ namespace Library
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        /* private Point mouseOffset;
-         private bool isMouseDown = false;*/
+       
         private void panel_MouseDown(object sender, MouseEventArgs e)
         {
-            /* int xOffset;
-             int yOffset;
-
-             if (e.Button == MouseButtons.Left)
-             {
-                 xOffset = -e.X - SystemInformation.FrameBorderSize.Width;
-                 yOffset = -e.Y - SystemInformation.CaptionHeight -
-                     SystemInformation.FrameBorderSize.Height;
-                 mouseOffset = new Point(xOffset, yOffset);
-                 isMouseDown = true;
-             }*/
+            
 
             if (e.Button == MouseButtons.Left)
             {

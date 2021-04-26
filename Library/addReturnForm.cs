@@ -20,12 +20,6 @@ namespace Library
             InitializeComponent();
 
             readDateTimePicker.MaxDate = DateTime.Now;
-
-            
-            
-
-
-
         }
         public DateTime dateOfIssue;
 
@@ -45,21 +39,9 @@ namespace Library
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        /* private Point mouseOffset;
-         private bool isMouseDown = false;*/
+       
         private void panel7_MouseDown(object sender, MouseEventArgs e)
         {
-            /* int xOffset;
-            int yOffset;
-
-            if (e.Button == MouseButtons.Left)
-            {
-                xOffset = -e.X - SystemInformation.FrameBorderSize.Width;
-                yOffset = -e.Y - SystemInformation.CaptionHeight -
-                    SystemInformation.FrameBorderSize.Height;
-                mouseOffset = new Point(xOffset, yOffset);
-                isMouseDown = true;
-            }*/
 
             if (e.Button == MouseButtons.Left)
             {
@@ -108,7 +90,6 @@ namespace Library
             }
 
             return isMat;
-            //TODO
         }
 
         public static bool numCheck(string s)
@@ -126,37 +107,19 @@ namespace Library
             }
 
             return isMat;
-            //TODO
         }
 
         public string id_book;
         public string book;
-        private void addReaderButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void readerComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
+        
 
         public DataGridViewCell cell;
         private void addReturnForm_Load(object sender, EventArgs e)
         {
             mainForm main = this.Owner as mainForm;
 
-            /*int rowNum = 2;
-            cell = main.lendingDataGridView.Rows[rowNum].Cells[0];
-            main.lendingDataGridView.CurrentCell = cell;
-            main.lendingDataGridView.CurrentCell.Selected = true;
-            */
-            //selectedID = main.lendingDataGridView.CurrentCell.RowIndex + 1;
-            //selectedLending = main.lendingDataGridView.SelectedCells[0].RowIndex + 1;
             selectedID = Convert.ToInt32(main.lendingDataGridView.SelectedRows[0].Cells["id_reader"].Value);
 
-           // MessageBox.Show("aaaaa= " + selectedID.ToString());
 
             Sql s = new Sql();
 
@@ -173,35 +136,16 @@ namespace Library
 
             }
             booksComboBox.Items.AddRange(combo2);
-
-            
-
-
         }
 
-
-        
         private void addReturnButton_Click(object sender, EventArgs e)
         {
             
             mainForm main = this.Owner as mainForm;
 
-          
-            
-
-
-            
-            
-
-
-            /*if (readDateTimePicker.Value >= dateOfIssue)
-            {*/
-
             string connectString = "Data Source=.\\SQLEXPRESS;Initial Catalog=Library;" +
                     "Integrated Security=true;";
 
-
-                //сделать ввод с оперделением id книги по названию
                 string sqlExpr = $"INSERT INTO ReturnBook (id_reader, id_book, book, [date of return]) VALUES" +
                     $" ('{selectedID}','{id_book}', '{book}','{readDateTimePicker.Value.Date}')";
 
@@ -236,8 +180,6 @@ namespace Library
                     c.Close();
 
                 }
-
-                //ПРОВЕРКА НА ПУСТОТУ
                 if (main.returnDataGridView != null)
                 {
                     string sqlForDelete = $"delete from LendingBooks where id_book = {id_book}";
@@ -251,8 +193,6 @@ namespace Library
                 }
 
                 Sql s = new Sql();
-                // mf.booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
-
 
                 if (main != null)
                 {
@@ -280,7 +220,6 @@ namespace Library
                 }
 
                 this.Close();
-            //}
 
         }
 
@@ -290,7 +229,6 @@ namespace Library
 
             if (booksComboBox.SelectedIndex == -1)
             {
-                //id_book = null;
                 MessageBox.Show("Пожалуйста, выберите книгу!");
                 return;
             }
@@ -314,11 +252,8 @@ namespace Library
 
                     dateOfIssue = Convert.ToDateTime(main.lendingDataGridView[4, i].Value.ToString());
                 }
-                /* MessageBox.Show(main.lendingDataGridView[1, i].Value.ToString());
-                 MessageBox.Show(main.lendingDataGridView[2, i].Value.ToString());*/
             }
 
-            //MessageBox.Show(dateOfIssue.ToString());
             readDateTimePicker.MinDate = dateOfIssue;
 
             readDateTimePicker.Enabled = true;

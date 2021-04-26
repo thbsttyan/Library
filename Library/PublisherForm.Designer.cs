@@ -90,7 +90,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(122, 375);
             this.panel2.TabIndex = 53;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // publisherTextField
             // 
@@ -189,7 +188,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(29, 448);
             this.panel5.TabIndex = 65;
-            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             this.panel5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel5_MouseDown);
             // 
             // exitButton
@@ -225,7 +223,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(29, 448);
             this.panel4.TabIndex = 19;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             this.panel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel5_MouseDown);
             // 
             // panel7
@@ -330,7 +327,6 @@
             this.Name = "PublisherForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PublisherForm";
-            this.Load += new System.EventHandler(this.PublisherForm_Load);
             this.panel2.ResumeLayout(false);
             this.panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

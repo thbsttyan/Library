@@ -24,8 +24,6 @@ namespace Library
 
 
             }
-            //MessageBox.Show(combo[4]);
-
             booksComboBox.Items.AddRange(combo);
         }
 
@@ -49,28 +47,10 @@ namespace Library
             
 
             mainForm main = this.Owner as mainForm;
-             /* int rowindex = main.readerDataGridView.CurrentCell.RowIndex;
-              int columnindex = main.readerDataGridView.CurrentCell.ColumnIndex;
-            
-            selectedReader = Convert.ToInt32(main.readerDataGridView.Rows[rowindex].Cells[columnindex].Value.ToString());*/
-            // selectedReader = Convert.ToInt32(main.readerDataGridView.SelectedRows[0].Cells[0].Value.ToString()) ;
-
-            /* if (main.readerDataGridView.SelectedCells.Count > 0)
-             {
-                 int selectedrowindex = main.readerDataGridView.SelectedCells[0].RowIndex;
-                 DataGridViewRow selectedRow = main.readerDataGridView.Rows[selectedrowindex];
-                 string a = Convert.ToString(selectedRow.Cells["id_reader"].Value);
-             }*/
             selectedReader = Convert.ToInt32(main.readerDataGridView.SelectedRows[0].Cells[0].Value);
-
-
-          // MessageBox.Show("aaaaa= " + selectedReader.ToString());
-
 
                 if (booksComboBox.SelectedIndex == -1)
                 {
-                /* id_book = null;
-                 canUse = false;*/
                     MessageBox.Show("Пожалуйста, выберите книгу!");
                     return;
                 }
@@ -86,38 +66,28 @@ namespace Library
                     }
                     canUse = true;
                 }
-
             
                 string connectString = "Data Source=.\\SQLEXPRESS;Initial Catalog=Library;" +
                     "Integrated Security=true;";
 
-                //MessageBox.Show("id_book = " + id_book);
-                for (int i = 0; i < main.booksDataGridView.Rows.Count; i++)//ВНИМАНИЕ! Возможна поломка в связи с удалением "-1" после main.booksDataGridView.Rows.Count. СПАСИБО ЗА ВНИАНИЕ!
+                for (int i = 0; i < main.booksDataGridView.Rows.Count; i++)
                 {
                     if (main.booksDataGridView[0, i].Value.ToString() == id_book)
                     {
                         if (main.booksDataGridView[11, i].Value.ToString() == "На руках")
                         {
                             BookOnHands = true;
-                           // MessageBox.Show("НАШЕЛ КНИГУ " + main.booksDataGridView[0, i].Value.ToString());
                         }
                         else
                         {
                             BookOnHands = false;
                         }
-                        //MessageBox.Show("нашел книгу " + main.booksDataGridView[0, i].Value.ToString());
                     }
 
                 }
 
-            
-
             if (!BookOnHands)
             {
-
-
-
-                //сделать ввод с оперделением id книги по названию
                 string sqlExpr = $"INSERT INTO LendingBooks (id_reader, id_book, book, [date of issue]) VALUES" +
                         $" ('{selectedReader}','{id_book}', '{book}','{readDateTimePicker.Value.Date}')";
 
@@ -152,8 +122,6 @@ namespace Library
                         c.Close();
                     }
 
-
-                    //ПРОВЕРКА НА ПУСТОТУ
                     if (main.returnDataGridView != null)
                     {
                         string sqlForDelete = $"delete from ReturnBook where id_book = {id_book}";
@@ -166,11 +134,7 @@ namespace Library
                         }
                     }
 
-
                     Sql s = new Sql();
-                    // mf.booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
-
-                    //mainForm main = this.Owner as mainForm;
                     if (main != null)
                     {
                         main.lendingDataGridView.DataSource = s.Select("SELECT * FROM LendingBooks");
@@ -180,23 +144,22 @@ namespace Library
                         main.returnDataGridView.DataSource = s.Select("SELECT * FROM ReturnBook");
                     }
 
+            }
+            else
+            {
+                MessageBox.Show("Книга уже взята!");
+            }
 
-                }
-                else
-                {
-                    MessageBox.Show("Книга уже взята!");
-                }
+            if (main.lendingDataGridView.RowCount > 0)
+            {
+                main.lendingDataGridView.Columns[0].HeaderText = "id";
+                main.lendingDataGridView.Columns[1].HeaderText = "id читателя";
+                main.lendingDataGridView.Columns[2].HeaderText = "id книги";
+                main.lendingDataGridView.Columns[3].HeaderText = "Название книги";
+                main.lendingDataGridView.Columns[4].HeaderText = "Дата выдачи";
+            }
 
-                if (main.lendingDataGridView.RowCount > 0)
-                {
-                    main.lendingDataGridView.Columns[0].HeaderText = "id";
-                    main.lendingDataGridView.Columns[1].HeaderText = "id читателя";
-                    main.lendingDataGridView.Columns[2].HeaderText = "id книги";
-                    main.lendingDataGridView.Columns[3].HeaderText = "Название книги";
-                    main.lendingDataGridView.Columns[4].HeaderText = "Дата выдачи";
-                }
-
-                this.Close();
+            this.Close();
             
         }
 
@@ -216,19 +179,6 @@ namespace Library
             }
         }
 
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel7_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+       
     }
 }

@@ -385,7 +385,6 @@
             this.Name = "addBookForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавление книги";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.addBookForm_FormClosing);
             this.panel2.ResumeLayout(false);
             this.panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -16,13 +16,6 @@ namespace Library
 {
     public partial class mainForm : Form
     {
-        /*public DataGridView BooksDataGridView { get; set; }
-
-        private void DoSomething()
-        {
-            var anotherForm = new addBookForm();
-            anotherForm.DoSomethingElse(this);
-        }*/
         bool Ready = false;
         public mainForm()
         {
@@ -47,7 +40,6 @@ namespace Library
 
             chronologyDataGridView.DataSource = s.Select("Select * from Chronology");
 
-            //Книги
             if (booksDataGridView.RowCount > 0)
             {
                 booksDataGridView.Columns[1].HeaderText = "Название";
@@ -61,7 +53,7 @@ namespace Library
                 booksDataGridView.Columns[10].HeaderText = "Цена";
                 booksDataGridView.Columns[11].HeaderText = "Статус";
             }
-            //Читатели
+
             if (readerDataGridView.RowCount > 0)
             {
                 readerDataGridView.Columns[0].HeaderText = "id";
@@ -74,7 +66,7 @@ namespace Library
                 readerDataGridView.Columns[7].HeaderText = "Город";
                 readerDataGridView.Columns[8].HeaderText = "Номер паспорта";
             }
-            //выдачи
+            
             if (lendingDataGridView.RowCount > 0)
             {
                 lendingDataGridView.Columns[0].HeaderText = "id";
@@ -83,7 +75,7 @@ namespace Library
                 lendingDataGridView.Columns[3].HeaderText = "Название книги";
                 lendingDataGridView.Columns[4].HeaderText = "Дата выдачи";
             }
-            //возвраты
+            
             if (returnDataGridView.RowCount > 0)
             {
                 returnDataGridView.Columns[0].HeaderText = "id";
@@ -92,7 +84,7 @@ namespace Library
                 returnDataGridView.Columns[3].HeaderText = "Название книги";
                 returnDataGridView.Columns[4].HeaderText = "Дата возврата";
             }
-            //хронология
+           
             if (chronologyDataGridView.RowCount > 0)
             {
                 chronologyDataGridView.Columns[0].HeaderText = "id";
@@ -104,7 +96,7 @@ namespace Library
             }
             if (publisherDataGridView.RowCount > 0)
             {
-                //Издательства
+                
                 publisherDataGridView.Columns[0].HeaderText = "id";
                 publisherDataGridView.Columns[1].HeaderText = "Издательство";
                 publisherDataGridView.Columns[2].HeaderText = "Компания";
@@ -117,8 +109,6 @@ namespace Library
 
             Ready = true;
 
-          /* DataGridViewComboBoxColumn col = new DataGridViewComboBoxColumn();
-            booksDataGridView.Columns.Add(col);*/
         }
 
         private void mainForm_Load(object sender, EventArgs e)
@@ -126,120 +116,15 @@ namespace Library
 
         }
 
-        public void LoadData()
-        {
-           //nobooksDataGridView.Rows.Clear();
-
-            /*string connectString = "Data Source=.\\SQLEXPRESS;Initial Catalog=Library;" +
-                "Integrated Security=true;";
-
-            SqlConnection myConnection = new SqlConnection(connectString);
-
-            myConnection.Open();
-
-            string query = "SELECT * FROM Books";
-
-            SqlCommand command = new SqlCommand(query, myConnection);
-
-            SqlDataReader reader = command.ExecuteReader();
-
-            List<string[]> data = new List<string[]>();
-
-            while (reader.Read())
-            {
-                data.Add(new string[11]);
-
-                data[data.Count - 1][0] = reader[0].ToString();
-                data[data.Count - 1][1] = reader[1].ToString();
-                data[data.Count - 1][2] = reader[2].ToString();
-                data[data.Count - 1][3] = reader[3].ToString();
-                data[data.Count - 1][4] = reader[4].ToString();
-                data[data.Count - 1][5] = reader[5].ToString();
-                data[data.Count - 1][6] = reader[6].ToString();
-                data[data.Count - 1][7] = reader[7].ToString();
-                data[data.Count - 1][8] = reader[8].ToString();
-                data[data.Count - 1][9] = reader[9].ToString();
-                data[data.Count - 1][10] = reader[10].ToString();
-            }
-
-            reader.Close();
-
-            myConnection.Close();
-
-            //foreach (string[] s in data)
-               // nobooksDataGridView.Rows.Add(s);*/
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {}
 
         private void addBookButton_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-            //addBookForm newForm = new addBookForm();
-            // newForm.ShowDialog();
-
             addBookForm f = new addBookForm();
             f.Owner = this;
             f.ShowDialog();
 
-            
         }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            /*string connectString = "Data Source=.\\SQLEXPRESS;Initial Catalog=Library;" +
-               "Integrated Security=true;";
-
-            SqlConnection myConnection = new SqlConnection(connectString);
-
-            myConnection.Open();
-
-            string query = "SELECT * FROM Books";
-
-            SqlCommand command = new SqlCommand(query, myConnection);
-
-            SqlDataReader reader = command.ExecuteReader();
-
-            List<string[]> data = new List<string[]>();
-
-            while (reader.Read())
-            {
-                data.Add(new string[11]);
-
-                data[data.Count - 1][0] = reader[0].ToString();
-                data[data.Count - 1][1] = reader[1].ToString();
-                data[data.Count - 1][2] = reader[2].ToString();
-                data[data.Count - 1][3] = reader[3].ToString();
-                data[data.Count - 1][4] = reader[4].ToString();
-                data[data.Count - 1][5] = reader[5].ToString();
-                data[data.Count - 1][6] = reader[6].ToString();
-                data[data.Count - 1][7] = reader[7].ToString();
-                data[data.Count - 1][8] = reader[8].ToString();
-                data[data.Count - 1][9] = reader[9].ToString();
-                data[data.Count - 1][10] = reader[10].ToString();
-            }
-
-            reader.Close();
-
-            myConnection.Close();
-
-            //foreach (string[] s in data)
-               // nobooksDataGridView.Rows.Add(s);*/
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            LoadData();
-        }
-
-        
-
+     
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -248,22 +133,8 @@ namespace Library
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        /* private Point mouseOffset;
-         private bool isMouseDown = false;*/
         private void panel_MouseDown(object sender, MouseEventArgs e)
         {
-            /* int xOffset;
-             int yOffset;
-
-             if (e.Button == MouseButtons.Left)
-             {
-                 xOffset = -e.X - SystemInformation.FrameBorderSize.Width;
-                 yOffset = -e.Y - SystemInformation.CaptionHeight -
-                     SystemInformation.FrameBorderSize.Height;
-                 mouseOffset = new Point(xOffset, yOffset);
-                 isMouseDown = true;
-             }*/
-
             if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
@@ -271,7 +142,6 @@ namespace Library
             }
         }
 
-        
         private void exitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -321,11 +191,8 @@ namespace Library
             readersPanel.Enabled = true;
         }
 
-        
-        
         private void booksDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            
             if (Ready)
             {
                 try
@@ -348,24 +215,18 @@ namespace Library
                 {
                     MessageBox.Show("Произошла ошибка");
                 }
-            }
-            
+            }            
         }
 
         private void booksDataGridView_DataError(object sender,
     DataGridViewDataErrorEventArgs e)
         {
-            // Не делайте исключения, когда мы закончим.
             e.ThrowException = false;
-
-            // Отображение сообщения об ошибке.
             string txt = "Ошибка в столбце " +
                 booksDataGridView.Columns[e.ColumnIndex].HeaderText +
                 "\n\n" + e.Exception.Message;
             MessageBox.Show(txt, "Ошибка",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            // Если это так, то пользователь попадает в эту ячейку.
             e.Cancel = false;
         }
 
@@ -375,15 +236,10 @@ namespace Library
             {
                 booksDataGridView.ReadOnly = false;
                 booksDataGridView.Columns[11].ReadOnly = true;
-
             }
             if (!redactBooksCheckBox.Checked)
             {
-               
                 booksDataGridView.ReadOnly = true;
-                
-                
-
             }
         }
 
@@ -393,13 +249,11 @@ namespace Library
             {
                 readerDataGridView.ReadOnly = false;
                 readerDataGridView.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect;
-
             }
             if (!redactReadersCheckBox.Checked)
             {
                 readerDataGridView.ReadOnly = true;
                 readerDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
             }
         }
 
@@ -409,12 +263,10 @@ namespace Library
             {
                 publisherDataGridView.ReadOnly = false;
                 publisherDataGridView.Columns[7].ReadOnly = true;
-
             }
             if (!redactPublishersCheckBox.Checked)
             {
                 publisherDataGridView.ReadOnly = true;
-
             }
         }
 
@@ -442,7 +294,7 @@ namespace Library
                 {
                 MessageBox.Show("Произошла ошибка");
                 }
-        }
+            }
         }
 
         private void publisherDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -474,33 +326,23 @@ namespace Library
 
         private void readerDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-            // Не делайте исключения, когда мы закончим.
             e.ThrowException = false;
-
-            // Отображение сообщения об ошибке.
             string txt = "Ошибка в столбце " +
                 readerDataGridView.Columns[e.ColumnIndex].HeaderText +
                 "\n\n" + e.Exception.Message;
             MessageBox.Show(txt, "Ошибка",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            // Если это так, то пользователь попадает в эту ячейку.
             e.Cancel = false;
         }
 
         private void publisherDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-            // Не делайте исключения, когда мы закончим.
             e.ThrowException = false;
-
-            // Отображение сообщения об ошибке.
             string txt = "Ошибка в столбце " +
                 publisherDataGridView.Columns[e.ColumnIndex].HeaderText +
                 "\n\n" + e.Exception.Message;
             MessageBox.Show(txt, "Ошибка",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            // Если это так, то пользователь попадает в эту ячейку.
             e.Cancel = false;
         }
 
@@ -530,17 +372,7 @@ namespace Library
                 f.ShowDialog();
             }
         }
-
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void readerDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //readerDataGridView.ClearSelection();
-        }
-
+               
         private void addPublisherButton_Click(object sender, EventArgs e)
         {
             PublisherForm f = new PublisherForm();
@@ -586,7 +418,6 @@ namespace Library
             authorizationForm auth = new authorizationForm();
             auth.Show();
             this.Close();
-
         }
     }
 }

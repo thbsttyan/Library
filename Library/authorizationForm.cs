@@ -25,10 +25,6 @@ namespace Library
             authDataGridView.DataSource = s.Select("SELECT * FROM Users");
         }
 
-        private void authorizationForm_Load(object sender, EventArgs e)
-        {
-        
-        }
 
         private void exitButton_Click(object sender, EventArgs e)
         {
@@ -38,29 +34,7 @@ namespace Library
 
         private void authorizationButton_Click(object sender, EventArgs e)
         {
-            /*string connectionStr = "Data Source=.\\SQLEXPRESS;Initial Catalog=Library; Integrated Security=true;";
-
-
-          Program.connection = @"Data Source=.\\SQLEXPRESS;Initial Catalog=Library; User id =" + loginTextField.Text + "; Password =" + passwordTextField.Text + ";Integrated Security=true;";
-
-
-          int j = 1;
-
-
-              SqlConnection connection = new SqlConnection(Program.connection);
-              connection.Open();
-
-              j++;
-              connection.Close();
-
-
-
-          if (j != 1)
-          {
-              mainForm fm2 = new mainForm();
-              fm2.Show();
-              this.Hide();
-          }*/
+         
             Sql s = new Sql();
             authDataGridView.DataSource = s.Select("SELECT * FROM Users");
 
@@ -115,22 +89,8 @@ namespace Library
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
-       /* private Point mouseOffset;
-        private bool isMouseDown = false;*/
         private void panel_MouseDown(object sender, MouseEventArgs e)
         {
-            /* int xOffset;
-             int yOffset;
-
-             if (e.Button == MouseButtons.Left)
-             {
-                 xOffset = -e.X - SystemInformation.FrameBorderSize.Width;
-                 yOffset = -e.Y - SystemInformation.CaptionHeight -
-                     SystemInformation.FrameBorderSize.Height;
-                 mouseOffset = new Point(xOffset, yOffset);
-                 isMouseDown = true;
-             }*/
-
             if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
@@ -138,41 +98,7 @@ namespace Library
             }
         }
 
-        private void panel_MouseMove(object sender, MouseEventArgs e)
-        {
-            /*if (isMouseDown)
-            {
-                Point mousePos = Control.MousePosition;
-                mousePos.Offset(mouseOffset.X, mouseOffset.Y);
-                Location = mousePos;
-            }*/
-        }
-
-        private void panel_MouseUp(object sender, MouseEventArgs e)
-        {
-           /* // Changes the isMouseDown field so that the form does
-            // not move unless the user is pressing the left mouse button.
-            if (e.Button == MouseButtons.Left)
-            {
-                isMouseDown = false;
-            }*/
-        }
-
         public bool clicked = false;
-        private void passwordShowButton_Click(object sender, EventArgs e)
-        {
-            /*if (!clicked)
-            {
-                passwordTextField.PasswordChar = '\0';
-                clicked = true;
-            }
-            else
-            {
-                passwordTextField.PasswordChar = '*';
-                clicked = false;
-            }*/
-        }
-
         private void loginTextField_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -203,7 +129,6 @@ namespace Library
                     }
                 }
 
-
                 if (isFound)
                 {
                     MessageBox.Show("Вход выполнен!");
@@ -217,20 +142,12 @@ namespace Library
                         MessageBox.Show("Ошибка при вводе данных");
                 }
 
-
                 authDataGridView.DataSource = s.Select("SELECT * FROM Users");
             }
         }
 
-        private void authorizationForm_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void passordPictureBox_Click(object sender, EventArgs e)
         {
-            
-
             if (!clicked)
             {
                 passordPictureBox.Image = Properties.Resources.visible_1_ as Bitmap;

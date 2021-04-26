@@ -385,7 +385,6 @@
             this.chronologyDataGridView.RowHeadersWidth = 51;
             this.chronologyDataGridView.Size = new System.Drawing.Size(581, 349);
             this.chronologyDataGridView.TabIndex = 29;
-            this.chronologyDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
             // lendingbutton
             // 
@@ -489,7 +488,6 @@
             this.readerDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.readerDataGridView.Size = new System.Drawing.Size(999, 186);
             this.readerDataGridView.TabIndex = 5;
-            this.readerDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.readerDataGridView_CellClick);
             this.readerDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.readerDataGridView_CellValueChanged);
             this.readerDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.readerDataGridView_DataError);
             // 

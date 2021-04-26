@@ -55,30 +55,9 @@ namespace Library
             }
 
             return isMat;
-            //TODO
         }
-
 
         DateTime Today = new DateTime();
-        private void addReaderButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -109,19 +88,11 @@ namespace Library
                && (OnlyLetters(townTextField.Text) || townTextField.Text == "")
                && (OnlyNumbers(ratingTextField.Text) || ratingTextField.Text == ""))
             {
-
-
-
                 Today = DateTime.Now;
-
-
-
 
                 string connectString = "Data Source=.\\SQLEXPRESS;Initial Catalog=Library;" +
                     "Integrated Security=true;";
 
-
-                //сделать ввод с оперделением id книги по названию
                 string sqlExpr = $"INSERT INTO Publishers ( publisher, company, adress, town, phone_number, rating, added) VALUES" +
                     $" ('{publisherTextField.Text}','{companyTextField.Text}','{adressTextField.Text}','{townTextField.Text}'," +
                     $"'{numberTextField.Text}','{ratingTextField.Text}','{Today}')";
@@ -150,7 +121,6 @@ namespace Library
                 }
 
                 this.Close();
-
             }
             else
             {
@@ -175,20 +145,10 @@ namespace Library
             }
 
             Sql s = new Sql();
-            // mf.booksDataGridView.DataSource = s.Select("SELECT * FROM Books");
-
-            
             if (main != null)
             {
                 main.publisherDataGridView.DataSource = s.Select("SELECT * FROM Publishers");
             }
-
-            //this.Close();
-        }
-
-        private void PublisherForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

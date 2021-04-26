@@ -94,7 +94,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(498, 28);
             this.panel6.TabIndex = 66;
-            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             this.panel6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             // 
             // panel
@@ -142,7 +141,6 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(498, 28);
             this.panel7.TabIndex = 22;
-            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             this.panel7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             // 
             // panel4
@@ -177,7 +175,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(29, 448);
             this.panel5.TabIndex = 65;
-            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             this.panel5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             // 
             // booksComboBox

@@ -19,8 +19,6 @@ namespace Library
         {
             InitializeComponent();
 
-            //readDateTimePicker.MaxDate = DateTime.Now;
-
             Sql s = new Sql();
             readerDataGridView.DataSource = s.Select("Select * from Books");
 
@@ -29,14 +27,7 @@ namespace Library
             for (int i = 0; i < readerDataGridView.Rows.Count - 1; i++)
             {
                 combo[i] += readerDataGridView[1, i].Value.ToString();
-
-
             }
-            //MessageBox.Show(combo[4]);
-
-           // booksComboBox.Items.AddRange(combo);
-
-            
         }
 
         public static bool OnlyLetters(string s)
@@ -74,7 +65,6 @@ namespace Library
             }
 
             return isMat;
-            //TODO
         }
 
         public static bool numCheck(string s)
@@ -92,7 +82,6 @@ namespace Library
             }
 
             return isMat;
-            //TODO
         }
 
         public static bool phoneCheck(string s)
@@ -110,7 +99,6 @@ namespace Library
             }
 
             return isMat;
-            //TODO
         }
 
 
@@ -126,18 +114,11 @@ namespace Library
                 && (OnlyLetters(townTextField.Text) || townTextField.Text == "")
                 && (numCheck(passportTextField.Text) && passportTextField.Text != ""))
             {
-
-
-                
-                
-
-                
                     
                 string connectString = "Data Source=.\\SQLEXPRESS;Initial Catalog=Library;" +
                     "Integrated Security=true;";
                 
 
-                //сделать ввод с оперделением id книги по названию
                 string sqlExpr = $"INSERT INTO Readers ( surname, name, patronymic, position, [group], phone_number, town, " +
                     $"[pasport number]) VALUES" +
                     $" ('{surnameTextField.Text}','{nameTextField.Text}','{patronymicTextField.Text}','{positionTextField.Text}'," +
@@ -244,21 +225,8 @@ namespace Library
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        /* private Point mouseOffset;
-         private bool isMouseDown = false;*/
         private void panel_MouseDown(object sender, MouseEventArgs e)
         {
-            /* int xOffset;
-             int yOffset;
-
-             if (e.Button == MouseButtons.Left)
-             {
-                 xOffset = -e.X - SystemInformation.FrameBorderSize.Width;
-                 yOffset = -e.Y - SystemInformation.CaptionHeight -
-                     SystemInformation.FrameBorderSize.Height;
-                 mouseOffset = new Point(xOffset, yOffset);
-                 isMouseDown = true;
-             }*/
 
             if (e.Button == MouseButtons.Left)
             {

@@ -115,8 +115,6 @@
             this.panel.Size = new System.Drawing.Size(544, 27);
             this.panel.TabIndex = 10;
             this.panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
-            this.panel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_MouseMove);
-            this.panel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel_MouseUp);
             // 
             // panel4
             // 
@@ -209,7 +207,6 @@
             this.passwordShowButton.TabIndex = 33;
             this.passwordShowButton.Text = "показать пароль";
             this.passwordShowButton.UseVisualStyleBackColor = false;
-            this.passwordShowButton.Click += new System.EventHandler(this.passwordShowButton_Click);
             // 
             // showPasswordLabel
             // 
@@ -220,7 +217,6 @@
             this.showPasswordLabel.Size = new System.Drawing.Size(121, 17);
             this.showPasswordLabel.TabIndex = 34;
             this.showPasswordLabel.Text = "Показать пароль";
-            this.showPasswordLabel.Click += new System.EventHandler(this.passwordShowButton_Click);
             // 
             // passordPictureBox
             // 
@@ -256,8 +252,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "authorizationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.authorizationForm_Load);
-            this.Click += new System.EventHandler(this.authorizationForm_Click);
             this.panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.authDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.passordPictureBox)).EndInit();
