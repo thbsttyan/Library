@@ -33,14 +33,7 @@ namespace Library
                 
             }
 
-           publisherComboBox.Items.AddRange(combo);
-            
-        }
-
-        private void addButton_Click(object sender, EventArgs e)
-        {
-            
-
+           publisherComboBox.Items.AddRange(combo);            
         }
 
         public static bool OnlyLetters(string s)
@@ -229,14 +222,6 @@ namespace Library
             }
 
         }
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            mf.LoadData();
-        }
-
-     
 
         private void exitButton_Click(object sender, EventArgs e)
         {

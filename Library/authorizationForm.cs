@@ -70,10 +70,10 @@ namespace Library
                 f.Owner = this;
                 f.Show();
             }
-            {
+            
                 if (!isMain)
                     MessageBox.Show("Ошибка при вводе данных");
-            }
+            
 
             
             authDataGridView.DataSource = s.Select("SELECT * FROM Users");

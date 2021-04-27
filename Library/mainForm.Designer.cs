@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.authButton = new System.Windows.Forms.Button();
             this.registrationButton = new System.Windows.Forms.Button();
             this.readersButton = new System.Windows.Forms.Button();
             this.publisherButton = new System.Windows.Forms.Button();
@@ -62,7 +63,6 @@
             this.redactPublishersCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
             this.addPublisherButton = new System.Windows.Forms.Button();
             this.publisherDataGridView = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.booksDataGridView)).BeginInit();
             this.panel.SuspendLayout();
@@ -80,7 +80,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.PowderBlue;
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.authButton);
             this.panel2.Controls.Add(this.registrationButton);
             this.panel2.Controls.Add(this.readersButton);
             this.panel2.Controls.Add(this.publisherButton);
@@ -89,6 +89,24 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(161, 798);
             this.panel2.TabIndex = 1;
+            // 
+            // authButton
+            // 
+            this.authButton.BackColor = System.Drawing.Color.LightBlue;
+            this.authButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.authButton.FlatAppearance.BorderColor = System.Drawing.Color.LightBlue;
+            this.authButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.authButton.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.authButton.Image = ((System.Drawing.Image)(resources.GetObject("authButton.Image")));
+            this.authButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.authButton.Location = new System.Drawing.Point(-1, 684);
+            this.authButton.Name = "authButton";
+            this.authButton.Size = new System.Drawing.Size(162, 95);
+            this.authButton.TabIndex = 6;
+            this.authButton.Text = "Вернуться к аворизации";
+            this.authButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.authButton.UseVisualStyleBackColor = false;
+            this.authButton.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // registrationButton
             // 
@@ -179,12 +197,13 @@
             this.booksDataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.booksDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.booksDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.booksDataGridView.Location = new System.Drawing.Point(2, 33);
+            this.booksDataGridView.Location = new System.Drawing.Point(0, 33);
             this.booksDataGridView.Name = "booksDataGridView";
             this.booksDataGridView.ReadOnly = true;
             this.booksDataGridView.RowHeadersWidth = 51;
-            this.booksDataGridView.Size = new System.Drawing.Size(1079, 407);
+            this.booksDataGridView.Size = new System.Drawing.Size(1081, 761);
             this.booksDataGridView.TabIndex = 5;
+            this.booksDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksDataGridView_CellClick);
             this.booksDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksDataGridView_CellValueChanged);
             this.booksDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.booksDataGridView_DataError);
             // 
@@ -369,7 +388,7 @@
             this.readersPanel.Controls.Add(this.readerDataGridView);
             this.readersPanel.Location = new System.Drawing.Point(158, 56);
             this.readersPanel.Name = "readersPanel";
-            this.readersPanel.Size = new System.Drawing.Size(1082, 778);
+            this.readersPanel.Size = new System.Drawing.Size(1082, 794);
             this.readersPanel.TabIndex = 21;
             this.readersPanel.Visible = false;
             // 
@@ -549,24 +568,6 @@
             this.publisherDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.publisherDataGridView_CellValueChanged);
             this.publisherDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.publisherDataGridView_DataError);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.LightBlue;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.LightBlue;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(-1, 684);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(162, 95);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Вернуться к аворизации";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -587,7 +588,6 @@
             this.Name = "mainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Меню";
-            this.Load += new System.EventHandler(this.mainForm_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.booksDataGridView)).EndInit();
@@ -642,6 +642,6 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField searchTextField;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.PictureBox passordPictureBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button authButton;
     }
 }

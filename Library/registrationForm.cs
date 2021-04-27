@@ -43,8 +43,6 @@ namespace Library
             if ( passwordTextField.Text != "" && password2TextField.Text != ""
                     && loginTextField.Text != "")
             {
-                
-
                 bool isFound = false;
                 for (int i = 0; i < authDataGridView.Rows.Count; i++)
                 {
@@ -55,8 +53,6 @@ namespace Library
                             isFound = true;
                             break;
                         }
-
-
                     }
                     catch
                     {
@@ -121,18 +117,6 @@ namespace Library
         public static extern bool ReleaseCapture();
         private void panel_MouseDown(object sender, MouseEventArgs e)
         {
-            /* int xOffset;
-             int yOffset;
-
-             if (e.Button == MouseButtons.Left)
-             {
-                 xOffset = -e.X - SystemInformation.FrameBorderSize.Width;
-                 yOffset = -e.Y - SystemInformation.CaptionHeight -
-                     SystemInformation.FrameBorderSize.Height;
-                 mouseOffset = new Point(xOffset, yOffset);
-                 isMouseDown = true;
-             }*/
-
             if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();

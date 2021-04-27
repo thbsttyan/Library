@@ -212,11 +212,6 @@ namespace Library
             this.Close();
         }
 
-        private void readDateTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-            //readDateTimePicker.MaxDate = DateTime.Now;
-        }
-
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 

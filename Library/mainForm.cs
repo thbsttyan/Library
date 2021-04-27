@@ -111,12 +111,6 @@ namespace Library
 
         }
 
-        private void mainForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
         private void addBookButton_Click(object sender, EventArgs e)
         {
             addBookForm f = new addBookForm();
@@ -218,8 +212,7 @@ namespace Library
             }            
         }
 
-        private void booksDataGridView_DataError(object sender,
-    DataGridViewDataErrorEventArgs e)
+        private void booksDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             e.ThrowException = false;
             string txt = "Ошибка в столбце " +
@@ -418,6 +411,22 @@ namespace Library
             authorizationForm auth = new authorizationForm();
             auth.Show();
             this.Close();
+        }
+
+        private void booksDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+           /* if (redactBooksCheckBox.Checked && booksDataGridView.Column)
+            {
+                for(int i=0;i<booksDataGridView.ColumnCount;i++)
+                {
+                    if(i==5 )
+                    {
+                        booksDataGridView[i, e.RowIndex].Value
+                    }
+                }
+
+                MessageBox.Show("helpp");
+            }*/
         }
     }
 }

@@ -27,11 +27,6 @@ namespace Library
             booksComboBox.Items.AddRange(combo);
         }
 
-        private void booksComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void exitButton_Click(object sender, EventArgs e)
         {
             this.Close();

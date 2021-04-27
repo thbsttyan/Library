@@ -187,7 +187,7 @@
             this.booksComboBox.Size = new System.Drawing.Size(292, 27);
             this.booksComboBox.TabIndex = 59;
             this.booksComboBox.Text = "Выберите книгу";
-            this.booksComboBox.SelectedIndexChanged += new System.EventHandler(this.booksComboBox_SelectedIndexChanged);
+            
             // 
             // addLendingButton
             // 
