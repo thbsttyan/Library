@@ -46,6 +46,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.newRegistrationButton = new System.Windows.Forms.Button();
             this.booksPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.cancelButton = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
             this.searchTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -201,7 +202,7 @@
             this.booksDataGridView.Name = "booksDataGridView";
             this.booksDataGridView.ReadOnly = true;
             this.booksDataGridView.RowHeadersWidth = 51;
-            this.booksDataGridView.Size = new System.Drawing.Size(1081, 761);
+            this.booksDataGridView.Size = new System.Drawing.Size(1131, 761);
             this.booksDataGridView.TabIndex = 5;
             this.booksDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksDataGridView_CellClick);
             this.booksDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksDataGridView_CellValueChanged);
@@ -216,7 +217,7 @@
             this.panel.Controls.Add(this.exitButton);
             this.panel.Location = new System.Drawing.Point(0, 0);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(1250, 57);
+            this.panel.Size = new System.Drawing.Size(1332, 57);
             this.panel.TabIndex = 10;
             this.panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             // 
@@ -236,7 +237,7 @@
             this.panel4.BackColor = System.Drawing.Color.Black;
             this.panel4.Location = new System.Drawing.Point(-3, -17);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1270, 20);
+            this.panel4.Size = new System.Drawing.Size(1319, 20);
             this.panel4.TabIndex = 15;
             this.panel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             // 
@@ -250,7 +251,7 @@
             this.exitButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.exitButton.ForeColor = System.Drawing.Color.PowderBlue;
             this.exitButton.ImageKey = "(отсутствует)";
-            this.exitButton.Location = new System.Drawing.Point(1224, 2);
+            this.exitButton.Location = new System.Drawing.Point(1271, 2);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(19, 20);
             this.exitButton.TabIndex = 11;
@@ -262,7 +263,7 @@
             this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.Location = new System.Drawing.Point(-1, 849);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1268, 20);
+            this.panel1.Size = new System.Drawing.Size(1333, 20);
             this.panel1.TabIndex = 16;
             // 
             // panel3
@@ -277,10 +278,11 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Black;
-            this.panel5.Location = new System.Drawing.Point(1242, 0);
+            this.panel5.Location = new System.Drawing.Point(1290, 0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(29, 869);
             this.panel5.TabIndex = 18;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             this.panel5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             // 
             // newRegistrationButton
@@ -300,6 +302,7 @@
             // booksPanel
             // 
             this.booksPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.booksPanel.Controls.Add(this.label1);
             this.booksPanel.Controls.Add(this.cancelButton);
             this.booksPanel.Controls.Add(this.searchButton);
             this.booksPanel.Controls.Add(this.searchTextField);
@@ -308,8 +311,20 @@
             this.booksPanel.Controls.Add(this.addBookButton);
             this.booksPanel.Location = new System.Drawing.Point(158, 56);
             this.booksPanel.Name = "booksPanel";
-            this.booksPanel.Size = new System.Drawing.Size(1082, 760);
+            this.booksPanel.Size = new System.Drawing.Size(1131, 794);
             this.booksPanel.TabIndex = 20;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Yanone Kaffeesatz", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.LightGray;
+            this.label1.Location = new System.Drawing.Point(309, 109);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(473, 49);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "Книги с таким названием не найдены!";
+            this.label1.Visible = false;
             // 
             // cancelButton
             // 
@@ -317,7 +332,7 @@
             this.cancelButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cancelButton.Location = new System.Drawing.Point(998, 2);
+            this.cancelButton.Location = new System.Drawing.Point(1033, 2);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(83, 23);
             this.cancelButton.TabIndex = 26;
@@ -332,19 +347,20 @@
             this.searchButton.Enabled = false;
             this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchButton.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.searchButton.Location = new System.Drawing.Point(640, 3);
+            this.searchButton.Location = new System.Drawing.Point(685, 3);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(83, 23);
             this.searchButton.TabIndex = 25;
             this.searchButton.Text = "Поиск";
             this.searchButton.UseVisualStyleBackColor = false;
+            this.searchButton.Visible = false;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // searchTextField
             // 
             this.searchTextField.Depth = 0;
             this.searchTextField.Hint = "Введите название книги";
-            this.searchTextField.Location = new System.Drawing.Point(375, 4);
+            this.searchTextField.Location = new System.Drawing.Point(417, 4);
             this.searchTextField.MaxLength = 32767;
             this.searchTextField.MouseState = MaterialSkin.MouseState.HOVER;
             this.searchTextField.Name = "searchTextField";
@@ -356,6 +372,7 @@
             this.searchTextField.TabIndex = 24;
             this.searchTextField.TabStop = false;
             this.searchTextField.UseSystemPasswordChar = false;
+            this.searchTextField.Click += new System.EventHandler(this.searchTextField_Click);
             this.searchTextField.TextChanged += new System.EventHandler(this.searchTextField_TextChanged);
             // 
             // redactBooksCheckBox
@@ -388,7 +405,7 @@
             this.readersPanel.Controls.Add(this.readerDataGridView);
             this.readersPanel.Location = new System.Drawing.Point(158, 56);
             this.readersPanel.Name = "readersPanel";
-            this.readersPanel.Size = new System.Drawing.Size(1082, 794);
+            this.readersPanel.Size = new System.Drawing.Size(1132, 794);
             this.readersPanel.TabIndex = 21;
             this.readersPanel.Visible = false;
             // 
@@ -402,7 +419,7 @@
             this.chronologyDataGridView.Name = "chronologyDataGridView";
             this.chronologyDataGridView.ReadOnly = true;
             this.chronologyDataGridView.RowHeadersWidth = 51;
-            this.chronologyDataGridView.Size = new System.Drawing.Size(581, 349);
+            this.chronologyDataGridView.Size = new System.Drawing.Size(631, 523);
             this.chronologyDataGridView.TabIndex = 29;
             // 
             // lendingbutton
@@ -518,7 +535,7 @@
             this.publishersPanel.Controls.Add(this.publisherDataGridView);
             this.publishersPanel.Location = new System.Drawing.Point(158, 56);
             this.publishersPanel.Name = "publishersPanel";
-            this.publishersPanel.Size = new System.Drawing.Size(1082, 794);
+            this.publishersPanel.Size = new System.Drawing.Size(1132, 794);
             this.publishersPanel.TabIndex = 22;
             this.publishersPanel.Visible = false;
             // 
@@ -563,7 +580,7 @@
             this.publisherDataGridView.Name = "publisherDataGridView";
             this.publisherDataGridView.ReadOnly = true;
             this.publisherDataGridView.RowHeadersWidth = 51;
-            this.publisherDataGridView.Size = new System.Drawing.Size(909, 365);
+            this.publisherDataGridView.Size = new System.Drawing.Size(1074, 762);
             this.publisherDataGridView.TabIndex = 5;
             this.publisherDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.publisherDataGridView_CellValueChanged);
             this.publisherDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.publisherDataGridView_DataError);
@@ -573,7 +590,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1246, 853);
+            this.ClientSize = new System.Drawing.Size(1293, 853);
             this.Controls.Add(this.booksPanel);
             this.Controls.Add(this.readersPanel);
             this.Controls.Add(this.publishersPanel);
@@ -643,5 +660,6 @@
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.PictureBox passordPictureBox;
         private System.Windows.Forms.Button authButton;
+        private System.Windows.Forms.Label label1;
     }
 }

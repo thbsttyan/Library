@@ -152,6 +152,27 @@ namespace Library
                     MessageBox.Show("Книга добавлена!");
                 }
 
+
+                string noZeroPages = $"update Books set pages = NULL where pages = 0";
+                string noZeroLocker = $"update Books set locker = NULL where locker = 0";
+                string noZeroShelf = $"update Books set shelf = NULL where shelf = 0";
+                string noZeroPrice = $"update Books set price = NULL where price = 0";
+
+                using (SqlConnection c = new SqlConnection(connectString))
+                {
+                    c.Open();
+                    SqlCommand com = new SqlCommand(noZeroPages, c);
+                    SqlCommand com2 = new SqlCommand(noZeroLocker, c);
+                    SqlCommand com3 = new SqlCommand(noZeroShelf, c);
+                    SqlCommand com4 = new SqlCommand(noZeroPrice, c);
+                    com.ExecuteNonQuery();
+                    com2.ExecuteNonQuery();
+                    com3.ExecuteNonQuery();
+                    com4.ExecuteNonQuery();
+                    c.Close();
+                }
+
+
                 mainForm f = new mainForm();
                 if (f.booksDataGridView != null)
                 {
@@ -248,8 +269,5 @@ namespace Library
             }
         }
 
-       
-
-        
     }
 }

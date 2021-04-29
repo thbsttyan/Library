@@ -34,7 +34,7 @@ namespace Library
         {
             foreach (char c in s)
             {
-                if (!Char.IsNumber(c))
+                if (!Char.IsNumber(c) && c!='.')
                     return false;
             }
             return true;
@@ -105,6 +105,18 @@ namespace Library
                     c.Close();
 
                     MessageBox.Show("Новое издательство добавлено!");
+                }
+
+                //MessageBox.Show("Количество строк "+ main.publisherDataGridView.RowCount);
+                string noZero = $"update Publishers set rating = NULL where rating = 0 ";
+
+                using (SqlConnection c = new SqlConnection(connectString))
+                {
+                    c.Open();
+                    SqlCommand com = new SqlCommand(noZero, c);
+                    com.ExecuteNonQuery();
+                    c.Close();
+
                 }
 
                 if (main.publisherDataGridView != null)

@@ -352,7 +352,7 @@
             // 
             this.pubDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.pubDataGridView.Location = new System.Drawing.Point(409, 64);
-            this.pubDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pubDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.pubDataGridView.Name = "pubDataGridView";
             this.pubDataGridView.RowHeadersWidth = 51;
             this.pubDataGridView.Size = new System.Drawing.Size(100, 118);

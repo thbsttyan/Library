@@ -229,6 +229,8 @@ namespace Library
             {
                 booksDataGridView.ReadOnly = false;
                 booksDataGridView.Columns[11].ReadOnly = true;
+                booksDataGridView.Columns[5].ReadOnly = true;
+                booksDataGridView.Columns[4].ReadOnly = true;
             }
             if (!redactBooksCheckBox.Checked)
             {
@@ -241,6 +243,7 @@ namespace Library
             if (redactReadersCheckBox.Checked)
             {
                 readerDataGridView.ReadOnly = false;
+                readerDataGridView.Columns[8].ReadOnly = true;
                 readerDataGridView.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect;
             }
             if (!redactReadersCheckBox.Checked)
@@ -404,6 +407,22 @@ namespace Library
             {
                 searchButton.Enabled = false;
             }
+
+            Sql s = new Sql();
+            booksDataGridView.DataSource = s.Select($"SELECT * FROM Books where name like '%{searchTextField.Text}%'");
+
+            if (booksDataGridView.RowCount < 1)
+            {
+                /* booksDataGridView.DataSource = s.Select($"SELECT * FROM Books");
+                 MessageBox.Show("Соответствия не найдены!");
+                 searchTextField.Text = "";*/
+                label1.Visible = true;
+
+            }
+            else
+            {
+                label1.Visible = false;
+            }
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -415,18 +434,37 @@ namespace Library
 
         private void booksDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-           /* if (redactBooksCheckBox.Checked && booksDataGridView.Column)
+            if (redactBooksCheckBox.Checked)
             {
-                for(int i=0;i<booksDataGridView.ColumnCount;i++)
+                if (e.ColumnIndex == 5)
                 {
-                    if(i==5 )
-                    {
-                        booksDataGridView[i, e.RowIndex].Value
-                    }
+                    Pub p = new Pub();
+                    p.ShowDialog();
+
+                    if (p.publisherComboBox.SelectedIndex != -1)
+                        booksDataGridView.CurrentCell.Value = p.publisherComboBox.Text;
+
+                }
+                if (e.ColumnIndex == 4)
+                {
+                    Type t = new Type();
+                    t.ShowDialog();
+
+                    if (t.typeComboBox.SelectedIndex != -1)
+                        booksDataGridView.CurrentCell.Value = t.typeComboBox.Text;
                 }
 
-                MessageBox.Show("helpp");
-            }*/
+            }
+        }
+
+        private void searchTextField_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
