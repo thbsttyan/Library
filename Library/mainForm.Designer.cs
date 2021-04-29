@@ -447,7 +447,7 @@
             this.lendingDataGridView.ReadOnly = true;
             this.lendingDataGridView.RowHeadersWidth = 51;
             this.lendingDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.lendingDataGridView.Size = new System.Drawing.Size(511, 131);
+            this.lendingDataGridView.Size = new System.Drawing.Size(493, 131);
             this.lendingDataGridView.TabIndex = 27;
             // 
             // addReturnButton
@@ -474,7 +474,7 @@
             this.returnDataGridView.Name = "returnDataGridView";
             this.returnDataGridView.ReadOnly = true;
             this.returnDataGridView.RowHeadersWidth = 51;
-            this.returnDataGridView.Size = new System.Drawing.Size(510, 147);
+            this.returnDataGridView.Size = new System.Drawing.Size(492, 225);
             this.returnDataGridView.TabIndex = 25;
             // 
             // redactReadersCheckBox
