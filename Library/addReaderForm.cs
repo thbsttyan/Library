@@ -105,7 +105,7 @@ namespace Library
         private void addReaderButton_Click(object sender, EventArgs e)
         {
             mainForm f = new mainForm();
-            for (int i = 0; i < f.readerDataGridView.Rows.Count; i++)
+            /*for (int i = 0; i < f.readerDataGridView.Rows.Count; i++)
             {
                 try
                 { 
@@ -130,7 +130,7 @@ namespace Library
                 passportTextField.Text = "";
             }
             else
-            {
+            {*/
                 if (surnameTextField.Text != "" && (OnlyLetters(surnameTextField.Text))
                     && nameTextField.Text != "" && OnlyLetters(nameTextField.Text)
                     && patronymicTextField.Text != "" && OnlyLetters(patronymicTextField.Text)
@@ -240,7 +240,7 @@ namespace Library
                 {
                     main.readerDataGridView.DataSource = s.Select("SELECT * FROM Readers");
                 }
-            }
+            
 
             
         }
